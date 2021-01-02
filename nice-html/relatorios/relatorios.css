@@ -1,0 +1,23 @@
+.filter{
+    height: 40px;
+    width: 120px;
+    border: 1px solid gainsboro;
+    border-radius: 40px;
+}
+
+.btm_filtra{
+    color: white;
+    background: rebeccapurple;
+    height: 40px;
+    width: 120px;
+    border: 1px solid gainsboro;
+    border-radius: 40px;
+    align-items: center;
+}
+
+.campoBusca{
+    height: 40px;
+    width: 200px;
+    border: 1px solid gainsboro;
+    border-radius: 40px;
+}
