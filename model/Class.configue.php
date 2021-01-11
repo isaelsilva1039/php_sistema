@@ -19,9 +19,7 @@ class Validacao extends Conexao {
         if ($sql->rowCount() > 0) {
             $sql = $sql->fetch();
             session_start();
-            $_SESSION['id'] = $sql['id'];
-            $_SESSION['email']=$email;
-
+            $_SESSION['id'] = $sql['id'] = $this->id;
             header("location: ../nice-html/ltr/index.php");
         } else {
             header("location: ../index.php");

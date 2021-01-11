@@ -1,12 +1,3 @@
-<?php
-include 'Class.relatorios.php';
-$relatrofuncionarios = new Relatorios();
-@$cargo = $_GET['cargo'];
-$filtro_cargo = new  Relatorios();
-if (empty($cargo) || !isset($cargo)) {
-    $cargo = 'todos';
-}
-?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -18,18 +9,16 @@ if (empty($cargo) || !isset($cargo)) {
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>Nice admin Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
-    <link href="../../dist/css/style.css" rel="stylesheet">
-    <link href="../ltr/cssmanipulado" rel="stylesheet">
-    <link href="relatorios.css" rel="stylesheet">
+    <link href="../dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
@@ -65,17 +54,17 @@ if (empty($cargo) || !isset($cargo)) {
                             <b class="logo-icon">
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                                 <!-- Dark Logo icon -->
-                                <img src="../../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                                <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                                 <!-- Light Logo icon -->
-                                <img src="../../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                                <img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
                             </b>
                             <!--End Logo icon -->
                             <!-- Logo text -->
                             <span class="logo-text">
                                 <!-- dark Logo text -->
-                                <img src="../../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                                <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                                 <!-- Light Logo text -->
-                                <img src="../../assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
+                                <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
                             </span>
                         </a>
                     </div>
@@ -125,14 +114,11 @@ if (empty($cargo) || !isset($cargo)) {
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>
-                                    My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i>
-                                    My Balance</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i>
-                                    Inbox</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -142,6 +128,7 @@ if (empty($cargo) || !isset($cargo)) {
                 </div>
             </nav>
         </header>
+
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
@@ -154,27 +141,48 @@ if (empty($cargo) || !isset($cargo)) {
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
+
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../ltr/index.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php" aria-expanded="false">
                                 <i class="mdi mdi-av-timer"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
+
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="relatorio_funcionarios.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-profile.php" aria-expanded="false">
+                                <i class="mdi mdi-account-network"></i>
+                                <span class="hide-menu">Perfil</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../contas/contas_a_pagar.php" aria-expanded="false">
+                                <i class="mdi mdi-cash-multiple"></i>
+                                <span class="hide-menu">Financeniro</span>
+                            </a>
+                        </li>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../relatorios/relatorio_funcionarios.php" aria-expanded="false">
                                 <i class="mdi mdi-file"></i>
-                                <span class="hide-menu">Relatorios Funcionarios</span>
+                                <span class="hide-menu">Relatorios</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="relatorio_moradores.php" aria-expanded="false">
-                                <i class="mdi mdi-clipboard-text"></i>
-                                <span class="hide-menu">Relatorios Moradores</span>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="Cadastro.php" aria-expanded="false">
+                                <i class="mdi mdi-lan"></i>
+                                <span class="hide-menu">Cadastro</span>
+                            </a>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="error-404.php" aria-expanded="false">
+                                <i class="mdi mdi-alert-outline"></i>
+                                <span class="hide-menu">404</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
+
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -192,7 +200,7 @@ if (empty($cargo) || !isset($cargo)) {
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
-                        <h4 class="page-title">Relatorio Moradores</h4>
+                        <h4 class="page-title">Dashboard </h4>
                     </div>
                     <div class="col-7 align-self-center">
                         <div class="d-flex align-items-center justify-content-end">
@@ -208,115 +216,94 @@ if (empty($cargo) || !isset($cargo)) {
                     </div>
                 </div>
             </div>
+            <?php
+
+            ?>
             <div class="container-fluid">
-                <div cass="card-body">
-                    <form class="from_filtro" method="GET" action="relatorio_moradores.php">
-                        <input class="campoBusca" name="cargo" type="text" placeholder="Busca " style=" width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">
-                        </select>
-                        <input type="submit" name="filtra" class="btm_filtra" value="Filtra">
-                    </form>
-                </div>
-                <br>
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
+                            <div class="nomecard">Crdas Mais Visto</div>
                             <div class="card-body">
-                                <div class="table-responsive m-t-20">
-                                    <?php
+                                <div class="quadros_dahs shadow p-3 mb-5 bg-white rounded ">
+                                    <label class="colormorador">Qtd Morador</label>
+                                    <div>
+                                        <h4 style="float: right;">
+                                        </h4>
+                                        <h3>
+                                            <i class="mdi mdi-account ajusteIcad colormorador" style="color:darkslategrey; float:left; color:orangered"></i>
+                                        </h3>
+                                    </div>
+                                    <div>
+                                    </div>
+                                </div>
 
-                                    ?>
-                                    <table class="table table-bordered table-responsive-lg">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Id</th>
-                                                <th scope="col">Nome</th>
-                                                <th scope="col">CPF</th>
-                                                <th scope="col">Data Entrada</th>
-                                                <th scope="col">Bloco</th>
-                                                <th scope="col">Apartamento</th>
-                                                <th scope="col">Nivel</th>
-                                                <th scope="col">Aluguel</th>
-                                                <th scope="col">Ação</th>
-                                            </tr>
-                                        </thead>
+                                <div class="quadros_dahs2 shadow p-3 mb-5 bg-white rounded ">
+                                    <label class="colormorador2"> Aluguel</label>
+                                    <div>
+                                        <h3>
+                                            <i class="mdi mdi-cash-multiple" style="color:darkslategrey; float:left;color:green "></i>
+                                        </h3>
+                                    </div>
+                                    <h4 style="float: right;">
 
-                                        <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                    </h4>
+                                    <div>
+                                    </div>
+                                </div>
+                                <div class="quadros_dahs3 shadow p-3 mb-5 bg-white rounded ">
+                                    <label class="colormorador3"> Qtd Funcionario</label>
+                                    <div>
+                                        <h3> <i class="mdi mdi-account-card-details" style="color:darkslategrey; float:left;color:blue"></i>
+                                        </h3>
+                                    </div>
+                                    <h4 style="float: right;">
+                                    </h4>
+                                    <div>
+                                    </div>
+                                </div>
 
-                                                <td>
-                                                    <form style="float: left ;" method="POST" action="../../Controlle/Controle_edita_funcionario.php">
-                                                        <button class="btnAcoes">
-                                                            <i class="mdi mdi-border-color"></i>
-                                                        </button>
-                                                    </form>
-                                                    <form style="float: left ;" method="POST" action="../../Controlle/Controle_delete_funcionario.php">
-                                                        <button class="btnAcoesPromover">
-                                                            <i class="mdi mdi-certificate"></i>
-                                                        </button>
-                                                    </form>
+                                <div class="quadros_dahs4 shadow p-3 mb-5 bg-white rounded ">
+                                    <label class="colormorador4"> Salarios Funcionarios </label>
+                                    <div>
+                                        <h3>
+                                            <i class="mdi mdi-cash" style="color:darkslategrey; float:left ;color:rebeccapurple"></i>
+                                        </h3>
+                                    </div>
+                                    <div>
+                                        <h4 style="float: right;">
+                                        </h4>
+                                    </div>
+                                </div>
 
-                                                    <form style="float: left ;" method="POST" action="controle_deleta_morador.php">
-                                                        <button class="btnAcoesexcluir" name="id" value="<?= $lista['id'] ?>">
-                                                            <i class="mdi mdi-delete"></i>
-                                                        </button>
-                                                    </form>
+                                <div class="quadros_dahs shadow p-3 mb-5 bg-white rounded ">
+                                    <label class="colormorador5"> Saldo </label>
+                                    <div>
+                                        <h3>
+                                            <i class="mdi mdi-cash-usd" style="color:darkslategrey; float:left;color:orangered"></i>
+                                        </h3>
+                                    </div>
+                                    <h4 style="float: right;">
 
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    </h4>
+                                    <div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Container fluid  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <footer class="footer text-center">
-            All Rights Reserved by Nice admin. Designed and Developed by
-            <a href="https://wrappixel.com">WrapPixel</a>.
-        </footer>
-        <!-- ============================================================== -->
-        <!-- End footer -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="../../dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="../../dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="../../dist/js/custom.min.js"></script>
+                    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+                    <!-- Bootstrap tether Core JavaScript -->
+                    <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
+                    <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+                    <!-- slimscrollbar scrollbar JavaScript -->
+                    <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
+                    <!--Wave Effects -->
+                    <script src="../dist/js/waves.js"></script>
+                    <!--Menu sidebar -->
+                    <script src="../dist/js/sidebarmenu.js"></script>
+                    <!--Custom JavaScript -->
+                    <script src="../dist/js/custom.min.js"></script>
 </body>
 
 </html>

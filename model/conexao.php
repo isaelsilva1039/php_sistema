@@ -1,13 +1,23 @@
 <?php
 
-class Conexao{
-    
-    public static $instace ;
-    public static function get_instace(){
+try {
+    $conn = new  PDO("mysql:dbname=de_volta;host=localhost", "root", "");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo 'ERROR: ' . $e->getMessage();
+}
 
-        if(!isset(self::$instace)){
-            self::$instace = new PDO("mysql:dbname=de_volta;host=localhost","root","");
-    }
-        return self::$instace;        
+class Conexao
+{
+
+    public static $instace;
+    public static function get_instace()
+    {
+
+        if (!isset(self::$instace)) {
+
+            self::$instace = new PDO("mysql:dbname=de_volta;host=localhost", "root", "");
+        }
+        return self::$instace;
     }
 }

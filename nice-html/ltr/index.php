@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../../model/Class.configue.php';
 $contaRe = new Validacao();
 ?>
@@ -146,12 +147,14 @@ $contaRe = new Validacao();
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
+                        
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php" aria-expanded="false">
                                 <i class="mdi mdi-av-timer"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
+                   
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-profile.php" aria-expanded="false">
                                 <i class="mdi mdi-account-network"></i>

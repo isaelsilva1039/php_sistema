@@ -1,17 +1,28 @@
 <?php
-include_once'../model/Class.configue.php';
 
+include('../model/conexao.php');
 @$email = $_POST['email'];
 @$senha = $_POST['senha'];
 
-echo $senha;
+$sql = $conn->query("SELECT * FROM tb_login Where email = '$email' and senha = '$senha'");
+$sql->execute();
 
-$login = new Validacao();	
+if ($sql->rowCount() > 0) {
+	$sql = $sql->fetch();
+	session_start();
+	$sessao = $_SESSION['id'] = $sql['id'];
+	$nivel = $_SESSION['nivel'] = $sql['nivel'];
+	$nome = $_SESSION['nome'] = $sql['nome'];
 
-	if(isset($_POST['email']) & !empty('senha') ){
-		
-    	$login->validaLog($email,$senha);
-	
-	};
+	if ($_SESSION['nivel'] === '1') {
 
-?>
+		header("location: ../nice-html/ltr/index.php");
+	} elseif ($_SESSION['nivel'] === '2') {
+
+		header("location: ../auditoria/painel_adm.auditoria.php");
+	}else {
+		echo "Não deu certo ";
+	}
+} else {
+	header("location: ../index.php");
+}

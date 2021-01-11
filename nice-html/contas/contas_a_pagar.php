@@ -40,8 +40,7 @@ include('Contas_class.php');
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper" data-navbarbg="skin6" data-theme="light" data-layout="vertical" data-sidebartype="full"
-        data-boxed-layout="full">
+    <div id="main-wrapper" data-navbarbg="skin6" data-theme="light" data-layout="vertical" data-sidebartype="full" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
@@ -81,9 +80,7 @@ include('Contas_class.php');
                     <!-- ============================================================== -->
                     <!-- Toggle which is visible on mobile only -->
                     <!-- ============================================================== -->
-                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
-                        data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="ti-more"></i>
                     </a>
                 </div>
@@ -123,10 +120,7 @@ include('Contas_class.php');
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href=""
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                    src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle"
-                                    width="31"></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>
                                     My Profile</a>
@@ -157,16 +151,14 @@ include('Contas_class.php');
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../ltr/index.php"
-                                aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../ltr/index.php" aria-expanded="false">
                                 <i class="mdi mdi-av-timer"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="contas_a_pagar.php"
-                                aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="contas_a_pagar.php" aria-expanded="false">
                                 <i class="mdi mdi-cash-multiple"></i>
                                 <span class="hide-menu"> Lança Contas</span>
                             </a>
@@ -221,122 +213,118 @@ include('Contas_class.php');
 
                                     <div class="btn-group mr-2" role="group" aria-label="First group">
                                         <form action="" method="GET">
-                                            <button type="submit" name="janeiro"
-                                                class="btna  margi-mes">Janeiro</button>
-                                            <button type="submit" name="fevereiro"
-                                                class="btna  margi-mes">Fevereiro</button>
+                                            <button type="submit" name="janeiro" class="btna  margi-mes">Janeiro</button>
+                                            <button type="submit" name="fevereiro" class="btna  margi-mes">Fevereiro</button>
                                             <button type="submit" name="marco" class="btna  margi-mes">Março</button>
                                             <button type="submit" name="abril" class="btna  margi-mes">Abril</button>
                                             <button type="submit" name="maio" class="btna  margi-mes">Maio</button>
                                             <button type="submit" name="junho" class="btna  margi-mes">Junho</button>
                                             <button type="submit" name="julho" class="btna  margi-mes">Julho</button>
                                             <button type="submit" name="agosto" class="btna  margi-mes">Agosto</button>
-                                            <button type="submit" name="setembro"
-                                                class="btna  margi-mes">Setembro</button>
-                                            <button type="submit" name="outubro"
-                                                class="btna  margi-mes">Outubro</button>
-                                            <button type="submit" name="novembro"
-                                                class="btna  margi-mes">Novembro</button>
-                                            <button type="submit" name="dezembro"
-                                                class="btna  margi-mes">Dezembro</button>
+                                            <button type="submit" name="setembro" class="btna  margi-mes">Setembro</button>
+                                            <button type="submit" name="outubro" class="btna  margi-mes">Outubro</button>
+                                            <button type="submit" name="novembro" class="btna  margi-mes">Novembro</button>
+                                            <button type="submit" name="dezembro" class="btna  margi-mes">Dezembro</button>
                                         </form>
                                         <?php
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-                                        
+
+
                                         ?>
                                     </div>
                                 </div>
                                 <hr>
                                 <!-- Botão janela modal -->
-                                <button type="button" class="btnn" data-toggle="modal"
-                                    data-target="#exampleModalCenter">
+                                <button type="button" class="btnn" data-toggle="modal" data-target="#exampleModalCenter">
                                     Nova Conta
                                 </button>
 
-                                <button type="button" class="btnn" data-toggle="modal"
-                                    data-target="#exampleModalCenterFIXA">
+                                <button type="button" class="btnn" data-toggle="modal" data-target="#exampleModalCenterFIXA">
                                     Conta Fixa
                                 </button>
 
 
-                                <button type="button" class="btnn" data-toggle="modal"
-                                    data-target="#exampleModalCenternovapessoa">
+                                <button type="button" class="btnn" data-toggle="modal" data-target="#exampleModalCenternovapessoa">
                                     Nova Pessoa / Empresa
                                 </button>
 
-                                <button type="button" class="btnn" data-toggle="modal"
-                                    data-target="#exampleModalCenternovacategoria">
+                                <button type="button" class="btnn" data-toggle="modal" data-target="#exampleModalCenternovacategoria">
                                     Nova Categoria
                                 </button>
 
                                 <br>
                                 <hr>
                                 <style>
-                                .btnn {
-                                    background-color: darkcyan;
-                                    color: white;
-                                    border-radius: 10%;
-                                    border: 1px solid;
-                                    height: 35px;
-                                }
+                                    .btnn {
+                                        background-color: darkcyan;
+                                        color: white;
+                                        border-radius: 10%;
+                                        border: 1px solid;
+                                        height: 35px;
+                                    }
 
-                                .btna {
-                                    background-color: darkcyan;
-                                    color: white;
-                                    border-radius: 10%;
-                                    border: 1px solid;
-                                    height: 35px;
-                                }
+                                    .btna {
+                                        background-color: darkcyan;
+                                        color: white;
+                                        border-radius: 10%;
+                                        border: 1px solid;
+                                        height: 35px;
+                                    }
 
-                                .lateral {
-                                    float: left;
-                                }
+                                    .lateral {
+                                        float: left;
+                                    }
 
-                                .ladodireito {
-                                    float: end;
-                                }
+                                    .ladodireito {
+                                        float: end;
+                                    }
                                 </style>
                                 <?php
-
+                                $Contas = new Contas();
                                 ?>
                                 <div class="table-responsive ladodireito">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Data</th>
-                                                <th scope="col">Descrição</th>
-                                                <th scope="col">Valor </th>
-                                                <th scope="col">Pago A</th>
-                                                <th scope="col">Categoria</th>
-                                                <th scope="col">Pago </th>
-                                                <th scope="col">Açoes</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
 
-                                                <td>01/01/2021</td>
-                                                <td>Conta chacara</td>
-                                                <td>500,00</td>
-                                                <td>Emanoel</td>
-                                                <td>Investimento</td>
-                                                <td>Não</td>
-                                                <td>Botão</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <?php
+                                    foreach ($Contas->relatorioDeContasApagar() as $contas) :
+
+                                    ?>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Data</th>
+                                                    <th scope="col">Descrição</th>
+                                                    <th scope="col">Valor </th>
+                                                    <th scope="col">Categoria</th>
+                                                    <th scope="col">Pago </th>
+                                                    <th scope="col">parcela</th>
+                                                    <th scope="col">Açoes</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+
+                                                
+                                                    <td><?php echo $contas['data'] ?></td>
+                                                    <td><?php echo $contas['descricao'] ?></td>
+                                                    <td><?php echo $contas['valor'] ?></td>
+                                                    <td><?php echo $contas['categoria'] ?></td>
+                                                    <td><?php echo $contas['pago'] ?></td>
+                                                    <td><?php echo $contas['parcela'] ?></td>
+                                                    <td>Botão</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    <?PHP endforeach ?>
                                     <div class="lateral">
                                     </div>
                                     <!-- Janela modal nova conta -->
-                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLongTitle">Nova categoria
                                                     </h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
@@ -345,8 +333,7 @@ include('Contas_class.php');
                                                         <div class="form-row">
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="validationServer03">Data</label>
-                                                                <input type="date" class="form-control is-invalid"
-                                                                    name="data" placeholder="Data" required>
+                                                                <input type="date" class="form-control is-invalid" name="data" placeholder="Data" required>
                                                                 <div class="invalid-feedback">
                                                                     Digite uma data
                                                                 </div>
@@ -354,8 +341,7 @@ include('Contas_class.php');
 
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="validationServer03">Descrição</label>
-                                                                <input type="text" class="form-control is-invalid"
-                                                                    name="descricao" placeholder="Descrição" required>
+                                                                <input type="text" class="form-control is-invalid" name="descricao" placeholder="Descrição" required>
                                                                 <div class="invalid-feedback">
                                                                     Digite Uma Descrição
                                                                 </div>
@@ -363,17 +349,15 @@ include('Contas_class.php');
 
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="validationServer03">Valor</label>
-                                                                <input type="text" class="form-control is-invalid"
-                                                                    name="valor" placeholder="Valor" required>
+                                                                <input type="text" class="form-control is-invalid" name="valor" placeholder="Valor" required>
                                                                 <div class="invalid-feedback">
                                                                     Digite O valor
                                                                 </div>
                                                             </div>
 
                                                             <div>
-                                                                <label class="mr-sm-2"
-                                                                    for="inlineFormCustomSelect">Parcela</label>
-                                                                <select class="custom-select mr-sm-2 s-invalid" name="parcela" >
+                                                                <label class="mr-sm-2" for="inlineFormCustomSelect">Parcela</label>
+                                                                <select class="custom-select mr-sm-2 s-invalid" name="parcela">
                                                                     <option selected..>Parcela</option>
                                                                     <option value="avista">Avista</option>
                                                                     <option value="1">1</option>
@@ -395,8 +379,7 @@ include('Contas_class.php');
                                                             </div>
 
                                                             <div>
-                                                                <label class="mr-sm-2"
-                                                                    for="inlineFormCustomSelect">Categoria</label>
+                                                                <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria</label>
                                                                 <select class="custom-select mr-sm-2" name="categoria">
                                                                     <option selected>Categoria</option>
                                                                     <option>Imobiliaria</option>
@@ -409,8 +392,7 @@ include('Contas_class.php');
                                                             </div>
 
                                                             <div>
-                                                                <label class="mr-sm-2"
-                                                                    for="inlineFormCustomSelect">Pago</label>
+                                                                <label class="mr-sm-2" for="inlineFormCustomSelect">Pago</label>
                                                                 <select class="custom-select mr-sm-2" name="pago">
                                                                     <option selected>Pago</option>
                                                                     <option value="nao">Não</option>
@@ -419,10 +401,8 @@ include('Contas_class.php');
                                                             </div>
 
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Cancelar</button>
-                                                                <button type="Subimit"
-                                                                    class="btn btn-primary">Salvar</button>
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                <button type="Subimit" class="btn btn-primary">Salvar</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -436,14 +416,12 @@ include('Contas_class.php');
                                     <!-- Modal Conta FIXA -->
 
 
-                                    <div class="modal fade" id="exampleModalCenterFIXA" tabindex="-1" role="dialog"
-                                        aria-labelledby="#exampleModalCenterFIXA" aria-hidden="true">
+                                    <div class="modal fade" id="exampleModalCenterFIXA" tabindex="-1" role="dialog" aria-labelledby="#exampleModalCenterFIXA" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
@@ -452,8 +430,7 @@ include('Contas_class.php');
                                                     <div class="form-row">
                                                         <div class="col-md-6 mb-3">
                                                             <label for="validationServer03">Data</label>
-                                                            <input type="date" class="form-control is-invalid"
-                                                                name="data" placeholder="Data" required>
+                                                            <input type="date" class="form-control is-invalid" name="data" placeholder="Data" required>
                                                             <div class="invalid-feedback">
                                                                 Digite uma data
                                                             </div>
@@ -461,8 +438,7 @@ include('Contas_class.php');
 
                                                         <div class="col-md-6 mb-3">
                                                             <label for="validationServer03">Descrição</label>
-                                                            <input type="text" class="form-control is-invalid"
-                                                                name="descricao" placeholder="Descrição" required>
+                                                            <input type="text" class="form-control is-invalid" name="descricao" placeholder="Descrição" required>
                                                             <div class="invalid-feedback">
                                                                 Digite Uma Descrição
                                                             </div>
@@ -470,16 +446,14 @@ include('Contas_class.php');
 
                                                         <div class="col-md-6 mb-3">
                                                             <label for="validationServer03">Valor</label>
-                                                            <input type="text" class="form-control is-invalid"
-                                                                name="valor" placeholder="Valor" required>
+                                                            <input type="text" class="form-control is-invalid" name="valor" placeholder="Valor" required>
                                                             <div class="invalid-feedback">
                                                                 Digite O valor
                                                             </div>
                                                         </div>
 
                                                         <div>
-                                                            <label class="mr-sm-2"
-                                                                for="inlineFormCustomSelect">Parcela</label>
+                                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Parcela</label>
                                                             <select class="custom-select mr-sm-2" id="parcela">
                                                                 <option selected>Parcela</option>
                                                                 <option value="1">1</option>
@@ -498,8 +472,7 @@ include('Contas_class.php');
                                                         </div>
 
                                                         <div>
-                                                            <label class="mr-sm-2"
-                                                                for="inlineFormCustomSelect">Categoria</label>
+                                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria</label>
                                                             <select class="custom-select mr-sm-2" name="categoria">
                                                                 <option selected>Categoria</option>
                                                                 <option value="1">Imobiliaria</option>
@@ -512,8 +485,7 @@ include('Contas_class.php');
                                                         </div>
 
                                                         <div>
-                                                            <label class="mr-sm-2"
-                                                                for="inlineFormCustomSelect">Pago</label>
+                                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Pago</label>
                                                             <select class="custom-select mr-sm-2" name="pago">
                                                                 <option selected>Pago</option>
                                                                 <option value="1">Não</option>
@@ -522,10 +494,8 @@ include('Contas_class.php');
                                                         </div>
 
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">Cancelar</button>
-                                                            <button type="button"
-                                                                class="btn btn-primary">Salvar</button>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                            <button type="button" class="btn btn-primary">Salvar</button>
                                                         </div>
                                                     </div>
                                                 </div>
