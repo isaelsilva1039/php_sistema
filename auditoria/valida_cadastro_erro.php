@@ -1,5 +1,6 @@
 <?php
 // include ('Erros_class.php');
+include('../controlle/controla_sessao.php');
 require('Erros_class.php');
 session_start();
 @$usuarioLogado    = $_SESSION['nome'];

@@ -1,6 +1,7 @@
 <?php
 
 include('../model/conexao.php');
+include('../controlle/controla_sessao.php');
 
 class Relatorioserros extends Conexao
 {
@@ -235,8 +236,9 @@ class Cardes extends Relatorioserros
     {
 
         if ($this->filialCards === 'Filial') {
+            $dt = date('Y-m-d');
             $pdo = parent::get_instace();
-            $slq = "SELECT * FROM tb_erros_auditoria where data = 'data(Y-m-d)' ";
+            $slq = "SELECT * FROM tb_erros_auditoria where data = '$dt' ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
             $resul =  $slq->rowCount();
@@ -255,31 +257,29 @@ class Cardes extends Relatorioserros
         }
     }
 
-    // public function ErrosDoMes()
-    // {
+    public function ErrosDoMes()
+    {
 
-    //     if ($this->filialCards === 'Filial') {
-    //         $pdo = parent::get_instace();
-    //         $slq = "SELECT * FROM tb_erros_auditoria where data = '' ";
-    //         $slq = $pdo->prepare($slq);
-    //         $slq->execute();
-    //         $resul =  $slq->rowCount();
-    //         $html = "<div style='color:red'> $resul</div>";
-    //         echo $html;
-    //     } else {
+        if ($this->filialCards === 'Filial') {
+            $pdo = parent::get_instace();
+            $slq = "SELECT * FROM tb_erros_auditoria where data = '' ";
+            $slq = $pdo->prepare($slq);
+            $slq->execute();
+            $resul =  $slq->rowCount();
+            $html = "<div style='color:red'> $resul</div>";
+            echo $html;
+        } else {
 
-    //         $dt = date('Y-m-d');
-    //         MONTH($dt) = 'mes_escolhido' ;  
-            
-    //         $pdo = parent::get_instace();
-    //         $slq = "SELECT * FROM tb_erros_auditoria WHERE data = '$dt'  and filial Like '%" . $this->filialCards . "%'   ";
-    //         $slq = $pdo->prepare($slq);
-    //         $slq->execute();
-    //         $resul =  $slq->rowCount();
-    //         $html = "<div style='color:red'> $resul</div>";
-    //         echo $html;
-    //     }
-    // }
+            $dt = date('Y-m-d');
+            $pdo = parent::get_instace();
+            $slq = "SELECT * FROM tb_erros_auditoria WHERE data = Month($dt) = '01'  and filial Like '%" . $this->filialCards . "%'   ";
+            $slq = $pdo->prepare($slq);
+            $slq->execute();
+            $resul =  $slq->rowCount();
+            $html = "<div style='color:red'> $resul</div>";
+            echo $html;
+        }
+    }
     
 
 
