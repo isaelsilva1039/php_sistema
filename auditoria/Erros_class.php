@@ -1,7 +1,7 @@
 <?php
 
 include('../model/conexao.php');
-include('../controlle/controla_sessao.php');
+
 
 class ErosLn extends Conexao
 {

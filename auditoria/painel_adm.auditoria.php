@@ -1,5 +1,5 @@
 <?php
-include('../controlle/controla_sessao.php');
+require('../controlle/controla_sessao.php');
 ?>
 
 <!DOCTYPE html>
@@ -353,7 +353,7 @@ include('../controlle/controla_sessao.php');
                                             <i class="mdi mdi-cash-usd" style="color:darkslategrey; float:left;color:orangered"></i>
                                         </h3>
                                     </div>
-                                    <h4 style="float: right;">
+                                    <h4 style="float: right; color:lawngreen">
                                         <?php
                                         $objCars->pegaFilial();
                                         $objCars->quantidadedeErroDesinternados();

@@ -1,5 +1,7 @@
 <?php
-include('../controlle/controla_sessao.php');
+require('../controlle/controla_sessao.php');
+include('Relatorios_class.php');
+$Obj = new Relatorioserros();
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -190,12 +192,12 @@ include('../controlle/controla_sessao.php');
                                                             <option style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">70</option>
                                                         </select>
                                                         <input class="campoBusca" name="filial" type="text" placeholder="Busca " style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">
-                                                       
+
                                                         <input class="campoBusca" name="datainicial" type="date" placeholder="Busca " style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">
                                                         <!-- <input class="campoBusca" name="dataFim" type="date" placeholder="Busca " style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;"> -->
 
 
-                                                       
+
                                                         <input type="submit" name="busca" class="btn btn-primary" style="border-radius: 30px; height: 38px; " value="Filtra">
 
 
@@ -235,15 +237,14 @@ include('../controlle/controla_sessao.php');
                                                                         </tr>
                                                                     </thead>
                                                                     <?php
-                                                                    include('Relatorios_class.php');
-                                                                    $Obj = new Relatorioserros();
+
                                                                     $Obj->relatorioErrosAuditoriaNoturna();
                                                                     $Obj->limite();
                                                                     $Obj->Filto();
                                                                     $Obj->datasFiltros();
-                                                                   
+
                                                                     foreach ($Obj->relatorioErrosAuditoriaNoturna() as $relatoerio) :
-                                                                        $data = implode("/",array_reverse(explode("-",$relatoerio['data'])));    
+                                                                        $data = implode("/", array_reverse(explode("-", $relatoerio['data'])));
                                                                     ?>
                                                                         <tbody>
                                                                             <tr>
@@ -257,7 +258,7 @@ include('../controlle/controla_sessao.php');
                                                                                 <td><?php echo $relatoerio['usuarioerro'] ?></td>
                                                                                 <td><?php echo $relatoerio['usuariologado'] ?></td>
                                                                                 <td><?php echo $data ?></td>
-                                                                                
+
                                                                             </tr>
                                                                         </tbody>
                                                                     <?php endforeach; ?>

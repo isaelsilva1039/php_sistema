@@ -1,5 +1,5 @@
 <?php
-include('../controlle/controla_sessao.php');
+
 ?>
 <aside class="left-sidebar" data-sidebarbg="skin5">
     <!-- Sidebar scroll-->
@@ -22,7 +22,7 @@ include('../controlle/controla_sessao.php');
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../contas/contas_a_pagar.php" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
                         <i class="mdi mdi-cash-multiple"></i>
                         <span class="hide-menu">Descontos</span>
                     </a>
