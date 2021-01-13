@@ -1,8 +1,6 @@
 <?php
 
 include('../model/conexao.php');
-
-
 class Relatorioserros extends Conexao
 {
     public $limite;
@@ -167,6 +165,7 @@ class Cardes extends Relatorioserros
             echo $html;
         }
     }
+    
 
     public function quantidadeDivergente()
     {
@@ -210,6 +209,7 @@ class Cardes extends Relatorioserros
             echo $html;
         }
     }
+
     public function quantidadedeErroDesinternados()
     {
 
@@ -231,6 +231,7 @@ class Cardes extends Relatorioserros
             echo $html;
         }
     }
+
 
     public function ErrosDeHoje()
     {
@@ -257,6 +258,7 @@ class Cardes extends Relatorioserros
         }
     }
 
+
     public function ErrosDoMes()
     {
 
@@ -280,7 +282,6 @@ class Cardes extends Relatorioserros
             echo $html;
         }
     }
-    
 
 
     public function pegaFilial()
