@@ -25,6 +25,32 @@
             "database": "u119780054_volta_php",
             "username": "u119780054_root",
             "password": "isael99322065"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "u119780054_volta_php",
+            "database": "u119780054_volta_php",
+            "username": "u119780054_root",
+            "password": "Isael99322065"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "localhost",
+            "username": "u119780054_root",
+            "database": "u119780054_volta_php",
+            "password": "Isael99322065"
         }
     ]
 }

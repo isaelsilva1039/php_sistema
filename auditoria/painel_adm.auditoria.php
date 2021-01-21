@@ -143,14 +143,14 @@ require('../controlle/controla_sessao.php');
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
-                        <h4 class="page-title">Dashboard </h4>
+                        <h4 class="page-title">Dashboard</h4>
                     </div>
                     <div class="col-7 align-self-center">
                         <div class="d-flex align-items-center justify-content-end">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
-                                        <a href="#">Home</a>
+                                        <a href="painel_adm.auditoria.php">Home</a>
                                     </li>
                                     <li class="breadcrumb-item active" aria-current="page">Starter Page</li>
                                 </ol>
@@ -280,6 +280,7 @@ require('../controlle/controla_sessao.php');
                                     <div>
                                         <h4 style="float: right;">
                                             <?php
+
                                             $objCars->pegaFilial();
                                             $objCars->quantidadeErroos();
 
@@ -386,10 +387,10 @@ require('../controlle/controla_sessao.php');
                                             <i class="mdi mdi-cash-usd" style="color:darkslategrey; float:left;color:orangered"></i>
                                         </h3>
                                     </div>
-                                    <h4 style="float: left;">
+                                    <h4 style="float: left;margin-left:109px; margin-top:7px">
                                         <?php
                                         $objCars->pegaFilial();
-                                        // $objCars->ErrosDoMes();
+                                        $objCars->ErrosDoMes();
                                         ?>
                                     </h4>
                                     <div>

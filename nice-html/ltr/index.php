@@ -147,14 +147,14 @@ $contaRe = new Validacao();
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        
+
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php" aria-expanded="false">
                                 <i class="mdi mdi-av-timer"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
-                   
+
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-profile.php" aria-expanded="false">
                                 <i class="mdi mdi-account-network"></i>
@@ -180,10 +180,18 @@ $contaRe = new Validacao();
                                 <i class="mdi mdi-lan"></i>
                                 <span class="hide-menu">Cadastro</span>
                             </a>
+                        </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="error-404.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="usuarios.php" aria-expanded="false">
+                                <i class="mdi mdi-account-key"></i>
+                                <span class="hide-menu">Usuario</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../../controlle/deslogar.php" aria-expanded="false">
                                 <i class="mdi mdi-alert-outline"></i>
-                                <span class="hide-menu">404</span>
+                                <span class="hide-menu">Sair </span>
                             </a>
                         </li>
                     </ul>
@@ -329,181 +337,181 @@ $contaRe = new Validacao();
 
 
                     <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="nomecard">Crdas Receita e Pagamentos</div>
-                            <div class="card-body">
-                                <div class="quadros_dahs shadow p-3 mb-5 bg-white rounded ">
-                                    <label class="colormorador">Qtd a Pagar</label>
-                                    <div>
-                                        <h4 style="float: right;">
-                                            <?php echo $contaRe->contamoradores(); ?>
-                                        </h4>
-                                        <h3>
-                                            <i class="mdi mdi-account ajusteIcad colormorador" style="color:darkslategrey; float:left; color:orangered"></i>
-                                        </h3>
-                                    </div>
-                                    <div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="nomecard">Crdas Receita e Pagamentos</div>
+                                    <div class="card-body">
+                                        <div class="quadros_dahs shadow p-3 mb-5 bg-white rounded ">
+                                            <label class="colormorador">Qtd a Pagar</label>
+                                            <div>
+                                                <h4 style="float: right;">
+                                                    <?php echo $contaRe->contamoradores(); ?>
+                                                </h4>
+                                                <h3>
+                                                    <i class="mdi mdi-account ajusteIcad colormorador" style="color:darkslategrey; float:left; color:orangered"></i>
+                                                </h3>
+                                            </div>
+                                            <div>
+                                            </div>
+                                        </div>
+
+                                        <div class="quadros_dahs2 shadow p-3 mb-5 bg-white rounded ">
+                                            <label class="colormorador2"> Qtd Pagas</label>
+                                            <div>
+                                                <h3>
+                                                    <i class="mdi mdi-cash-multiple" style="color:darkslategrey; float:left;color:green "></i>
+                                                </h3>
+                                            </div>
+                                            <h4 style="float: right;">
+                                                3
+                                                <div>
+                                                </div>
+                                        </div>
+
+
+                                        <div class="quadros_dahs3 shadow p-3 mb-5 bg-white rounded ">
+                                            <label class="colormorador3"> Qtd a Receber</label>
+                                            <div>
+                                                <h3> <i class="mdi mdi-account-card-details" style="color:darkslategrey; float:left;color:blue"></i>
+                                                </h3>
+                                            </div>
+                                            <h4 style="float: right;">
+                                                2
+                                            </h4>
+                                            <div>
+                                            </div>
+                                        </div>
+
+                                        <div class="quadros_dahs4 shadow p-3 mb-5 bg-white rounded ">
+                                            <label class="colormorador4"> Qtd Recebido </label>
+                                            <div>
+                                                <h3>
+                                                    <i class="mdi mdi-cash" style="color:darkslategrey; float:left ;color:rebeccapurple"></i>
+                                                </h3>
+                                            </div>
+                                            <div>
+                                                <h4 style="float: right;">
+                                                    10
+                                                </h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="quadros_dahs shadow p-3 mb-5 bg-white rounded ">
+                                            <label class="colormorador5"> Movimentaçoes </label>
+                                            <div>
+                                                <h3>
+                                                    <i class="mdi mdi-cash-usd" style="color:darkslategrey; float:left;color:orangered"></i>
+                                                </h3>
+                                            </div>
+                                            <h4 style="float: right;">
+                                                16
+                                            </h4>
+                                            <div>
+                                            </div>
+                                        </div>
+                                        <!-- valors cardas contas a pagar e a receber  -->
+
+
+
+                                        <div class="quadros_dahs shadow p-3 mb-5 bg-white rounded ">
+                                            <label class="colormorador">Valor a Pagar</label>
+                                            <div>
+                                                <h4 style="float: right;">
+                                                    R$ 1.200
+                                                </h4>
+                                                <h3>
+                                                    <i class="mdi mdi-account ajusteIcad colormorador" style="color:darkslategrey; float:left; color:orangered"></i>
+                                                </h3>
+                                            </div>
+                                            <div>
+                                            </div>
+                                        </div>
+
+                                        <div class="quadros_dahs2 shadow p-3 mb-5 bg-white rounded ">
+                                            <label class="colormorador2"> Volor Pago</label>
+                                            <div>
+                                                <h3>
+                                                    <i class="mdi mdi-cash-multiple" style="color:darkslategrey; float:left;color:green "></i>
+                                                </h3>
+                                            </div>
+                                            <h4 style="float: right;">
+                                                R$ 1.125
+                                                <div>
+                                                </div>
+                                        </div>
+
+
+                                        <div class="quadros_dahs3 shadow p-3 mb-5 bg-white rounded ">
+                                            <label class="colormorador3"> Valor a Receber</label>
+                                            <div>
+                                                <h3> <i class="mdi mdi-account-card-details" style="color:darkslategrey; float:left;color:blue"></i>
+                                                </h3>
+                                            </div>
+                                            <h4 style="float: right;">
+                                                R$ 1.350
+                                            </h4>
+                                            <div>
+                                            </div>
+                                        </div>
+
+                                        <div class="quadros_dahs4 shadow p-3 mb-5 bg-white rounded ">
+                                            <label class="colormorador4"> Valor recebido </label>
+                                            <div>
+                                                <h3>
+                                                    <i class="mdi mdi-cash" style="color:darkslategrey; float:left ;color:rebeccapurple"></i>
+                                                </h3>
+                                            </div>
+                                            <div>
+                                                <h4 style="float: right;">
+                                                    R$ 3.000
+                                                </h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="quadros_dahs shadow p-3 mb-5 bg-white rounded ">
+                                            <label class="colormorador5"> Movimentaçoes </label>
+                                            <div>
+                                                <h3>
+                                                    <i class="mdi mdi-cash-usd" style="color:darkslategrey; float:left;color:orangered"></i>
+                                                </h3>
+                                            </div>
+                                            <h4 style="float: right;">
+                                                %16
+                                            </h4>
+                                            <div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <!-- CARDES -->
+
+
+                                        <!-- ============================================================== -->
                                     </div>
                                 </div>
-
-                                <div class="quadros_dahs2 shadow p-3 mb-5 bg-white rounded ">
-                                    <label class="colormorador2"> Qtd Pagas</label>
-                                    <div>
-                                        <h3>
-                                            <i class="mdi mdi-cash-multiple" style="color:darkslategrey; float:left;color:green "></i>
-                                        </h3>
-                                    </div>
-                                    <h4 style="float: right;">
-                                        3
-                                    <div>
-                                    </div>
-                                </div>
-
-
-                                <div class="quadros_dahs3 shadow p-3 mb-5 bg-white rounded ">
-                                    <label class="colormorador3"> Qtd a Receber</label>
-                                    <div>
-                                        <h3> <i class="mdi mdi-account-card-details" style="color:darkslategrey; float:left;color:blue"></i>
-                                        </h3>
-                                    </div>
-                                    <h4 style="float: right;">
-                                        2
-                                    </h4>
-                                    <div>
-                                    </div>
-                                </div>
-
-                                <div class="quadros_dahs4 shadow p-3 mb-5 bg-white rounded ">
-                                    <label class="colormorador4"> Qtd Recebido </label>
-                                    <div>
-                                        <h3>
-                                            <i class="mdi mdi-cash" style="color:darkslategrey; float:left ;color:rebeccapurple"></i>
-                                        </h3>
-                                    </div>
-                                    <div>
-                                        <h4 style="float: right;">
-                                            10
-                                        </h4>
-                                    </div>
-                                </div>
-
-                                <div class="quadros_dahs shadow p-3 mb-5 bg-white rounded ">
-                                    <label class="colormorador5"> Movimentaçoes </label>
-                                    <div>
-                                        <h3>
-                                            <i class="mdi mdi-cash-usd" style="color:darkslategrey; float:left;color:orangered"></i>
-                                        </h3>
-                                    </div>
-                                    <h4 style="float: right;">
-                                        16
-                                    </h4>
-                                    <div>
-                                    </div>
-                                </div>
-                                <!-- valors cardas contas a pagar e a receber  -->
-
-
-
-                                <div class="quadros_dahs shadow p-3 mb-5 bg-white rounded ">
-                                    <label class="colormorador">Valor a Pagar</label>
-                                    <div>
-                                        <h4 style="float: right;">
-                                            R$  1.200
-                                        </h4>
-                                        <h3>
-                                            <i class="mdi mdi-account ajusteIcad colormorador" style="color:darkslategrey; float:left; color:orangered"></i>
-                                        </h3>
-                                    </div>
-                                    <div>
-                                    </div>
-                                </div>
-
-                                <div class="quadros_dahs2 shadow p-3 mb-5 bg-white rounded ">
-                                    <label class="colormorador2"> Volor Pago</label>
-                                    <div>
-                                        <h3>
-                                            <i class="mdi mdi-cash-multiple" style="color:darkslategrey; float:left;color:green "></i>
-                                        </h3>
-                                    </div>
-                                    <h4 style="float: right;">
-                                        R$ 1.125
-                                    <div>
-                                    </div>
-                                </div>
-
-
-                                <div class="quadros_dahs3 shadow p-3 mb-5 bg-white rounded ">
-                                    <label class="colormorador3"> Valor a Receber</label>
-                                    <div>
-                                        <h3> <i class="mdi mdi-account-card-details" style="color:darkslategrey; float:left;color:blue"></i>
-                                        </h3>
-                                    </div>
-                                    <h4 style="float: right;">
-                                        R$ 1.350
-                                    </h4>
-                                    <div>
-                                    </div>
-                                </div>
-
-                                <div class="quadros_dahs4 shadow p-3 mb-5 bg-white rounded ">
-                                    <label class="colormorador4"> Valor recebido </label>
-                                    <div>
-                                        <h3>
-                                            <i class="mdi mdi-cash" style="color:darkslategrey; float:left ;color:rebeccapurple"></i>
-                                        </h3>
-                                    </div>
-                                    <div>
-                                        <h4 style="float: right;">
-                                            R$ 3.000
-                                        </h4>
-                                    </div>
-                                </div>
-
-                                <div class="quadros_dahs shadow p-3 mb-5 bg-white rounded ">
-                                    <label class="colormorador5"> Movimentaçoes </label>
-                                    <div>
-                                        <h3>
-                                            <i class="mdi mdi-cash-usd" style="color:darkslategrey; float:left;color:orangered"></i>
-                                        </h3>
-                                    </div>
-                                    <h4 style="float: right;">
-                                        %16
-                                    </h4>
-                                    <div>
-                                    </div>
-                                </div>
-
-
-
-
-                                <!-- CARDES -->
-
-
-                                <!-- ============================================================== -->
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- ============================================================== -->
-                    <!-- End Wrapper -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- All Jquery -->
-                    <!-- ============================================================== -->
-                    <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
-                    <!-- Bootstrap tether Core JavaScript -->
-                    <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-                    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-                    <!-- slimscrollbar scrollbar JavaScript -->
-                    <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
-                    <!--Wave Effects -->
-                    <script src="../../dist/js/waves.js"></script>
-                    <!--Menu sidebar -->
-                    <script src="../../dist/js/sidebarmenu.js"></script>
-                    <!--Custom JavaScript -->
-                    <script src="../../dist/js/custom.min.js"></script>
+                            <!-- ============================================================== -->
+                            <!-- End Wrapper -->
+                            <!-- ============================================================== -->
+                            <!-- ============================================================== -->
+                            <!-- All Jquery -->
+                            <!-- ============================================================== -->
+                            <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+                            <!-- Bootstrap tether Core JavaScript -->
+                            <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
+                            <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+                            <!-- slimscrollbar scrollbar JavaScript -->
+                            <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
+                            <!--Wave Effects -->
+                            <script src="../../dist/js/waves.js"></script>
+                            <!--Menu sidebar -->
+                            <script src="../../dist/js/sidebarmenu.js"></script>
+                            <!--Custom JavaScript -->
+                            <script src="../../dist/js/custom.min.js"></script>
 </body>
 
 </html>

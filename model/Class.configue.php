@@ -3,13 +3,18 @@
 require_once 'conexao.php';
 
 // clas de validaçoes . 
-class Validacao extends Conexao {
+class Validacao extends Conexao
+{
 
     public $nome;
     public $id;
+    public $email;
+    public $senha;
+    public $nivel;
 
     //metodo para validar o loogin 
-    public function validaLog($email, $senha) {
+    public function validaLog($email, $senha)
+    {
         $pdo = parent::get_instace();
         $sql = "SELECT * FROM tb_login WHERE email = :email and senha = :senha";
         $sql = $pdo->prepare($sql);
@@ -27,8 +32,9 @@ class Validacao extends Conexao {
     }
 
     // perfil
-    public function perfil() {
-        
+    public function perfil()
+    {
+
         $pdo = parent::get_instace();
         $sql = "SELECT * FROM tb_login WHERE id = 0";
         $sql = $pdo->prepare($sql);
@@ -37,7 +43,8 @@ class Validacao extends Conexao {
     }
 
     //metodo para cadastra apartamento 
-    public function ValidaCadastroCondominio($bloco, $nivel, $apartamento) {
+    public function ValidaCadastroCondominio($bloco, $nivel, $apartamento)
+    {
         //não aceita se vinher vazio ou com valor zer
         if ($bloco == "00" || $nivel == '00' || $apartamento == '00') {
             echo "<script>alert('Selecione Um Bloco');window.location='../nice-html/ltr/Cadastro.php'; </script>";
@@ -73,7 +80,8 @@ class Validacao extends Conexao {
     }
 
     //lista dos cinto utimos cadastros 
-    public function listaDeuBlocos() {
+    public function listaDeuBlocos()
+    {
         $pdo = parent::get_instace();
         $sql = "SELECT * FROM tb_estrutura_condominio Order by id desc limit 5";
         $sql = $pdo->prepare($sql);
@@ -84,7 +92,8 @@ class Validacao extends Conexao {
     }
 
     //metodo pra relecionar, la na tela de cadastro de morado
-    public function listaDeuBlocosOpcao() {
+    public function listaDeuBlocosOpcao()
+    {
         $pdo = parent::get_instace();
         $sql = "SELECT * FROM tb_estrutura_condominio Order by bloco";
         $sql = $pdo->prepare($sql);
@@ -95,7 +104,8 @@ class Validacao extends Conexao {
     }
 
     // Metodo paara cadastra o morador.(esta bugado )
-    public function ValidaCadastroMorador($nome_completo, $cpf, $data_entrada, $bloco, $apartamento, $nivel, $aluguel) {
+    public function ValidaCadastroMorador($nome_completo, $cpf, $data_entrada, $bloco, $apartamento, $nivel, $aluguel)
+    {
         $pdo = parent::get_instace();
 
         //metodo chamado para valida se apartamento ja esta alugado
@@ -121,8 +131,34 @@ class Validacao extends Conexao {
         }
     }
 
+    // cadastro De usuarios
+
+    public function cadastrasUsuariosComNivelDeAcessos()
+    {
+        $pdo = parent::get_instace();
+        $sql = "INSERT INTO tb_login (nome,email,senha,nivel) VALUES (:nome,:email,:senha,:nivel)";
+        $sql = $pdo->prepare($sql);
+        $sql->bindValue(":nome", $this->nome);
+        $sql->bindValue(":email", $this->email);
+        $sql->bindValue(":senha", $this->senha);
+        $sql->bindValue(":nivel", $this->nivel);
+        $sql->execute();
+        if ($sql->rowCount()) {
+
+            echo "<script>alert('Cadastrado Com sucesso ');window.location='../nice-html/ltr/usuarios.php'; </script>";
+        } else {
+
+            var_dump($this->nome);
+            var_dump($this->email);
+            var_dump($this->senha);
+            var_dump($this->nivel);
+            // echo "<script>alert('Nao cadastrado ');window.location='../nice-html/ltr/usuarios.php'; </script>";
+        }
+    }
+
     //valida se o condominio ja esta aluagado
-    public function mostraCincosUltimosMoradoresEntrou($bloco, $nivel, $apartamento) {
+    public function mostraCincosUltimosMoradoresEntrou($bloco, $nivel, $apartamento)
+    {
         $pdo = parent::get_instace();
         $sql01 = "SELECT * FROM tb_cadastro_morador WHERE bloco=:bloco and nivel=:nivel and apartamento=:apartamento";
         $sql01 = $pdo->prepare($sql01);
@@ -137,7 +173,8 @@ class Validacao extends Conexao {
     }
 
     //metodo para cadastra funcionario
-    public function ValidaCadastrofuncionario($nome_completo, $cpf, $data_entrada_admisao, $cargo, $salario, $horario) {
+    public function ValidaCadastrofuncionario($nome_completo, $cpf, $data_entrada_admisao, $cargo, $salario, $horario)
+    {
         $pdo = parent::get_instace();
         $sql = "INSERT INTO tb_cadastro_funcionario(nome_completo,cpf,data_entrada_admisao,cargo,salario,horario) values
         (:nome_completo,:cpf,:data_entrada_admisao,:cargo,:salario,:horario)";
@@ -150,14 +187,15 @@ class Validacao extends Conexao {
         $sql->bindValue(":horario", $horario);
         $sql->execute();
 
-        if ($sql->rowCount() > 0):
+        if ($sql->rowCount() > 0) :
             echo "<script>alert('Cadastrado Com sucesso');window.location='../nice-html/ltr/Cadastro_funcionario.php'; </script>";
-        else:
+        else :
             echo "<script>alert('Algo Deu errado');window.location='../nice-html/ltr/Cadastro_funcionario.php'; </script>";
         endif;
     }
 
-    public function contaFuncionarios(){//função para saber quantidade de fncionarios 
+    public function contaFuncionarios()
+    { //função para saber quantidade de fncionarios 
         $pdo = parent::get_instace();
         $sql = "SELECT * FROM  tb_cadastro_funcionario";
         $sql = $pdo->prepare($sql);
@@ -165,7 +203,8 @@ class Validacao extends Conexao {
         return $sql->rowCount();
     }
 
-    public function valorSalario() {// função para somar valor dos salarios pagos
+    public function valorSalario()
+    { // função para somar valor dos salarios pagos
         $pdo = parent::get_instace();
         $sql = "SELECT sum(salario) FROM tb_cadastro_funcionario";
         $sql = $pdo->prepare($sql);
@@ -173,7 +212,8 @@ class Validacao extends Conexao {
         return $sql->fetchAll();
     }
 
-    public function valorAluguel() {// função para somar valor dos aluguel pago
+    public function valorAluguel()
+    { // função para somar valor dos aluguel pago
         $pdo = parent::get_instace();
         $sql = "SELECT sum(aluguel) FROM tb_cadastro_morador";
         $sql = $pdo->prepare($sql);
@@ -181,14 +221,12 @@ class Validacao extends Conexao {
         return $sql->fetchAll();
     }
 
-    public function contamoradores() {//função para saber quantidade de fncionarios 
+    public function contamoradores()
+    { //função para saber quantidade de fncionarios 
         $pdo = parent::get_instace();
         $sql = "SELECT * FROM  tb_cadastro_morador";
         $sql = $pdo->prepare($sql);
         $sql->execute();
         return $sql->rowCount();
     }
-
 }
-?>
-

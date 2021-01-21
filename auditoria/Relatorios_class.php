@@ -165,7 +165,7 @@ class Cardes extends Relatorioserros
             echo $html;
         }
     }
-    
+
 
     public function quantidadeDivergente()
     {
@@ -262,19 +262,12 @@ class Cardes extends Relatorioserros
     public function ErrosDoMes()
     {
 
-        if ($this->filialCards === 'Filial') {
-            $pdo = parent::get_instace();
-            $slq = "SELECT * FROM tb_erros_auditoria where data = '' ";
-            $slq = $pdo->prepare($slq);
-            $slq->execute();
-            $resul =  $slq->rowCount();
-            $html = "<div style='color:red'> $resul</div>";
-            echo $html;
-        } else {
-
+        if (empty($this->filial) || $this->filial === 'Filial') {
+            echo $this->filial;
+            $mes = date('m');
             $dt = date('Y-m-d');
             $pdo = parent::get_instace();
-            $slq = "SELECT * FROM tb_erros_auditoria WHERE data = Month($dt) = '01'  and filial Like '%" . $this->filialCards . "%'   ";
+            $slq = "SELECT * FROM tb_erros_auditoria WHERE  Month(data) = $mes and filial Like '%" . $this->filialCards . "%' ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
             $resul =  $slq->rowCount();
@@ -293,5 +286,19 @@ class Cardes extends Relatorioserros
         } else {
             $this->filialCards = false;
         }
+    }
+
+
+    public function relatorioDedesconto()
+    {
+
+        $pdo = parent::get_instace();
+        $slq = "SELECT * FROM tb_erros_auditoria WHERE    ";
+        $slq = $pdo->prepare($slq);
+        $slq->execute();
+        $resul =  $slq->rowCount();
+        $html = "<div style='color:red'> $resul</div>";
+        echo $html;
+    
     }
 }
