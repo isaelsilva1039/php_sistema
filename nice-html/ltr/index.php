@@ -2,6 +2,21 @@
 session_start();
 require_once '../../model/Class.configue.php';
 $contaRe = new Validacao();
+// se caso o usuario não tiver o perfil diferente do numero 1 (master)ele e redirecionado pra sua pagina de orige
+if ($_SESSION['nivel'] === '1') {
+
+    // header("location: ../nice-html/ltr/index.php");
+} elseif ($_SESSION['nivel'] === '2') {
+
+    header("location: ../auditoria/painel_adm.auditoria.php");
+
+} elseif ($_SESSION['nivel'] === '3') {
+
+    header("location: ../../auditoria/painel_adm_auditoria_supervisor.php");
+} else {
+    echo "Não deu certo ";
+}
+
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">

@@ -1,21 +1,22 @@
 <?php
-
 require('../controlle/controla_sessao.php');
+
 if ($_SESSION['nivel'] === '1') {
 
     header("location: ../nice-html/ltr/index.php");
 
 } elseif ($_SESSION['nivel'] === '2') {
 
-    // header("location: ../auditoria/painel_adm.auditoria.php");
+    header("location: ../auditoria/painel_adm.auditoria.php");
 
 } elseif ($_SESSION['nivel'] === '3') {
-    
-    header("location: painel_adm_auditoria_supervisor.php");
+
+    // header("location: painel_adm_auditoria_supervisor.php");
+
 } else {
+
     echo "Não deu certo ";
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -151,7 +152,7 @@ if ($_SESSION['nivel'] === '1') {
                 </div>
             </nav>
         </header>
-        <?php include 'painel.php'; ?>
+        <?php include 'paginas_supervisor_mostra.php'; ?>
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->

@@ -20,7 +20,9 @@ if ($sql->rowCount() > 0) {
 	} elseif ($_SESSION['nivel'] === '2') {
 
 		header("location: ../auditoria/painel_adm.auditoria.php");
-	}else {
+	} elseif ($_SESSION['nivel'] === '3') {
+		header("location: ../auditoria/painel_adm_auditoria_supervisor.php");
+	} else {
 		echo "Não deu certo ";
 	}
 } else {
