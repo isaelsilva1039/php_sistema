@@ -182,6 +182,7 @@ $Obj = new Relatorioserros();
                                                         <select name="limite" style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">
                                                             <!-- <option selected...> Qunatidade A Mostra </option> -->
                                                             <option value="todos"> Todos </option>
+                                                            <option value="1000000000000000000"> Todos Registros </option>
                                                             <option style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">5</option>
                                                             <option style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">10</option>
                                                             <option style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">20</option>
@@ -195,9 +196,7 @@ $Obj = new Relatorioserros();
 
                                                         <input class="campoBusca" name="datainicial" type="date" placeholder="Busca " style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">
                                                         <!-- <input class="campoBusca" name="dataFim" type="date" placeholder="Busca " style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;"> -->
-
-
-
+                                                        
                                                         <input type="submit" name="busca" class="btn btn-primary" style="border-radius: 30px; height: 38px; " value="Filtra">
 
 

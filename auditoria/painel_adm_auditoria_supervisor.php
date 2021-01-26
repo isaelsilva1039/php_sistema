@@ -244,7 +244,7 @@ if ($_SESSION['nivel'] === '1') {
 
 
                                     ?>
-                                    <form method="GET" action="painel_adm.auditoria.php">
+                                    <form method="GET" action="painel_adm_auditoria_supervisor.php">
                                         <ennter>
                                             <div class="col-5 align-self-center" style="float:left;width:1200px ">
                                                 <label>Selecione a filial</label>

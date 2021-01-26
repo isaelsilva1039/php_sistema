@@ -243,7 +243,8 @@ $contaRe = new Validacao();
                                                     <div class="col-sm-12">
                                                         <select class="form-control form-control-line" name="nivel">
                                                             <option value="1">Master</option>
-                                                            <option value="2">Auditoria</option>
+                                                            <option value="2">Conferente</option>
+                                                            <option value="3">Supervisor</option>
                                                         </select>
                                                     </div>
                                                 </div>

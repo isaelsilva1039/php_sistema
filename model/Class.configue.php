@@ -147,12 +147,7 @@ class Validacao extends Conexao
 
             echo "<script>alert('Cadastrado Com sucesso ');window.location='../nice-html/ltr/usuarios.php'; </script>";
         } else {
-
-            var_dump($this->nome);
-            var_dump($this->email);
-            var_dump($this->senha);
-            var_dump($this->nivel);
-            // echo "<script>alert('Nao cadastrado ');window.location='../nice-html/ltr/usuarios.php'; </script>";
+            echo "<script>alert('Usuario não cadastrado ');window.location='../nice-html/ltr/usuarios.php'; </script>";
         }
     }
 
