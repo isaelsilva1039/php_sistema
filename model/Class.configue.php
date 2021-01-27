@@ -31,15 +31,16 @@ class Validacao extends Conexao
         }
     }
 
-    // perfil
-    public function perfil()
-    {
 
+    // perfil
+    public function perfil($idUsuarioLogadoSession)
+    {
+        
         $pdo = parent::get_instace();
-        $sql = "SELECT * FROM tb_login WHERE id = 0";
+        $sql = "SELECT * FROM tb_login WHERE id = $idUsuarioLogadoSession ";
         $sql = $pdo->prepare($sql);
         $sql->execute();
-        return $sql->fetch();
+        return $sql->fetchAll();
     }
 
     //metodo para cadastra apartamento 

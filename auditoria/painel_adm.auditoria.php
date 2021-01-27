@@ -4,13 +4,12 @@ require('../controlle/controla_sessao.php');
 if ($_SESSION['nivel'] === '1') {
 
     header("location: ../nice-html/ltr/index.php");
-
 } elseif ($_SESSION['nivel'] === '2') {
 
     // header("location: ../auditoria/painel_adm.auditoria.php");
 
 } elseif ($_SESSION['nivel'] === '3') {
-    
+
     header("location: painel_adm_auditoria_supervisor.php");
 } else {
     echo "Não deu certo ";
@@ -28,26 +27,15 @@ if ($_SESSION['nivel'] === '1') {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/logo-mateus.ico">
     <title>Adutoria Wms - Grupo Mateus</title>
-    <!-- Custom CSS -->
     <link href="../nice-html/ltr/cssmanipulado.css" rel="stylesheet">
     <link href="../nice-html/ltr/cads.css" rel="stylesheet">
     <link href="../dist/css/style.min.css" rel="stylesheet">
-    <!-- <link href="style.css" rel="stylesheet"> -->
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
+   
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
@@ -137,9 +125,10 @@ if ($_SESSION['nivel'] === '1') {
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                            <label></label> <?php echo $_SESSION['nome'] ?> </label>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/conferente.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                <a class="dropdown-item" href="../nice-html/ltr/pages-profile.php"><i class="ti-user m-r-5 m-l-5"></i> Meu Perfil</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
                             </div>
