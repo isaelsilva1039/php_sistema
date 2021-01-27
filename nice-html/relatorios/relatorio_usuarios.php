@@ -148,27 +148,27 @@ $contaRe = new Validacao();
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../ltr/index.php" aria-expanded="false">
                                 <i class="mdi mdi-av-timer"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="usuarios.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../ltr/usuarios.php" aria-expanded="false">
                                 <i class="mdi mdi-account-key"></i>
                                 <span class="hide-menu">Usuario</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../relatorios/relatorio_usuarios.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="relatorio_usuarios.php" aria-expanded="false">
                                 <i class="mdi mdi-account-switch"></i>
                                 <span class="hide-menu">Relatorio Usuario</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="usuarios.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
                                 <i class="mdi mdi-account-edit"></i>
                                 <span class="hide-menu">Permiçoes </span>
                             </a>
@@ -213,47 +213,51 @@ $contaRe = new Validacao();
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="nomecard">Cadastra Novo Uusario</div>
                             <form method="POST" action="../../controlle/controle_cadastro_usuario.php">
                                 <div class="col-lg-8 col-xlg-9 col-md-7">
                                     <div class="card">
                                         <div class="card-body">
-                                            <form class="form-horizontal form-material">
-                                                <div class="form-group">
-                                                    <label class="col-md-12">Nome</label>
-                                                    <div class="col-md-12">
-                                                        <input type="text" name="nome" placeholder="Nome..." class="form-control form-control-line">
+                                        <h4 class="card-title">Relatorio usuarios</h4>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Id</th>
+                                                <th scope="col">Nome</th>
+                                                <th scope="col">E-email</th>
+                                                <th scope="col">Senha</th>
+                                                <th scope="col">Nivel</th>
+                                                <th scope="col">Açoes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>@mdo</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>@fat</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Larry</td>
+                                                <td>the Bird</td>
+                                                <td>@twitter</td>
+                                                <td>@twitter</td>
+                                                <td>@twitter</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
 
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="example-email" class="col-md-12">Email</label>
-                                                    <div class="col-md-12">
-                                                        <input type="email" placeholder="E-mail..." class="form-control form-control-line" name="email" id="example-email">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-12">Senha</label>
-                                                    <div class="col-md-12">
-                                                        <input type="text" class="form-control form-control-line" class="senha" name="senha">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-12">Nivel do Usuario</label>
-                                                    <div class="col-sm-12">
-                                                        <select class="form-control form-control-line" name="nivel">
-                                                            <option value="1">Master</option>
-                                                            <option value="2">Conferente</option>
-                                                            <option value="3">Supervisor</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-sm-12">
-                                                        <button class="btn btn-success">Cadastra</button>
-                                                    </div>
-                                                </div>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>

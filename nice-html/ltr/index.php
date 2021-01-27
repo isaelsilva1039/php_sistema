@@ -346,11 +346,6 @@ if ($_SESSION['nivel'] === '1') {
                             </div>
                         </div>
                     </div>
-
-
-                    <!-- Cards contas a paga e receber geral -->
-
-
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
