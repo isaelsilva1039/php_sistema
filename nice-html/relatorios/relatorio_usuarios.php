@@ -202,7 +202,7 @@ session_start();
                                                 <td><?php echo $usuariosRelatorios['id'] ?></td>
                                                 <td><?php echo $usuariosRelatorios['nome'] ?></td>
                                                 <td><?php echo $usuariosRelatorios['email'] ?></td>
-                                                <td><?php echo $usuariosRelatorios['senha'] ?></td>
+                                                <td><?php echo "**********" ?></td>
                                                 <td><?php echo $usuariosRelatorios['nivel'] ?></td>
                                                 
                                                 
