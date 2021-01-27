@@ -1,7 +1,5 @@
 <?php
 session_start();
-require_once '../../model/Class.configue.php';
-$contaRe = new Validacao();
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -22,9 +20,9 @@ $contaRe = new Validacao();
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 </head>
 
 <body>
@@ -74,27 +72,12 @@ $contaRe = new Validacao();
                             </span>
                         </a>
                     </div>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- Toggle which is visible on mobile only -->
-                    <!-- ============================================================== -->
                     <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="ti-more"></i>
                     </a>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin6">
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
                     <ul class="navbar-nav float-left mr-auto">
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
                         <li class="nav-item search-box">
                             <a class="nav-link waves-effect waves-dark" href="javascript:void(0)">
                                 <div class="d-flex align-items-center">
@@ -112,35 +95,20 @@ $contaRe = new Validacao();
                             </form>
                         </li>
                     </ul>
-                    <!-- ============================================================== -->
-                    <!-- Right side toggle and nav items -->
-                    <!-- ============================================================== -->
                     <ul class="navbar-nav float-right">
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                            <label></label> <?php echo $_SESSION['nome'] ?> </label>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/conferente.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="pages-profile.php"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                <a class="dropdown-item" href="../ltr/pages-profile.php"><i class="ti-user m-r-5 m-l-5"></i> Meu Perfil</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
                             </div>
                         </li>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
                     </ul>
                 </div>
             </nav>
         </header>
-
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
         <aside class="left-sidebar" data-sidebarbg="skin5">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
@@ -213,70 +181,54 @@ $contaRe = new Validacao();
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <form method="POST" action="../../controlle/controle_cadastro_usuario.php">
-                                <div class="col-lg-8 col-xlg-9 col-md-7">
-                                    <div class="card">
-                                        <div class="card-body">
-                                        <h4 class="card-title">Relatorio usuarios</h4>
-                                <div class="table-responsive">
-                                    <table class="table">
+                            <div class="card-body">
+                                <div class="table-responsive m-t-20">
+                                    <table class="table table-bordered table-responsive-lg">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Id</th>
                                                 <th scope="col">Nome</th>
-                                                <th scope="col">E-email</th>
+                                                <th scope="col">email</th>
                                                 <th scope="col">Senha</th>
                                                 <th scope="col">Nivel</th>
-                                                <th scope="col">Açoes</th>
                                             </tr>
                                         </thead>
+                                        <?php include 'Class.relatorios.php';
+                                        $relatorios = new Relatorios();
+                                        foreach ($relatorios->relatorioUsuariosSistamaWmsCondominio() as $usuariosRelatorios) :
+                                        ?>
                                         <tbody>
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                                <td>@fat</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                                <td>@twitter</td>
-                                                <td>@twitter</td>
+                                                <td><?php echo $usuariosRelatorios['id'] ?></td>
+                                                <td><?php echo $usuariosRelatorios['nome'] ?></td>
+                                                <td><?php echo $usuariosRelatorios['email'] ?></td>
+                                                <td><?php echo $usuariosRelatorios['senha'] ?></td>
+                                                <td><?php echo $usuariosRelatorios['nivel'] ?></td>
+                                                
+                                                
                                             </tr>
                                         </tbody>
+                                        <?php endforeach;?>
                                     </table>
-
-                                        </div>
-                                    </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
-                <!-- Bootstrap tether Core JavaScript -->
-                <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-                <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-                <!-- slimscrollbar scrollbar JavaScript -->
-                <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
-                <!--Wave Effects -->
-                <script src="../../dist/js/waves.js"></script>
-                <!--Menu sidebar -->
-                <script src="../../dist/js/sidebarmenu.js"></script>
-                <!--Custom JavaScript -->
-                <script src="../../dist/js/custom.min.js"></script>
+            </div>
+        </div>
+        <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
+        <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- slimscrollbar scrollbar JavaScript -->
+        <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
+        <!--Wave Effects -->
+        <script src="../../dist/js/waves.js"></script>
+        <!--Menu sidebar -->
+        <script src="../../dist/js/sidebarmenu.js"></script>
+        <!--Custom JavaScript -->
+        <script src="../../dist/js/custom.min.js"></script>
 </body>
 
 </html>

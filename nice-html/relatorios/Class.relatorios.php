@@ -71,7 +71,7 @@ class Relatorios extends Conexao {
         if ($sql->rowCount() > 0) :
             echo "<script>alert('Historico Feito');window.location='relatorio_funcionarios.php'; </script>";
         else :
-           echo "<script>alert('Não crior Historico');window.location='relatorio_funcionarios.php'; </script>";
+            echo "<script>alert('Não crior Historico');window.location='relatorio_funcionarios.php'; </script>";
         endif;
     }
 
@@ -101,7 +101,7 @@ class Relatorios extends Conexao {
         $sql->bindValue(":id", $id);
         $sql->execute();
         foreach ($sql->fetchAll() as $lista) {
-            
+
             $id = $lista['id'];
             $nome_completo = $lista['nome_completo'];
             $cpf = $lista['cpf'];
@@ -110,12 +110,10 @@ class Relatorios extends Conexao {
             $apartamento = $lista['apartamento'];
             $nivel = $lista['nivel'];
             $aluguel = $lista['aluguel'];
-        
         }
 
         $this->historicoDeleteMoraador($nome_completo, $cpf, $entrada, $bloco, $apartamento, $nivel, $aluguel);
         $this->deletaMorador($id);
-  
     }
 
     public function historicoDeleteMoraador($nome_completo, $cpf, $entrada, $bloco, $apartamento, $nivel, $aluguel) {
@@ -123,13 +121,13 @@ class Relatorios extends Conexao {
         $sql = "INSERT INTO tb_historico_delete_morador(nome_completo,cpf,entrada,bloco,apartamento,nivel,aluguel)
         values(:nome_completo,:cpf,:entrada,:bloco,:apartamento,:nivel,:aluguel)";
         $sql = $pdo->prepare($sql);
-        $sql->bindValue(":nome_completo",$nome_completo);
+        $sql->bindValue(":nome_completo", $nome_completo);
         $sql->bindValue(":cpf", $cpf);
-        $sql->bindValue(":entrada",$entrada);
-        $sql->bindValue(":bloco",$bloco);
-        $sql->bindValue(":apartamento",$apartamento);
-        $sql->bindValue(":nivel",$nivel);
-        $sql->bindValue(":aluguel",$aluguel);
+        $sql->bindValue(":entrada", $entrada);
+        $sql->bindValue(":bloco", $bloco);
+        $sql->bindValue(":apartamento", $apartamento);
+        $sql->bindValue(":nivel", $nivel);
+        $sql->bindValue(":aluguel", $aluguel);
         $sql->execute();
         if ($sql->rowCount() > 0):
             echo "<script>alert('Historico Feito');window.location='relatorio_moradores.php'; </script>";
@@ -148,14 +146,13 @@ class Relatorios extends Conexao {
         }
     }
 
-    public function editaFuncionario($nome_completo,$cargo,$cpf,$data_entrada_admisao,$horario,$salario)
-    {
+    public function editaFuncionario($nome_completo, $cargo, $cpf, $data_entrada_admisao, $horario, $salario) {
         $pdo = parent::get_instace();
         $sql = "UPDATE tb_cadastro_funcionario SET nome_completo=:nome_completo,  data_entrada_admisao=:data_entrada_admisao,cargo=:cargo, 
         salario =:salario, 
         horario=:horario
         WHERE cpf=$cpf ";
-        $sql = $pdo->prepare($sql); 
+        $sql = $pdo->prepare($sql);
         $sql->bindValue(":nome_completo", $nome_completo);
         $sql->bindValue(":data_entrada_admisao", $data_entrada_admisao);
         $sql->bindValue(":cargo", $cargo);
@@ -163,13 +160,12 @@ class Relatorios extends Conexao {
         $sql->bindValue(":horario", $horario);
         $sql->execute();
         if ($sql->rowCount() > 0) {
-            
+
             $_SESSION['mensagem'] = "Editado com sucesso ";
             $this->mesagenConcluido();
             header("location: relatorio_funcionarios.php");
             // echo "<script>alert('Update feito');window.location='relatorio_funcionarios.php'; </script>";
-        }
-        else{
+        } else {
 
             $_SESSION['mensagem'] = "Editado com sucesso ";
             $this->mesagenErro();
@@ -178,23 +174,26 @@ class Relatorios extends Conexao {
         }
     }
 
-    public function mesagenConcluido()
-    {
-        if(isset($_SESSION["mensagem"])):
+    public function mesagenConcluido() {
+        if (isset($_SESSION["mensagem"])):
             print $_SESSION["mensagem"];
             unset($_SESSION["mensagem"]);
-          endif;
-          
+        endif;
+    }
+
+    public function mesagenErro() {
+        if (isset($_SESSION["mensagem"])):
+            print $_SESSION["mensagem"];
+            unset($_SESSION["mensagem"]);
+        endif;
     }
     
-    public function mesagenErro()
-    {   
-        if(isset($_SESSION["mensagem"])):
-            print $_SESSION["mensagem"];
-            unset($_SESSION["mensagem"]);
-          endif;
-         
-        
+    public function relatorioUsuariosSistamaWmsCondominio() {
+        $pdo = parent::get_instace();
+        $consultaBancoDedadosMysl = "SELECT * FROM  tb_login";
+        $consultaBancoDedadosMysl = $pdo->prepare($consultaBancoDedadosMysl);
+        $consultaBancoDedadosMysl->execute();
+        return $consultaBancoDedadosMysl->fetchAll();
     }
 
 }
