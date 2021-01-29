@@ -1,7 +1,4 @@
 <?php
-session_start();
-
-
 include 'Class.relatorios.php';
 include '../ltr/controle_sesao.php';
 $relatrofuncionarios = new Relatorios();
