@@ -191,24 +191,43 @@ session_start();
                                                 <th scope="col">email</th>
                                                 <th scope="col">Senha</th>
                                                 <th scope="col">Nivel</th>
+                                                <th scope="col">Açoes</th>
                                             </tr>
                                         </thead>
                                         <?php include 'Class.relatorios.php';
                                         $relatorios = new Relatorios();
                                         foreach ($relatorios->relatorioUsuariosSistamaWmsCondominio() as $usuariosRelatorios) :
                                         ?>
-                                        <tbody>
-                                            <tr>
-                                                <td><?php echo $usuariosRelatorios['id'] ?></td>
-                                                <td><?php echo $usuariosRelatorios['nome'] ?></td>
-                                                <td><?php echo $usuariosRelatorios['email'] ?></td>
-                                                <td><?php echo "**********" ?></td>
-                                                <td><?php echo $usuariosRelatorios['nivel'] ?></td>
-                                                
-                                                
-                                            </tr>
-                                        </tbody>
-                                        <?php endforeach;?>
+                                            <tbody>
+                                                <tr>
+                                                    <td><?php echo $usuariosRelatorios['id'] ?></td>
+                                                    <td><?php echo $usuariosRelatorios['nome'] ?></td>
+                                                    <td><?php echo $usuariosRelatorios['email'] ?></td>
+                                                    <td><?php
+                                                        if ($_SESSION['id'] === $usuariosRelatorios['id']) {
+                                                            echo $usuariosRelatorios['senha'];
+                                                        } else {
+                                                            echo "*******";
+                                                        }
+                                                        ?></td>
+                                                    <td><?php echo $usuariosRelatorios['nivel'] ?></td>
+                                                    <td>
+                                                        <i class="ed mdi mdi-border-color"></i>
+                                                        <i class="ma mdi mdi-delete"></i>
+                                                    </td>
+                                                    <style>
+                                                        .ma {
+                                                            color: red;
+                                                        }
+
+                                                        .ed {
+                                                            color: green;
+                                                        }
+                                                    </style>
+
+                                                </tr>
+                                            </tbody>
+                                        <?php endforeach; ?>
                                     </table>
                                 </div>
                             </div>
