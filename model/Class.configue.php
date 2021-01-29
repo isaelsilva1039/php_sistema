@@ -11,6 +11,11 @@ class Validacao extends Conexao
     public $email;
     public $senha;
     public $nivel;
+    public $idUsuario;
+    public $nomeUsuario;
+    public $emailUsuario;
+    public $senhaUsuario;
+
 
     //metodo para validar o loogin 
     public function validaLog($email, $senha)
@@ -35,7 +40,7 @@ class Validacao extends Conexao
     // perfil
     public function perfil($idUsuarioLogadoSession)
     {
-        
+
         $pdo = parent::get_instace();
         $sql = "SELECT * FROM tb_login WHERE id = $idUsuarioLogadoSession ";
         $sql = $pdo->prepare($sql);
@@ -224,5 +229,24 @@ class Validacao extends Conexao
         $sql = $pdo->prepare($sql);
         $sql->execute();
         return $sql->rowCount();
+    }
+
+    public function uoDatePerfilUsuarioLogado()
+    {
+        $this->idUsuario;
+        $this->nomeUsuario;
+        $this->emailUsuario;
+        $this->senhaUsuario;
+
+        $pdo = parent::get_instace();
+            $sql_update_banco_dados = "UPDATE tb_login SET  nome = '$this->nomeUsuario' , email = '$this->emailUsuario', senha = '$this->senhaUsuario' WHERE tb_login .id = $this->idUsuario";
+                $sql_update_banco_dados = $pdo->prepare($sql_update_banco_dados);
+                    $sql_update_banco_dados->execute();
+                        if($sql_update_banco_dados->rowCount() > 0){
+                            echo "<script>alert('Usuario Alterado Com Sucesso');window.location='../nice-html/ltr/pages-profile.php'; </script>";
+                         }else{
+                            echo "<script>alert('Erro ao altera perfil');window.location='../nice-html/ltr/pages-profile.php'; </script>";
+                        }
+
     }
 }

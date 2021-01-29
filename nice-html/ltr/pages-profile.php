@@ -192,32 +192,33 @@ $perfil = new Validacao();
                 <div class="col-lg-8 col-xlg-9 col-md-7">
                     <div class="card">
                         <div class="card-body">
-                            <form class="form-horizontal form-material">
+                            <form class="form-horizontal form-material" method="POST" action="../../controlle/controle_update_perfil.php">
                                 <div class="form-group">
                                     <?php
                                     $usuariologadosistaemsesseion = $_SESSION['id'];
                                     foreach ($perfil->perfil($usuariologadosistaemsesseion) as $per) : ?>
                                         <label class="col-md-12">Nome</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Johnathan Doe" disabled="" class="form-control form-control-line" value="<?php echo $per['nome'] ?>">
+                                            <input type="text" placeholder="Johnathan Doe"  name="nome" class="form-control form-control-line" value="<?php echo $per['nome'] ?>">
+                                            <input type="text"  name="id" hidden  class="form-control form-control-line" value="<?php echo $per['id'] ?>">
                                         </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="example-email" class="col-md-12">Email</label>
                                     <div class="col-md-12">
-                                        <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email" disabled="" value="<?php echo $per['email']  ?>">
+                                        <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="email"  value="<?php echo $per['email']  ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-12">Password</label>
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control form-control-line" disabled="" value="<?php echo $per['senha'] ?>">
+                                        <input type="text" class="form-control form-control-line" name="senha" value="<?php echo $per['senha'] ?>">
                                     </div>
                                 </div>
                             <?php endforeach; ?>
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <button class="btn btn-success">Update Profile</button>
+                                    <button class="btn btn-success">Salva</button>
                                 </div>
                             </div>
                             </form>

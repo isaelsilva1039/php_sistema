@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+session_start();
+?>
+
 <html dir="ltr" lang="en">
 
 <head>
@@ -116,9 +120,9 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <label></label> <?php echo $_SESSION['nome'] ?> </label>
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/conferente.jpg" alt="user" class="rounded-circle" width="31"></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/conferente.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="../nice-html/ltr/pages-profile.php"><i class="ti-user m-r-5 m-l-5"></i> Meu Perfil</a>
+                                <a class="dropdown-item" href="pages-profile.php"><i class="ti-user m-r-5 m-l-5"></i> Meu Perfil</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
                             </div>
@@ -205,13 +209,13 @@
                                             <h5>Bloco</h5>
                                         </label><BR>
                                         <select name="bloco" class="caixa_de_selesao">
-                                            <option  value="00">selecionar</option>
-                                            <option  value="Bloco 1">Bloco 1</option>
-                                            <option  value="Bloco 2">Bloco 2</option>
-                                            <option  value="Bloco 3">Bloco 3</option>
-                                            <option  value="Bloco 4">Bloco 4</option>
-                                            <option  value="Bloco 5">Bloco 5</option>
-                                            <option  value="Bloco 6">Bloco 6</option>
+                                            <option value="00">selecionar</option>
+                                            <option value="Bloco 1">Bloco 1</option>
+                                            <option value="Bloco 2">Bloco 2</option>
+                                            <option value="Bloco 3">Bloco 3</option>
+                                            <option value="Bloco 4">Bloco 4</option>
+                                            <option value="Bloco 5">Bloco 5</option>
+                                            <option value="Bloco 6">Bloco 6</option>
                                         </select>
                                     </div>
 
