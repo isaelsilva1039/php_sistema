@@ -26,5 +26,5 @@ if ($sql->rowCount() > 0) {
 		echo "Não deu certo ";
 	}
 } else {
-	header("location: ../index.php");
+	header("location: ../index.php?erro");
 }

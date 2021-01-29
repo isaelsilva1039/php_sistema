@@ -233,10 +233,6 @@ class Validacao extends Conexao
 
     public function uoDatePerfilUsuarioLogado()
     {
-        $this->idUsuario;
-        $this->nomeUsuario;
-        $this->emailUsuario;
-        $this->senhaUsuario;
 
         $pdo = parent::get_instace();
             $sql_update_banco_dados = "UPDATE tb_login SET  nome = '$this->nomeUsuario' , email = '$this->emailUsuario', senha = '$this->senhaUsuario' WHERE tb_login .id = $this->idUsuario";
