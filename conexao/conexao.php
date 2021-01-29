@@ -1,5 +1,5 @@
-  
 <?php
+
 // try {
 //     $conn = new  PDO("mysql:dbname=de_volta;host=localhost", "root", "");
 //     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
