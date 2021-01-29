@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
-session_start();
+
+include 'controle_sesao.php';
+
 ?>
 
 <html dir="ltr" lang="en">

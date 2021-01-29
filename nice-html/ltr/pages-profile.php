@@ -1,7 +1,10 @@
 <?php
-session_start();
+
 // include'../../conexao/conexao.php';
+include 'controle_sesao.php';
+
 include '../../model/Class.configue.php';
+
 $perfil = new Validacao();
 
 ?>

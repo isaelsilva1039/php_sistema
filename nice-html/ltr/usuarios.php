@@ -1,7 +1,9 @@
 <?php
-session_start();
+include 'controle_sesao.php';
+
 require_once '../../model/Class.configue.php';
 $contaRe = new Validacao();
+
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">

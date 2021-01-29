@@ -1,5 +1,7 @@
 <?php
 session_start();
+include '../ltr/controle_sesao.php';
+
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">

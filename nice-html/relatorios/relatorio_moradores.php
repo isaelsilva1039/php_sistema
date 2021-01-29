@@ -1,6 +1,8 @@
 <?php
 include 'Class.relatorios.php';
 $relatrofuncionarios = new Relatorios();
+include '../ltr/controle_sesao.php';
+
 @$cargo = $_GET['cargo'];
 $filtro_cargo = new  Relatorios();
 if (empty($cargo) || !isset($cargo)) {
