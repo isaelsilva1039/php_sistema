@@ -10,13 +10,10 @@ class ErosLn extends Conexao
     {
 
         if ($filial == 'Filial') {
-
             echo "<script>alert('Preecha o campo Filial ');window.location='lanca_erro.php?Filial'; </script>";
         } elseif ($cidade == 'Cidade') {
-
             echo "<script>alert('Preecha o campo Cidade ');window.location='lanca_erro.php?Filial'; </script>";
         } elseif ($rua == 'Rua') {
-
             echo "<script>alert('Preecha o campo Rua ');window.location='lanca_erro.php?Filial'; </script>";
         } elseif ($tipoerro == 'Erro') {
             echo "<script>alert('Selecione o tipo de erro  ');window.location='lanca_erro.php?Filial'; </script>";
@@ -41,7 +38,7 @@ class ErosLn extends Conexao
     public function cadastrarerrolancado($usuarioLogado, $filial, $cidade, $rua, $tipoerro, $nomeobjeto, $nomeerrocolaborador, $usuarioerro)
     {
         $datalancamento = date("Y-m-d");
-        
+
         $pdo = parent::get_instace();
         $smts = "INSERT INTO tb_erros_auditoria (usuariologado,data,filial,cidade,rua,tipoerro,nomeobjeto,nomeerrocolaborador,usuarioerro) value (:usuariologado,:data,:filial,:cidade,:rua,:tipoerro,:nomeobjeto,:nomeerrocolaborador,:usuarioerro)";
         $smts = $pdo->prepare($smts);
