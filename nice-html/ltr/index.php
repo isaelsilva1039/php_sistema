@@ -135,7 +135,9 @@ if ($_SESSION['nivel'] === '1') {
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <label></label> <?php echo $_SESSION['nome'] ?> </label>
+                            <label style="margin-right: 15px;"> <a href="https://www.instagram.com/isael.duarteof/"> <img class="insta" src="../../assets/images/users/instagram.png"> </a>  </label>
+                            <label style="margin-right: 100px;"> <a href="https://github.com/isaelsilva1039"> <img class="insta" src="../../assets/images/users/github.png"> </a>  </label>
+                            <label><?php echo $_SESSION['nome'] ?> </label>
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/conferente.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
                                 <a class="dropdown-item" href="pages-profile.php"><i class="ti-user m-r-5 m-l-5"></i> Meu Perfil</a>
@@ -150,7 +152,13 @@ if ($_SESSION['nivel'] === '1') {
                 </div>
             </nav>
         </header>
-
+            <style>
+            .insta{
+                height: 30px;
+                width: 30px;
+                
+            }
+            </style>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->

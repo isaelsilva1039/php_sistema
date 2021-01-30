@@ -128,12 +128,14 @@ if ($_SESSION['nivel'] === '1') {
                             </form>
                         </li>
                     </ul>
-                    <ul class="navbar-nav float-right">  
+                    <ul class="navbar-nav float-right">
+                        <label style="margin-right: 15px;"> <a href="https://www.instagram.com/isael.duarteof/"> <img class="insta" src="../assets/images/users/instagram.png"> </a> </label>
+                        <label style="margin-right: 100px;"> <a href="https://github.com/isaelsilva1039"> <img class="insta" src="../assets/images/users/github.png"> </a> </label>
                         <li class="nav-item dropdown">
                             <label></label> <?php echo $_SESSION['nome'] ?> </label>
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/supervisor.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                            <a class="dropdown-item" href="../nice-html/ltr/pages-profile.php"><i class="ti-user m-r-5 m-l-5"></i> Meu Perfil</a>
+                                <a class="dropdown-item" href="../nice-html/ltr/pages-profile.php"><i class="ti-user m-r-5 m-l-5"></i> Meu Perfil</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
                             </div>
@@ -145,6 +147,14 @@ if ($_SESSION['nivel'] === '1') {
                 </div>
             </nav>
         </header>
+        <style>
+            .insta {
+                height: 30px;
+                width: 30px;
+                margin-top: 12px;
+
+            }
+        </style>
         <?php include 'paginas_supervisor_mostra.php'; ?>
         <div class="page-wrapper">
             <!-- ============================================================== -->
@@ -406,6 +416,8 @@ if ($_SESSION['nivel'] === '1') {
                                     <div>
                                     </div>
                                 </div>
+
+
                             </div>
                         </div>
                     </div>
