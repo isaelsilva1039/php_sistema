@@ -2,7 +2,6 @@
 
 include('../model/conexao.php');
 
-
 class ErosLn extends Conexao
 {
 
