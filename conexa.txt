@@ -19,3 +19,11 @@ class Conexao{
         return self::$instace;        
     }
 }
+
+
+
+
+
+//////////////////////////////
+select entre datas e filial 
+SELECT * FROM `tb_erros_auditoria` WHERE filial = 252 and data BETWEEN '2021-02-01' and '2021-02-30'

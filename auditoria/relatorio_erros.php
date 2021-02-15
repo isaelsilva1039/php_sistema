@@ -196,8 +196,9 @@ $Obj = new Relatorioserros();
                                                         <input class="campoBusca" name="filial" type="text" placeholder="Busca " style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">
 
                                                         <input class="campoBusca" name="datainicial" type="date" placeholder="Busca " style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">
-                                                        <!-- <input class="campoBusca" name="dataFim" type="date" placeholder="Busca " style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;"> -->
-                                                        
+                                                        <label>  A   </label>
+                                                        <input class="campoBusca" name="dataFim" type="date" placeholder="Busca " style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">
+
                                                         <input type="submit" name="busca" class="btn btn-primary" style="border-radius: 30px; height: 38px; " value="Filtra">
 
 
@@ -242,6 +243,7 @@ $Obj = new Relatorioserros();
                                                                     $Obj->limite();
                                                                     $Obj->Filto();
                                                                     $Obj->datasFiltros();
+                                                                    $Obj->datasFiltrosFim();
 
                                                                     foreach ($Obj->relatorioErrosAuditoriaNoturna() as $relatoerio) :
                                                                         $data = implode("/", array_reverse(explode("-", $relatoerio['data'])));

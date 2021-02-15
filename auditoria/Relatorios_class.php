@@ -11,22 +11,18 @@ class Relatorioserros extends Conexao
     {
         $this->limite;
         $this->filial;
-        // filtro se o limite de paginas for igual a todo e filial não ouver selesão e ouver data: filtro so por data 
-        if ($this->limite === 'todos' && $this->filial === false && $this->dataInicio) {
-
+        if ($this->limite === 'todos' && $this->filial && $this->dataInicio  && $this->dataFim) {
             $pdo = parent::get_instace();
-            $slq = "SELECT * FROM tb_erros_auditoria WHERE data = '$this->dataInicio'  order by id    ";
+            $slq = "SELECT * FROM tb_erros_auditoria WHERE filial = $this->filial and data BETWEEN '$this->dataInicio' and  '$this->dataFim' order by id    ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
             $resul =  "QTD ENCONTRADO :" . $slq->rowCount();
             $html = "<div style='color:red'> $resul</div>";
             echo $html;
             return $slq->fetchAll();
-        }
-        // filtro 
-        if ($this->limite === 'todos' && $this->filial && $this->dataInicio) {
+        } elseif ($this->limite === 'todos' && $this->filial === false && $this->dataInicio  && $this->dataFim) {
             $pdo = parent::get_instace();
-            $slq = "SELECT * FROM tb_erros_auditoria WHERE filial = $this->filial and data = '$this->dataInicio'  order by id    ";
+            $slq = "SELECT * FROM tb_erros_auditoria WHERE  data BETWEEN '$this->dataInicio' and  '$this->dataFim' order by id    ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
             $resul =  "QTD ENCONTRADO :" . $slq->rowCount();
@@ -36,7 +32,6 @@ class Relatorioserros extends Conexao
         }
 
         if ($this->limite == 'todos' && $this->filial === false) {
-
             // $data = date("Y-m-d");
             $dia = date("Y-m-d");
             // $data = implode("/", array_reverse(explode("-", $data)));
@@ -51,6 +46,8 @@ class Relatorioserros extends Conexao
         }
 
         if ($this->limite == 'todos' && isset($this->filial)) {
+            echo $this->dataInicio;
+            echo $this->dataFim;
             $pdo = parent::get_instace();
             $slq = "SELECT * FROM tb_erros_auditoria WHERE filial Like '%" . $this->filial . "%'   ";
             $slq = $pdo->prepare($slq);
@@ -113,6 +110,16 @@ class Relatorioserros extends Conexao
             $this->dataInicio = $datainicial;
         } else {
             $this->dataInicio = false;
+        }
+    }
+
+    public function datasFiltrosFim()
+    {
+        if (@$_GET['dataFim']) {
+            @$dataFim = $_GET['dataFim'];
+            $this->dataFim = $dataFim;
+        } else {
+            $this->dataFim = false;
         }
     }
 }
@@ -299,6 +306,5 @@ class Cardes extends Relatorioserros
         $resul =  $slq->rowCount();
         $html = "<div style='color:red'> $resul</div>";
         echo $html;
-    
     }
 }
