@@ -209,6 +209,10 @@ require('../controlle/controla_sessao.php');
                                                     <option> 253 - Mix Pedreiras Belém </option>
                                                     <option> 254 - Mix Parque dos Carajás </option>
                                                     <option> 255 - Mix Araçagy </option>
+                                                    <option> 252 - MIX TERESINA-NOVAFAPI </option>
+                                                    <option>  97 - MIX TERESINA CEASA </option>
+                                                    <option> 261 - MIX REDENÇÃO </option>
+                                                    <option>  98 - MIX BARRA DO CORDA </option>
                                             </select>
 
                                             <label>Cidade</label>
