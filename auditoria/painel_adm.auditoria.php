@@ -276,6 +276,10 @@ if ($_SESSION['nivel'] === '1') {
                                                         <option value="253 "> 253 - Mix Pedreiras Belém </option>
                                                         <option value="254 "> 254 - Mix Parque dos Carajás </option>
                                                         <option value="255 "> 255 - Mix Araçagy </option>
+                                                       <option> 252 - MIX TERESINA-NOVAFAPI </option>
+                                                        <option> 97 - MIX TERESINA CEASA </option>
+                                                        <option> 261 - MIX REDENÇÃO </option>
+                                                        <option> 98 - MIX BARRA DO CORDA </option>
                                                 </select>
                                             </div>
                                             <br>
