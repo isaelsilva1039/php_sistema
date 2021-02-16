@@ -9,7 +9,9 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <body class="corpo">
-
+  <div class="circulo2">
+    i
+  </div>
   <div class=" fadeInDown ">
     <div id="formContent" class="t form">
       <!-- Tabs Titles -->
@@ -19,8 +21,9 @@
         <!-- <img src= /> -->
       </div>
 
+
       <br>
-      <form method="POST" action="controlle/controle_login.php" >
+      <form method="POST" action="controlle/controle_login.php">
         <input type="text" class="fadeIn second" name="email" placeholder="email">
         <input type="text" class="fadeIn second" name="senha" placeholder="senha">
         <input type="submit" class="fadeIn fourth" value="Log In">
@@ -32,7 +35,6 @@
       </div>
     </div>
     <div class="circulo">
-ssss
     </div>
     <div class="m">
       <img class="img" src="https://raw.githubusercontent.com/giovannamoeller/sign-up-form/aadfbbecbd1c65121767d3630678044b85125763/assets/mobile.svg"> </img>
@@ -50,36 +52,49 @@ ssss
     <?php endif ?>
 
     <style>
-      .t{
+      .t {
         background: #161923;
         float: left;
         margin-top: 190px;
         margin-left: 190px;
-       
+
       }
-      .form{
+
+      .form {
         background: #161923;
       }
+
       .img {
         float: right;
         margin-top: 40px;
         margin-right: 30px;
         /* height: 250px; */
       }
-      .corpo{
-        background:#1b2029;
+
+      .corpo {
+        background: #1b2029;
       }
-      .circulo{
+
+      .circulo {
         position: absolute;
         height: 100%;
         width: 100%;
         top: 0;
         left: 0;
-        background: linear-gradient(45deg, #e8cbc0 , #636fa4);
-        clip-path: circle(40% at right 80% );
+        background: linear-gradient(45deg, #e8cbc0, #636fa4);
+        clip-path: circle(40% at right 80%);
         z-index: -1;
       }
-      
+
+      /* .circulo2{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background: linear-gradient(45deg, #e8cbc0, #636fa4);
+    clip-path: circle(40% at left 120%);
+
+    } */
     </style>
     <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->

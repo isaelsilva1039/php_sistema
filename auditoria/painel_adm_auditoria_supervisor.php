@@ -411,7 +411,7 @@ if ($_SESSION['nivel'] === '1') {
                                             <i class="mdi mdi-cash-usd" style="color:darkslategrey; float:left;color:orangered"></i>
                                         </h3>
                                     </div>
-                                    <h4 style="float: left;margin-left:109px; margin-top:7px">
+                                    <h4 style="float: left;margin-left:80px;">
                                         <?php
                                         $objCars->pegaFilial();
                                         $objCars->ErrosDoMes();
