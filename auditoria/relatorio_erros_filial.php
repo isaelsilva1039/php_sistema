@@ -4,7 +4,8 @@ include('Relatorios_class.php');
 $Obj = new Relatorioserros();
 ?>
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="pt">
+<meta charset="utf-8">
 
 <head>
     <meta charset="utf-8">
@@ -136,7 +137,6 @@ $Obj = new Relatorioserros();
             </nav>
         </header>
         <?php include 'painel.php'; ?>
-        
 
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -151,7 +151,7 @@ $Obj = new Relatorioserros();
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
-                        <h4 class="page-title">Relatorios Erros </h4>
+                        <h4 class="page-title">Relatorios Erros Por Filial </h4>
                     </div>
                     <div class="col-7 align-self-center">
                         <div class="d-flex align-items-center justify-content-end">
@@ -171,51 +171,28 @@ $Obj = new Relatorioserros();
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="nomecard">Relatorio De Erros </div>
+                            <div class="nomecard"> </div>
                             <div class="card-body">
                                 <div class="quadros_dahs shadow p-3 mb-5 bg-white rounded ">
 
                                     <div class="form-group">
                                         <div class="container-fluid">
+                                        </style>
                                             <div cass="card-body">
-
+                                            
                                                 <div class="div_limiteporpagina">
-                                                    <form class="from_filtro1" method="GET" action="relatorio_erros.php">
-                                                        <select name="limite" style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">
-                                                            <!-- <option selected...> Qunatidade A Mostra </option> -->
-                                                            <option value="todos"> Todos </option>
-                                                            <option value="1000000000000000000"> Todos Registros </option>
-                                                            <option style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">5</option>
-                                                            <option style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">10</option>
-                                                            <option style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">20</option>
-                                                            <option style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">30</option>
-                                                            <option style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">40</option>
-                                                            <option style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">50</option>
-                                                            <option style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">60</option>
-                                                            <option style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">70</option>
-                                                        </select>
-                                                        <input class="campoBusca" name="filial" type="text" placeholder="Busca " style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">
-
-                                                        <input class="campoBusca" name="datainicial" type="date" placeholder="Busca " style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">
-                                                        <label>  A   </label>
+                                                
+                                                    <form class="from_filtro1" method="GET" action="relatorio_erros_filial.php">
+                                                        <!-- <option selected...> Qunatidade A Mostra </option> -->
+                                                        <input class="campoBusca" name="datainicial" type="date" placeholder="Busca" style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">
+                                                        <label> A </label>
                                                         <input class="campoBusca" name="dataFim" type="date" placeholder="Busca " style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">
 
                                                         <input type="submit" name="busca" class="btn btn-primary" style="border-radius: 30px; height: 38px; " value="Filtra">
-
-
                                                     </form>
+                                                    
                                                 </div>
-
                                                 <BR>
-
-                                                <!-- campo busca -->
-                                                <!-- <div>
-                                                    <form class="campobuscaLado" method="GET" action="relatorio_erros.php">
-                                                        <input class="campoBusca" name="filial" type="text" placeholder="Busca " style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">
-                                                        <input type="submit" name="busca" class="btn btn-primary" style="border-radius: 30px; height: 38px;" value="Filtra">
-                                                    </form>
-                                                </div> -->
-
                                             </div>
                                             <br>
                                             <div class="row">
@@ -223,67 +200,50 @@ $Obj = new Relatorioserros();
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="table-responsive m-t-20">
+                                                           
                                                                 <table class="table table-bordered table-responsive-lg">
-                                                                    <thead>
+                                                                    <tbody>
                                                                         <tr>
-                                                                            <th scope="col">Id</th>
-                                                                            <th scope="col">Filial</th>
-                                                                            <th scope="col">Cidade</th>
-                                                                            <th scope="col">Rua</th>
-                                                                            <th scope="col">Tipo</th>
-                                                                            <th scope="col">Objeto</th>
-                                                                            <th scope="col">Nome Colaborador </th>
-                                                                            <th scope="col">Usuario Erro</th>
-                                                                            <th scope="col">Usuario Cdastro Erro</th>
-                                                                            <th scope="col">Data</th>
+                                                                            <th scope="col"> Filial </th>
+                                                                            <th scope="col"> Qtd </th>
                                                                         </tr>
-                                                                    </thead>
+                                                                    </tbody>
                                                                     <?php
 
-                                                                    $Obj->relatorioErrosAuditoriaNoturna();
-                                                                    $Obj->limite();
-                                                                    $Obj->Filto();
+                                                                    // $Obj->relatorioErrosAuditoriaNoturna();
+                                                                    // $Obj->limite();
+                                                                    // $Obj->Filto();
                                                                     $Obj->datasFiltros();
                                                                     $Obj->datasFiltrosFim();
 
-                                                                    foreach ($Obj->relatorioErrosAuditoriaNoturna() as $relatoerio) :
-                                                                        $data = implode("/", array_reverse(explode("-", $relatoerio['data'])));
+                                                                    foreach ($Obj->pegaFilialMotraQuantidadeDeerros() as $relatoerio) :
+                                                                        // $data = implode("/", array_reverse(explode("-", $relatoerio['data'])));
+                                                                        // 
                                                                     ?>
                                                                         <tbody>
                                                                             <tr>
-                                                                                <td><?php echo $relatoerio['id'] ?></td>
-                                                                                <td><?php echo $relatoerio['filial'] ?></td>
-                                                                                <td><?php echo $relatoerio['cidade'] ?></td>
-                                                                                <td><?php echo $relatoerio['rua'] ?></td>
-                                                                                <td><?php echo $relatoerio['tipoerro'] ?></td>
-                                                                                <td><?php echo $relatoerio['nomeobjeto'] ?></td>
-                                                                                <td><?php echo $relatoerio['nomeerrocolaborador'] ?></td>
-                                                                                <td><?php echo $relatoerio['usuarioerro'] ?></td>
-                                                                                <td><?php echo $relatoerio['usuariologado'] ?></td>
-                                                                                <td><?php echo $data ?></td>
+                                                                                <td scope="col"> <?PHP echo $relatoerio['filial'] ?> </td>
+                                                                                <td scope="col"> <?PHP echo $somaerro = $relatoerio['Count(*)'] ?> </td>
                                                                             </tr>
                                                                         </tbody>
-                                                                    <?php endforeach; ?>
-                                                                </table>
+                                                                    <?php
+                                                                       
+                                                                    endforeach; ?>
                                                             </div>
                                                         </div>
                                                     </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-                                        <!-- Bootstrap tether Core JavaScript -->
-                                        <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-                                        <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-                                        <!-- slimscrollbar scrollbar JavaScript -->
-                                        <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
-                                        <!--Wave Effects -->
-                                        <script src="../dist/js/waves.js"></script>
-                                        <!--Menu sidebar -->
-                                        <script src="../dist/js/sidebarmenu.js"></script>
-                                        <!--Custom JavaScript -->
-                                        <script src="../dist/js/custom.min.js"></script>
+                                                    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+                                                    <!-- Bootstrap tether Core JavaScript -->
+                                                    <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
+                                                    <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+                                                    <!-- slimscrollbar scrollbar JavaScript -->
+                                                    <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
+                                                    <!--Wave Effects -->
+                                                    <script src="../dist/js/waves.js"></script>
+                                                    <!--Menu sidebar -->
+                                                    <script src="../dist/js/sidebarmenu.js"></script>
+                                                    <!--Custom JavaScript -->
+                                                    <script src="../dist/js/custom.min.js"></script>
 </body>
 
 </html>

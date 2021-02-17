@@ -35,11 +35,13 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../controlle/deslogar.php" aria-expanded="false">
-                        <i class="mdi mdi-alert-outline"></i>
-                        <span class="hide-menu">Sair</span>
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="relatorio_erros_filial.php" aria-expanded="false">
+                        <i class="mdi mdi-content-paste"></i>
+                        <span class="hide-menu">Relatorio Erros Filial</span>
                     </a>
                 </li>
+
+
             </ul>
         </nav>
 

@@ -7,6 +7,39 @@ class Relatorioserros extends Conexao
     public $filial;
     public $dataInicio;
     public $dataFim;
+
+
+    public function pegaFilialMotraQuantidadeDeerros()
+    {
+
+
+        if ($this->dataInicio === false) {
+            $mes = date('m');
+            $pdo = parent::get_instace();
+            $slq = "SELECT filial, Count(*) FROM tb_erros_auditoria
+            where Month(data) = $mes
+            GROUP BY filial HAVING Count(*) > 0  ";
+            $slq = $pdo->prepare($slq);
+            $slq->execute();
+            $resul =  "Qtd Filial :" . $slq->rowCount();
+            $html = "<div style='color:red'> $resul</div>";
+            echo $html;
+            return $slq->fetchAll();
+        } else {
+            echo $this->dataInicio;
+            $pdo = parent::get_instace();
+            $slq = "SELECT filial, Count(*) FROM tb_erros_auditoria
+         where data BETWEEN '$this->dataInicio' and  '$this->dataFim'  GROUP BY filial HAVING Count(*) > 0  ";
+            $slq = $pdo->prepare($slq);
+            $slq->execute();
+            $resul =  "Qtd Filial :" . $slq->rowCount();
+            $html = "<div style='color:red'> $resul</div>";
+            echo $html;
+            return $slq->fetchAll();
+        }
+    }
+
+
     public function relatorioErrosAuditoriaNoturna()
     {
         $this->limite;
@@ -185,6 +218,7 @@ class Cardes extends Relatorioserros
             $html = "<div style='color:red'> $resul</div>";
             echo $html;
         } else {
+
             $pdo = parent::get_instace();
             $slq = "SELECT * FROM tb_erros_auditoria WHERE tipoerro ='Quantidade' and filial Like '%" . $this->filialCards . "%'   ";
             $slq = $pdo->prepare($slq);
