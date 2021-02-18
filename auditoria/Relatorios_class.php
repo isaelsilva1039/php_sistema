@@ -16,9 +16,9 @@ class Relatorioserros extends Conexao
         if ($this->dataInicio === false) {
             $mes = date('m');
             $pdo = parent::get_instace();
-            $slq = "SELECT filial, Count(*) FROM tb_erros_auditoria
-            where Month(data) = $mes
-            GROUP BY filial HAVING Count(*) > 0  ";
+            $slq = "SELECT filial, Count(*) FROM tb_erros_auditoria 
+            where Month(data) = $mes 
+            GROUP BY filial HAVING Count(*) > 0 order by Count(*) desc ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
             $resul =  "Qtd Filial :" . $slq->rowCount();
@@ -29,7 +29,7 @@ class Relatorioserros extends Conexao
             echo $this->dataInicio;
             $pdo = parent::get_instace();
             $slq = "SELECT filial, Count(*) FROM tb_erros_auditoria
-         where data BETWEEN '$this->dataInicio' and  '$this->dataFim'  GROUP BY filial HAVING Count(*) > 0  ";
+         where data BETWEEN '$this->dataInicio' and  '$this->dataFim'  GROUP BY filial HAVING Count(*) > 0 order by Count(*) desc  ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
             $resul =  "Qtd Filial :" . $slq->rowCount();
@@ -38,7 +38,7 @@ class Relatorioserros extends Conexao
             return $slq->fetchAll();
         }
     }
-
+    
 
     public function relatorioErrosAuditoriaNoturna()
     {

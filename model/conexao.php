@@ -41,3 +41,4 @@ class Conexao{
         return self::$instace;        
     }
 }
+  

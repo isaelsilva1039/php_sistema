@@ -16,7 +16,6 @@ class Validacao extends Conexao
     public $emailUsuario;
     public $senhaUsuario;
 
-
     //metodo para validar o loogin 
     public function validaLog($email, $senha)
     {
