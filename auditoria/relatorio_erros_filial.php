@@ -124,7 +124,7 @@ $Obj = new Relatorioserros();
                             <label></label> <?php echo $_SESSION['nome'] ?> </label>
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/conferente.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                            <a class="dropdown-item" href="../nice-html/ltr/pages-profile.php"><i class="ti-user m-r-5 m-l-5"></i> Meu Perfil</a>
+                                <a class="dropdown-item" href="../nice-html/ltr/pages-profile.php"><i class="ti-user m-r-5 m-l-5"></i> Meu Perfil</a>
                                 <!-- <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a> -->
                                 <a class="dropdown-item" href="../controlle/deslogar.php"><i class="mdi mdi-arrow-left-bold-circle"></i> Sair</a>
                             </div>
@@ -167,6 +167,35 @@ $Obj = new Relatorioserros();
                     </div>
                 </div>
             </div>
+            <style>
+                .caixaqtd {
+                    background: linear-gradient(45deg, #e8cbc0, #636fa4);
+                    color: aliceblue;
+                    height: 40px;
+                    width: 100px;
+                    border-radius: 10px;
+                    float: right;
+                }
+
+                .numero {
+                    margin-top: 10px;
+                }
+
+                .caixaqtd2 {
+                    background: linear-gradient(45deg, #e8cbc0, #636fa4);
+                    color: aliceblue;
+                    height: 40px;
+                    width: 100px;
+                    border-radius: 10px;
+                    float: left;
+                }
+
+                .masterqtd {
+                    height: 30px;
+                    width: 215px;
+                }
+            </style>
+
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
@@ -177,11 +206,11 @@ $Obj = new Relatorioserros();
 
                                     <div class="form-group">
                                         <div class="container-fluid">
-                                        </style>
+                                            </style>
                                             <div cass="card-body">
-                                            
+
                                                 <div class="div_limiteporpagina">
-                                                
+
                                                     <form class="from_filtro1" method="GET" action="relatorio_erros_filial.php">
                                                         <!-- <option selected...> Qunatidade A Mostra </option> -->
                                                         <input class="campoBusca" name="datainicial" type="date" placeholder="Busca" style="width: 200px; border: 1px solid gainsboro; border-radius: 40px; height: 40px;">
@@ -190,7 +219,7 @@ $Obj = new Relatorioserros();
 
                                                         <input type="submit" name="busca" class="btn btn-primary" style="border-radius: 30px; height: 38px; " value="Filtra">
                                                     </form>
-                                                    
+
                                                 </div>
                                                 <BR>
                                             </div>
@@ -200,50 +229,64 @@ $Obj = new Relatorioserros();
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="table-responsive m-t-20">
-                                                           
-                                                                <table class="table table-bordered table-responsive-lg">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <th scope="col"> Filial </th>
-                                                                            <th scope="col"> Qtd </th>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                    <?php
 
-                                                                    // $Obj->relatorioErrosAuditoriaNoturna();
-                                                                    // $Obj->limite();
-                                                                    // $Obj->Filto();
-                                                                    $Obj->datasFiltros();
-                                                                    $Obj->datasFiltrosFim();
 
-                                                                    foreach ($Obj->pegaFilialMotraQuantidadeDeerros() as $relatoerio) :
-                                                                        // $data = implode("/", array_reverse(explode("-", $relatoerio['data'])));
-                                                                        // 
-                                                                    ?>
+
+                                                                <div class="masterqtd">
+                                                                    <div class="caixaqtd">
+                                                                        <center>
+                                                                            <?php
+                                                                             $Obj->datasFiltros();
+                                                                             $Obj->datasFiltrosFim();
+                                                                             $Obj->pegaFilialMotraQuantidadeDeerros();
+                                                                             $Obj->getQtdFiltriFilial();
+
+                                                                            ?>
+                                                                            <label class="numero"> <i class="mdi  mdi-check-all"> </i> <?php echo $Obj->getQtdFiltriFilial(); ?> </label>
+                                                                        </center>
+                                                                    </div>
+                                                                    <div class="caixaqtd2">
+                                                                        <center>
+                                                                            <label class="numero"> <i class="mdi mdi-calendar-today"> </i> <?php ?> </label>
+                                                                        </center>
+                                                                    </div>
+                                                                </div><br>
+                                                                    <table class="table table-bordered table-responsive-lg">
                                                                         <tbody>
                                                                             <tr>
-                                                                                <td scope="col"> <?PHP echo $relatoerio['filial'] ?> </td>
-                                                                                <td scope="col"> <?PHP echo $somaerro = $relatoerio['Count(*)'] ?> </td>
+                                                                                <th scope="col"> Filial </th>
+                                                                                <th scope="col"> Qtd </th>
                                                                             </tr>
                                                                         </tbody>
-                                                                    <?php
-                                                                       
-                                                                    endforeach; ?>
+                                                                        <?php
+                                                                        foreach ($Obj->pegaFilialMotraQuantidadeDeerros() as $relatoerio) :
+                                                                            // $data = implode("/", array_reverse(explode("-", $relatoerio['data'])));
+                                                                            // 
+                                                                        ?>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td scope="col"> <?PHP echo $relatoerio['filial'] ?> </td>
+                                                                                    <td scope="col"> <?PHP echo $somaerro = $relatoerio['Count(*)'] ?> </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        <?php
+
+                                                                        endforeach; ?>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-                                                    <!-- Bootstrap tether Core JavaScript -->
-                                                    <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-                                                    <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-                                                    <!-- slimscrollbar scrollbar JavaScript -->
-                                                    <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
-                                                    <!--Wave Effects -->
-                                                    <script src="../dist/js/waves.js"></script>
-                                                    <!--Menu sidebar -->
-                                                    <script src="../dist/js/sidebarmenu.js"></script>
-                                                    <!--Custom JavaScript -->
-                                                    <script src="../dist/js/custom.min.js"></script>
+                                                        <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+                                                        <!-- Bootstrap tether Core JavaScript -->
+                                                        <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
+                                                        <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+                                                        <!-- slimscrollbar scrollbar JavaScript -->
+                                                        <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
+                                                        <!--Wave Effects -->
+                                                        <script src="../dist/js/waves.js"></script>
+                                                        <!--Menu sidebar -->
+                                                        <script src="../dist/js/sidebarmenu.js"></script>
+                                                        <!--Custom JavaScript -->
+                                                        <script src="../dist/js/custom.min.js"></script>
 </body>
 
 </html>

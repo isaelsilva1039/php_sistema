@@ -85,6 +85,7 @@
         clip-path: circle(40% at right 80%);
         z-index: -1;
       }
+      
 
       /* .circulo2{
     position: absolute;

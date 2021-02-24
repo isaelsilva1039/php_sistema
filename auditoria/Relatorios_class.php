@@ -22,10 +22,10 @@ class Relatorioserros extends Conexao {
             $slq->execute();
             $resul = $slq->rowCount();
             $html = $resul;
-            $html;
+            $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
         } else {
-            echo $this->dataInicio;
+            $this->dataInicio;
             $pdo = parent::get_instace();
             $slq = "SELECT filial, Count(*) FROM tb_erros_auditoria
              where data BETWEEN '$this->dataInicio' and  '$this->dataFim'  GROUP BY filial HAVING Count(*) > 0 order by Count(*) desc  ";
@@ -33,7 +33,7 @@ class Relatorioserros extends Conexao {
             $slq->execute();
             $resul = $slq->rowCount();
             $html = $resul;
-            $html;
+            $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
         }
     }
@@ -46,9 +46,10 @@ class Relatorioserros extends Conexao {
             $slq = "SELECT * FROM tb_erros_auditoria WHERE filial = $this->filial and data BETWEEN '$this->dataInicio' and  '$this->dataFim' order by id    ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            var_dump($html = $slq->rowCount());
-            var_dump($this->quantidadeDosFiltrosFilial = $html);
+            $html = $slq->rowCount();
+            $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
+            
         } elseif ($this->limite === 'todos' && $this->filial === false && $this->dataInicio && $this->dataFim) {
             $pdo = parent::get_instace();
             $slq = "SELECT * FROM tb_erros_auditoria WHERE  data BETWEEN '$this->dataInicio' and  '$this->dataFim' order by id    ";
@@ -112,7 +113,7 @@ class Relatorioserros extends Conexao {
             $slq->execute();
             $resul = $slq->rowCount();
             $html = $resul;
-            return $this->quantidadeDosFiltrosFilial = $html;
+             $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
         }
     }
