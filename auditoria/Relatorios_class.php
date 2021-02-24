@@ -1,68 +1,66 @@
 <?php
 
 include('../model/conexao.php');
-class Relatorioserros extends Conexao
-{
+
+class Relatorioserros extends Conexao {
+
     public $limite;
     public $filial;
     public $dataInicio;
     public $dataFim;
+    private $quantidadeDosFiltrosFilial;
 
-
-    public function pegaFilialMotraQuantidadeDeerros()
-    {
-
+    public function pegaFilialMotraQuantidadeDeerros() {
 
         if ($this->dataInicio === false) {
             $mes = date('m');
             $pdo = parent::get_instace();
             $slq = "SELECT filial, Count(*) FROM tb_erros_auditoria 
-            where Month(data) = $mes 
-            GROUP BY filial HAVING Count(*) > 0 order by Count(*) desc ";
+                where Month(data) = $mes 
+                GROUP BY filial HAVING Count(*) > 0 order by Count(*) desc ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  "Qtd Filial :" . $slq->rowCount();
-            $html = "<div style='color:red'> $resul</div>";
-            echo $html;
+            $resul = $slq->rowCount();
+            $html = $resul;
+            $html;
             return $slq->fetchAll();
         } else {
             echo $this->dataInicio;
             $pdo = parent::get_instace();
             $slq = "SELECT filial, Count(*) FROM tb_erros_auditoria
-         where data BETWEEN '$this->dataInicio' and  '$this->dataFim'  GROUP BY filial HAVING Count(*) > 0 order by Count(*) desc  ";
+             where data BETWEEN '$this->dataInicio' and  '$this->dataFim'  GROUP BY filial HAVING Count(*) > 0 order by Count(*) desc  ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  "Qtd Filial :" . $slq->rowCount();
-            $html = "<div style='color:red'> $resul</div>";
-            echo $html;
+            $resul = $slq->rowCount();
+            $html = $resul;
+            $html;
             return $slq->fetchAll();
         }
     }
-    
 
-    public function relatorioErrosAuditoriaNoturna()
-    {
+    public function relatorioErrosAuditoriaNoturna() {
         $this->limite;
         $this->filial;
-        if ($this->limite === 'todos' && $this->filial && $this->dataInicio  && $this->dataFim) {
+        if ($this->limite === 'todos' && $this->filial && $this->dataInicio && $this->dataFim) {
             $pdo = parent::get_instace();
             $slq = "SELECT * FROM tb_erros_auditoria WHERE filial = $this->filial and data BETWEEN '$this->dataInicio' and  '$this->dataFim' order by id    ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  "QTD ENCONTRADO :" . $slq->rowCount();
-            $html = "<div style='color:red'> $resul</div>";
-            echo $html;
+            var_dump($html = $slq->rowCount());
+            var_dump($this->quantidadeDosFiltrosFilial = $html);
             return $slq->fetchAll();
-        } elseif ($this->limite === 'todos' && $this->filial === false && $this->dataInicio  && $this->dataFim) {
+        } elseif ($this->limite === 'todos' && $this->filial === false && $this->dataInicio && $this->dataFim) {
             $pdo = parent::get_instace();
             $slq = "SELECT * FROM tb_erros_auditoria WHERE  data BETWEEN '$this->dataInicio' and  '$this->dataFim' order by id    ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  "QTD ENCONTRADO :" . $slq->rowCount();
-            $html = "<div style='color:red'> $resul</div>";
-            echo $html;
+            $resul = $slq->rowCount();
+            $html = $resul;
+             $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
         }
+
+
 
         if ($this->limite == 'todos' && $this->filial === false) {
             // $data = date("Y-m-d");
@@ -72,9 +70,10 @@ class Relatorioserros extends Conexao
             $slq = "SELECT * FROM tb_erros_auditoria where data ='$dia' ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  "QTD ENCONTRADO :" . $slq->rowCount();
-            $html = "<div style='color:red'> $resul</div>";
-            echo $html;
+            $resul = $slq->rowCount();
+            $html = $resul;
+            $html;
+             $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
         }
 
@@ -85,21 +84,23 @@ class Relatorioserros extends Conexao
             $slq = "SELECT * FROM tb_erros_auditoria WHERE filial Like '%" . $this->filial . "%'   ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  "QTD ENCONTRADO :" . $slq->rowCount();
-            $html = "<div style='color:red'> $resul</div>";
-            echo $html;
+            $resul = $slq->rowCount();
+            $html = $resul;
+            $html;
+             $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
         }
 
-        if (isset($this->filial)  && isset($this->limite)) {
+        if (isset($this->filial) && isset($this->limite)) {
 
             $pdo = parent::get_instace();
             $slq = "SELECT * FROM tb_erros_auditoria WHERE filial Like '%" . $this->filial . "%'   order by id  LIMIT $this->limite  ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  "QTD ENCONTRADO :" . $slq->rowCount();
-            $html = "<div style='color:red'> $resul</div>";
-            echo $html;
+            $resul = $slq->rowCount();
+            $html = $resul;
+            $html;
+             $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
         }
         if (!isset($this->filial) && $this->limite == 'todos' && isset($this->dataInicio)) {
@@ -109,15 +110,14 @@ class Relatorioserros extends Conexao
             $slq = "SELECT * FROM tb_erros_auditoria WHERE filial Like '%" . $this->filial . "%'  AND  data = $this->dataInicio  ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  "QTD ENCONTRADO :" . $slq->rowCount();
-            $html = "<div style='color:red'> $resul</div>";
-            echo $html;
+            $resul = $slq->rowCount();
+            $html = $resul;
+            return $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
         }
     }
 
-    public function limite()
-    {
+    public function limite() {
         if (@$_GET['limite']) {
             @$limite = $_GET['limite'];
             $this->limite = $limite;
@@ -126,8 +126,7 @@ class Relatorioserros extends Conexao
         }
     }
 
-    public function Filto()
-    {
+    public function Filto() {
         if (@$_GET['filial']) {
             @$filial = $_GET['filial'];
             $this->filial = $filial;
@@ -136,8 +135,7 @@ class Relatorioserros extends Conexao
         }
     }
 
-    public function datasFiltros()
-    {
+    public function datasFiltros() {
         if (@$_GET['datainicial']) {
             @$datainicial = $_GET['datainicial'];
             $this->dataInicio = $datainicial;
@@ -146,8 +144,7 @@ class Relatorioserros extends Conexao
         }
     }
 
-    public function datasFiltrosFim()
-    {
+    public function datasFiltrosFim() {
         if (@$_GET['dataFim']) {
             @$dataFim = $_GET['dataFim'];
             $this->dataFim = $dataFim;
@@ -155,23 +152,35 @@ class Relatorioserros extends Conexao
             $this->dataFim = false;
         }
     }
+
+    private function setQtdFiltriFilia($html) {
+
+        $this->quantidadeDosFiltrosFilial = $html;
+    }
+
+    public function getQtdFiltriFilial() {
+
+        return $this->quantidadeDosFiltrosFilial;
+    }
+
+    public function exibirQuantidade() {
+
+        echo $this->quantidadeDosFiltrosFilial;
+    }
+
 }
 
+class Cardes extends Relatorioserros {
 
-
-
-class Cardes extends Relatorioserros
-{
     public $filialCards;
 
-    public function quantidadeErroos()
-    {
+    public function quantidadeErroos() {
         if ($this->filialCards === 'Filial') {
             $pdo = parent::get_instace();
             $slq = "SELECT * FROM tb_erros_auditoria ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  $slq->rowCount();
+            $resul = $slq->rowCount();
             $html = "<div style='color:red'> $resul</div>";
             echo $html;
         } else {
@@ -179,20 +188,19 @@ class Cardes extends Relatorioserros
             $slq = "SELECT * FROM tb_erros_auditoria WHERE  filial Like '%" . $this->filialCards . "%'   ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  $slq->rowCount();
+            $resul = $slq->rowCount();
             $html = "<div style='color:red'> $resul</div>";
             echo $html;
         }
     }
 
-    public function quantidadeCancelados()
-    {
+    public function quantidadeCancelados() {
         if ($this->filialCards === 'Filial') {
             $pdo = parent::get_instace();
             $slq = "SELECT * FROM tb_erros_auditoria where tipoerro ='Cancelado'";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  $slq->rowCount();
+            $resul = $slq->rowCount();
             $html = "<div style='color:red'> $resul</div>";
             echo $html;
         } else {
@@ -200,21 +208,19 @@ class Cardes extends Relatorioserros
             $slq = "SELECT * FROM tb_erros_auditoria WHERE tipoerro ='Cancelado' and filial Like '%" . $this->filialCards . "%'   ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  $slq->rowCount();
+            $resul = $slq->rowCount();
             $html = "<div style='color:red'> $resul</div>";
             echo $html;
         }
     }
 
-
-    public function quantidadeDivergente()
-    {
+    public function quantidadeDivergente() {
         if ($this->filialCards === 'Filial') {
             $pdo = parent::get_instace();
             $slq = "SELECT * FROM tb_erros_auditoria where tipoerro ='Quantidade'";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  $slq->rowCount();
+            $resul = $slq->rowCount();
             $html = "<div style='color:red'> $resul</div>";
             echo $html;
         } else {
@@ -223,21 +229,20 @@ class Cardes extends Relatorioserros
             $slq = "SELECT * FROM tb_erros_auditoria WHERE tipoerro ='Quantidade' and filial Like '%" . $this->filialCards . "%'   ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  $slq->rowCount();
+            $resul = $slq->rowCount();
             $html = "<div style='color:red'> $resul</div>";
             echo $html;
         }
     }
 
-    public function quantidadedeErroEnderecos()
-    {
+    public function quantidadedeErroEnderecos() {
 
         if ($this->filialCards === 'Filial') {
             $pdo = parent::get_instace();
             $slq = "SELECT * FROM tb_erros_auditoria where tipoerro ='Endereco'";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  $slq->rowCount();
+            $resul = $slq->rowCount();
             $html = "<div style='color:red'> $resul</div>";
             echo $html;
         } else {
@@ -245,21 +250,20 @@ class Cardes extends Relatorioserros
             $slq = "SELECT * FROM tb_erros_auditoria WHERE tipoerro ='Endereco' and filial Like '%" . $this->filialCards . "%'   ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  $slq->rowCount();
+            $resul = $slq->rowCount();
             $html = "<div style='color:red'> $resul</div>";
             echo $html;
         }
     }
 
-    public function quantidadedeErroDesinternados()
-    {
+    public function quantidadedeErroDesinternados() {
 
         if ($this->filialCards === 'Filial') {
             $pdo = parent::get_instace();
             $slq = "SELECT * FROM tb_erros_auditoria where tipoerro ='Desinternado'";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  $slq->rowCount();
+            $resul = $slq->rowCount();
             $html = "<div style='color:red'> $resul</div>";
             echo $html;
         } else {
@@ -267,15 +271,13 @@ class Cardes extends Relatorioserros
             $slq = "SELECT * FROM tb_erros_auditoria WHERE tipoerro ='Desinternado' and filial Like '%" . $this->filialCards . "%'   ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  $slq->rowCount();
+            $resul = $slq->rowCount();
             $html = "<div style='color:red'> $resul</div>";
             echo $html;
         }
     }
 
-
-    public function ErrosDeHoje()
-    {
+    public function ErrosDeHoje() {
 
         if ($this->filialCards === 'Filial') {
             $dt = date('Y-m-d');
@@ -283,7 +285,7 @@ class Cardes extends Relatorioserros
             $slq = "SELECT * FROM tb_erros_auditoria where data = '$dt' ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  $slq->rowCount();
+            $resul = $slq->rowCount();
             $html = "<div style='color:red'> $resul</div>";
             echo $html;
         } else {
@@ -293,15 +295,13 @@ class Cardes extends Relatorioserros
             $slq = "SELECT * FROM tb_erros_auditoria WHERE data = '$dt'  and filial Like '%" . $this->filialCards . "%'   ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  $slq->rowCount();
+            $resul = $slq->rowCount();
             $html = "<div style='color:red'> $resul</div>";
             echo $html;
         }
     }
 
-
-    public function ErrosDoMes()
-    {
+    public function ErrosDoMes() {
 
         if (empty($this->filial) || $this->filial === 'Filial') {
             echo $this->filial;
@@ -311,15 +311,13 @@ class Cardes extends Relatorioserros
             $slq = "SELECT * FROM tb_erros_auditoria WHERE  Month(data) = $mes and filial Like '%" . $this->filialCards . "%' ";
             $slq = $pdo->prepare($slq);
             $slq->execute();
-            $resul =  $slq->rowCount();
+            $resul = $slq->rowCount();
             $html = "<div style='color:red'> $resul</div>";
             echo $html;
         }
     }
 
-
-    public function pegaFilial()
-    {
+    public function pegaFilial() {
         if (@$_GET['filial']) {
 
             $filial = $_GET['filial'];
@@ -329,16 +327,15 @@ class Cardes extends Relatorioserros
         }
     }
 
-
-    public function relatorioDedesconto()
-    {
+    public function relatorioDedesconto() {
 
         $pdo = parent::get_instace();
         $slq = "SELECT * FROM tb_erros_auditoria WHERE    ";
         $slq = $pdo->prepare($slq);
         $slq->execute();
-        $resul =  $slq->rowCount();
+        $resul = $slq->rowCount();
         $html = "<div style='color:red'> $resul</div>";
         echo $html;
     }
+
 }
