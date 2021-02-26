@@ -213,7 +213,7 @@ require('../controlle/controla_sessao.php');
                                                     <option>  97 - MIX TERESINA CEASA </option>
                                                     <option> 261 - MIX REDENÇÃO </option>
                                                     <option>  98 - MIX BARRA DO CORDA </option>
-                                                <option value="259"> 259 - MIX FORQUILIA </option>
+                                                    <option>  259 - MIX FORQUILIA </option>
                                             </select>
 
                                             <label>Cidade</label>
@@ -259,7 +259,7 @@ require('../controlle/controla_sessao.php');
                                                 <label>Numero Objeto</label>
                                                 <input type="text" class="form-control" name="nomeobjeto" placeholder="Numero objeto errado">
                                             </div>
-                                            </form>
+                                            </select>
 
                                             <div class="form-group">
                                                 <label>Usuario Do Erro</label>
