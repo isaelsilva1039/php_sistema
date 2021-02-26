@@ -27,31 +27,24 @@ class Contas extends Conexao
             $smts->execute();
 
             if ($smts->rowCount() > 0) {
-                
                 echo "<script>alert('Cdastrado Nova Conta ');window.location='contas_a_pagar.php?Sucesso'; </script>";
-            
             }
         }
-
         // com duas parcelas 
         if ($this->parcela > '0') {
             for ($i = 0; $i  < $this->parcela; $i++) {
-
                 if ($i === 0) {
                     $qtd = '31 days';
                 }
-
                 if ($i === 1) {
                     $qtd = '62 days';
                 }
-
                 if ($i === 2) {
                     $qtd = '92 days';
                 }
                 if ($i === 3) {
                     $qtd = '122 days';
                 }
-
                 if ($i === 4) {
                     $qtd = '152 days';
                 }

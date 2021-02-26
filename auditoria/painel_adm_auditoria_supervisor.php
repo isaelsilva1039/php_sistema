@@ -286,6 +286,7 @@ if ($_SESSION['nivel'] === '1') {
                                                         <option value="97 "> 97 - MIX TERESINA CEASA </option>
                                                         <option value="261"> 261 - MIX REDENÇÃO </option>
                                                         <option value="98 "> 98 - MIX BARRA DO CORDA </option>
+                                                    <option value="259"> 259 - MIX FORQUILIA </option>
                                                 </select>
                                             </div>
                                             <br>

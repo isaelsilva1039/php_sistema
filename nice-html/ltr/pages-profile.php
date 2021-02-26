@@ -2,9 +2,7 @@
 
 // include'../../conexao/conexao.php';
 include 'controle_sesao.php';
-
 include '../../model/Class.configue.php';
-
 $perfil = new Validacao();
 
 ?>
@@ -23,7 +21,8 @@ $perfil = new Validacao();
     <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
     <title>Nice admin Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
-    <link href="../../dist/css/style.min.css" rel="stylesheet">
+    <link href="../../dist/css/style.css" rel="stylesheet">
+    <link href="cssmanipulado.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -199,10 +198,12 @@ $perfil = new Validacao();
                                 <div class="form-group">
                                     <?php
                                     $usuariologadosistaemsesseion = $_SESSION['id'];
+                                    $usuariologadosistaemsesseionId = $_SESSION['id'];
+
                                     foreach ($perfil->perfil($usuariologadosistaemsesseion) as $per) : ?>
                                         <label class="col-md-12">Nome</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="Johnathan Doe"  required="" name="nome" class="form-control form-control-line" value="<?php echo $per['nome'] ?>">
+                                            <input type="text" placeholder="Johnathan Doe"  required="" name="nome" class="form-control form-control-line" value="<?php echo $nome = $per['nome'] ?>">
                                             <input type="text"  name="id" hidden  class="form-control form-control-line" value="<?php echo $per['id'] ?>">
                                         </div>
                                 </div>
@@ -212,6 +213,7 @@ $perfil = new Validacao();
                                         <input type="email" required="" placeholder="johnathan@admin.com" class="form-control form-control-line" name="email"  value="<?php echo $per['email']  ?>">
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label class="col-md-12">Password</label>
                                     <div class="col-md-12">
@@ -225,15 +227,43 @@ $perfil = new Validacao();
                                 </div>
                             </div>
                             </form>
-                        </div>
+                            <hr class="divisaoentreperfil">
                     </div>
+
                 </div>
             </div>
+                <div class="col-5 align-self-center">
+                    <h4 class="page-title"> Alteraçoes </h4>
+                </div>
 
-        </div>
+                <div class="container-fluid">
+                    <div class="row">
+                    </div>
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <div class="card-body">
 
-    </div>
+                                        <?php
+                                        foreach($perfil->alteracoesFeitasNoPerfilEmUsuariosLogados($usuariologadosistaemsesseionId ) as $perfileditado): ?>
+                                    <div class="form-group">
+                                        <label  class="col-md-12"> <i  class="mdi mdi-account-edit it"></i> <?php echo $perfileditado['nome_completo'] ."  :" ?>   <label><?php echo $perfileditado['data_historico']?> </label>  </label>
+                                            <div style="margin-left: 35px">
+                                                .<br>.<br>.<br>
+                                            </div>
+                                    </div>
+                                <?php endforeach; ?>
+                                </div>
+                            <style>
+                                .it{
+                                    font-size: x-large;
+                                    margin: 10px;
 
+                                }
+                            </style>
+                            </div>
+                        </div>
+                  </div>
+            </div>
     </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->

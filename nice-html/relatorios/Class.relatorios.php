@@ -1,6 +1,7 @@
 <?php
 
-include '../../model/conexao.php';
+include'../../conexao/conexao.php';
+
 
 class Relatorios extends Conexao {
 
@@ -86,7 +87,12 @@ class Relatorios extends Conexao {
             return $sql->fetchAll();
         } else {
             $sql = "SELECT * FROM  
-            tb_cadastro_morador where id LIKE '%" . $cargo . "%' or nome_completo LIKE '%" . $cargo . "%' or cpf LIKE '%" . $cargo . "%' or bloco LIKE '%" . $cargo . "%' or aluguel LIKE '%" . $cargo . "%' order by id limit 6 ";
+            tb_cadastro_morador where id LIKE '%"
+                . $cargo . "%' or nome_completo LIKE '%"
+                . $cargo . "%' or cpf LIKE '%"
+                . $cargo . "%' or bloco LIKE '%"
+                . $cargo . "%' or aluguel LIKE '%"
+                . $cargo . "%' order by id limit 6 ";
             $sql = $pdo->prepare($sql);
             $sql->execute();
             return $sql->fetchAll();

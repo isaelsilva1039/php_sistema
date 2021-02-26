@@ -247,39 +247,41 @@ if ($_SESSION['nivel'] === '1') {
                                                 <label>Selecione a filial</label>
                                                 <select class="custom-select col-12" name="filial">
                                                     <option selected>Filial </option>
-                                                        <option value="17"> 17 - Mix Tirirical </option>
-                                                        <option value="20"> 20 - Curva do 90 </option>
-                                                        <option value="26"> 26 - Mix Marabá </option>
-                                                        <option value="28"> 28 - Mix Parauapebas </option>
-                                                        <option value="29"> 29 - Jardim Tropical </option>
-                                                        <option value="32"> 32 - Mix Timon </option>
-                                                        <option value="37"> 37 - Mix Belém </option>
-                                                        <option value="38"> 38 - Mix Altamira </option>
-                                                        <option value="39"> 39 - Mix Chapadinha </option>
-                                                        <option value="41"> 41 - Mix Caxias </option>
-                                                        <option value="44"> 44 - Mix Babaçulândia </option>
-                                                        <option value="47"> 47 - Mix Bacabal </option>
-                                                        <option value="48"> 48 - Mix Pedreiras </option>
-                                                        <option value="49"> 49 - Mix Castanhal </option>
-                                                        <option value="50"> 50 - Mix Abaetetuba </option>
-                                                        <option value="51"> 51 - Mix Marituba </option>
-                                                        <option value="52"> 52 - Mix Açailandia </option>
-                                                        <option value="91"> 91 - Mix Santa Inês </option>
-                                                        <option value="92"> 92 - Mix Bacuri </option>
-                                                        <option value="93"> 93 - Mix Maiobão </option>
-                                                        <option value="94"> 94 - Mix Balsas </option>
-                                                        <option value="95"> 95 - Mix Tamandaré </option>
-                                                        <option value="96"> 96 - Mix João Paulo </option>
-                                                        <option value="99"> 99 - Mix Pinheiro </option>
-                                                        <option value="251 "> 251 - Mix Parnaíba </option>
-                                                        <option value="252 "> 252 - Mix Teresina </option>
-                                                        <option value="253 "> 253 - Mix Pedreiras Belém </option>
-                                                        <option value="254 "> 254 - Mix Parque dos Carajás </option>
-                                                        <option value="255 "> 255 - Mix Araçagy </option>
-                                                       <option  value="252 "> 252 - MIX TERESINA-NOVAFAPI </option>
-                                                        <option value="97 ">> 97 - MIX TERESINA CEASA </option>
-                                                        <option value="261"> 261 - MIX REDENÇÃO </option>
-                                                        <option value="98 "> 98 - MIX BARRA DO CORDA </option>
+                                                    <option value="17"> 17 - Mix Tirirical </option>
+                                                    <option value="20"> 20 - Curva do 90 </option>
+                                                    <option value="26"> 26 - Mix Marabá </option>
+                                                    <option value="28"> 28 - Mix Parauapebas </option>
+                                                    <option value="29"> 29 - Jardim Tropical </option>
+                                                    <option value="32"> 32 - Mix Timon </option>
+                                                    <option value="37"> 37 - Mix Belém </option>
+                                                    <option value="38"> 38 - Mix Altamira </option>
+                                                    <option value="39"> 39 - Mix Chapadinha </option>
+                                                    <option value="41"> 41 - Mix Caxias </option>
+                                                    <option value="44"> 44 - Mix Babaçulândia </option>
+                                                    <option value="47"> 47 - Mix Bacabal </option>
+                                                    <option value="48"> 48 - Mix Pedreiras </option>
+                                                    <option value="49"> 49 - Mix Castanhal </option>
+                                                    <option value="50"> 50 - Mix Abaetetuba </option>
+                                                    <option value="51"> 51 - Mix Marituba </option>
+                                                    <option value="52"> 52 - Mix Açailandia </option>
+                                                    <option value="91"> 91 - Mix Santa Inês </option>
+                                                    <option value="92"> 92 - Mix Bacuri </option>
+                                                    <option value="93"> 93 - Mix Maiobão </option>
+                                                    <option value="94"> 94 - Mix Balsas </option>
+                                                    <option value="95"> 95 - Mix Tamandaré </option>
+                                                    <option value="96"> 96 - Mix João Paulo </option>
+                                                    <option value="99"> 99 - Mix Pinheiro </option>
+                                                    <option value="251 "> 251 - Mix Parnaíba </option>
+                                                    <option value="252 "> 252 - Mix Teresina </option>
+                                                    <option value="253 "> 253 - Mix Pedreiras Belém </option>
+                                                    <option value="254 "> 254 - Mix Parque dos Carajás </option>
+                                                    <option value="255 "> 255 - Mix Araçagy </option>
+                                                    <option  value="252 "> 252 - MIX TERESINA-NOVAFAPI </option>
+                                                    <option value="97 ">> 97 - MIX TERESINA CEASA </option>
+                                                    <option value="261"> 261 - MIX REDENÇÃO </option>
+                                                    <option value="98 "> 98 - MIX BARRA DO CORDA </option>
+                                                    <option value="259"> 259 - MIX FORQUILIA </option>
+
                                                 </select>
                                             </div>
                                             <br>

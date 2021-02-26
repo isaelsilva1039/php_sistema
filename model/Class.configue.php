@@ -1,7 +1,7 @@
 <?php
 
 require_once 'conexao.php';
-
+namespace \Validacao;
 // clas de validaçoes . 
 class Validacao extends Conexao
 {
@@ -213,7 +213,8 @@ class Validacao extends Conexao
     }
 
     public function valorAluguel()
-    { // função para somar valor dos aluguel pago
+    {
+        // função para somar valor dos aluguel pago
         $pdo = parent::get_instace();
         $sql = "SELECT sum(aluguel) FROM tb_cadastro_morador";
         $sql = $pdo->prepare($sql);
@@ -222,7 +223,8 @@ class Validacao extends Conexao
     }
 
     public function contamoradores()
-    { //função para saber quantidade de fncionarios 
+    {
+        //função para saber quantidade de fncionarios
         $pdo = parent::get_instace();
         $sql = "SELECT * FROM  tb_cadastro_morador";
         $sql = $pdo->prepare($sql);
@@ -230,18 +232,52 @@ class Validacao extends Conexao
         return $sql->rowCount();
     }
 
+
     public function uoDatePerfilUsuarioLogado()
     {
-
         $pdo = parent::get_instace();
-            $sql_update_banco_dados = "UPDATE tb_login SET  nome = '$this->nomeUsuario' , email = '$this->emailUsuario', senha = '$this->senhaUsuario' WHERE tb_login .id = $this->idUsuario";
-                $sql_update_banco_dados = $pdo->prepare($sql_update_banco_dados);
-                    $sql_update_banco_dados->execute();
-                        if($sql_update_banco_dados->rowCount() > 0){
-                            echo "<script>alert('Usuario Alterado Com Sucesso');window.location='../nice-html/ltr/pages-profile.php'; </script>";
-                         }else{
-                            echo "<script>alert('Erro ao altera perfil');window.location='../nice-html/ltr/pages-profile.php'; </script>";
-                        }
-
+        $sql_update_banco_dados = "UPDATE tb_login SET  nome = '$this->nomeUsuario' , email = '$this->emailUsuario', senha = '$this->senhaUsuario' WHERE tb_login .id = $this->idUsuario";
+        $sql_update_banco_dados = $pdo->prepare($sql_update_banco_dados);
+        $sql_update_banco_dados->execute();
+        if ($sql_update_banco_dados->rowCount() > 0) {
+            $this->pegaAlteraçoesFeitasNosusuarioLogado($this->emailUsuario,$this->idUsuario);
+            echo "<script>alert('Perfil Editado Com sucesso ');window.location='../nice-html/ltr/pages-profile.php'; </script>";
+        } else {
+            echo "<script>alert('Erro ao altera perfil');window.location='../nice-html/ltr/pages-profile.php'; </script>";
+        }
     }
+
+        // function para pega alteraçoes em usuarios.
+    public function pegaAlteraçoesFeitasNosusuarioLogado($email,$idUsuario)
+    {
+        $data_historico = date("Y-m-d H:i:s");
+        $pdo = parent::get_instace();
+        $sql_insetUsuarioEditado = "INSERT INTO tb_historico_editado_usuario(idUsuario,nome_completo,data_historico) VALUE (:idUsuario,:nome_completo,:data_historico)";
+        $sql_insetUsuarioEditado = $pdo->prepare($sql_insetUsuarioEditado);
+        $sql_insetUsuarioEditado->bindValue(":idUsuario",$idUsuario);
+        $sql_insetUsuarioEditado->bindValue(":nome_completo",$email);
+        $sql_insetUsuarioEditado->bindValue(":data_historico",$data_historico);
+        $sql_insetUsuarioEditado->execute();
+            if($sql_insetUsuarioEditado->rowCount() > 0){
+
+            }else{
+                echo "<script>alert('Historico Não Criado ');window.location='../nice-html/ltr/pages-profile.php'; </script>";
+            }
+    }
+
+    //mostra ultimas alteraçoes usuario logafo
+
+    public function  alteracoesFeitasNoPerfilEmUsuariosLogados($usuarioLogado){
+        $pdo = parent::get_instace();
+        $sql = "SELECT * FROM  tb_historico_editado_usuario WHERE idUsuario = $usuarioLogado order by id desc limit 3";
+        $sql = $pdo->prepare($sql);
+        $sql->execute();
+        return $sql->fetchAll();
+    }
+
+    public  function resetTesteIsael()
+    {
+        echo "name espace Deu Certo ";
+    }
+
 }

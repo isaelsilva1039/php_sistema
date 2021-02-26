@@ -13,8 +13,10 @@ if ($sql->rowCount() > 0) {
 	$sessao = $_SESSION['id'] = $sql['id'];
 	$nivel = $_SESSION['nivel'] = $sql['nivel'];
 	$nome = $_SESSION['nome'] = $sql['nome'];
+    $nome = $_SESSION['email'] = $sql['email'];
 
-	if ($_SESSION['nivel'] === '1') {
+
+    if ($_SESSION['nivel'] === '1') {
 
 		header("location: ../nice-html/ltr/index.php");
 	} elseif ($_SESSION['nivel'] === '2') {

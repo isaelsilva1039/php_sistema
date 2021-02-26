@@ -56,7 +56,7 @@ $Obj = new Relatorioserros();
                     <!-- Logo -->
                     <!-- ============================================================== -->
                     <div class="navbar-brand">
-                        <a href="index.html" class="logo">
+                        <a href="painel_adm.auditoria.php" class="logo">
                             <!-- Logo icon -->
                             <b class="logo-icon">
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -206,7 +206,7 @@ $Obj = new Relatorioserros();
 
                                     <div class="form-group">
                                         <div class="container-fluid">
-                                            </style>
+                                            </div>
                                             <div cass="card-body">
 
                                                 <div class="div_limiteporpagina">
