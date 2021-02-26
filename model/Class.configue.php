@@ -1,7 +1,6 @@
 <?php
 
 require_once 'conexao.php';
-namespace \Validacao;
 // clas de validaçoes . 
 class Validacao extends Conexao
 {
