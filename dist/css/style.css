@@ -14712,8 +14712,8 @@ File: scss
     margin-left: 10px   ;
 }
 .imagem-perfil-sem-foto{
-    height: 330px;
-    width:350px;
+
+    width:270px;
     color: darkgray;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
     border-radius: 50px;
