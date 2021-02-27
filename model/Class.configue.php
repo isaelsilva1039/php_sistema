@@ -1,7 +1,8 @@
 <?php
 
 require_once 'conexao.php';
-// clas de validaçoes . 
+
+// clas de validaçoes .
 class Validacao extends Conexao
 {
 
@@ -239,34 +240,35 @@ class Validacao extends Conexao
         $sql_update_banco_dados = $pdo->prepare($sql_update_banco_dados);
         $sql_update_banco_dados->execute();
         if ($sql_update_banco_dados->rowCount() > 0) {
-            $this->pegaAlteraçoesFeitasNosusuarioLogado($this->emailUsuario,$this->idUsuario);
+            $this->pegaAlteraçoesFeitasNosusuarioLogado($this->emailUsuario, $this->idUsuario);
             echo "<script>alert('Perfil Editado Com sucesso ');window.location='../nice-html/ltr/pages-profile.php'; </script>";
         } else {
             echo "<script>alert('Erro ao altera perfil');window.location='../nice-html/ltr/pages-profile.php'; </script>";
         }
     }
 
-        // function para pega alteraçoes em usuarios.
-    public function pegaAlteraçoesFeitasNosusuarioLogado($email,$idUsuario)
+    // function para pega alteraçoes em usuarios.
+    public function pegaAlteraçoesFeitasNosusuarioLogado($email, $idUsuario)
     {
         $data_historico = date("Y-m-d H:i:s");
         $pdo = parent::get_instace();
         $sql_insetUsuarioEditado = "INSERT INTO tb_historico_editado_usuario(idUsuario,nome_completo,data_historico) VALUE (:idUsuario,:nome_completo,:data_historico)";
         $sql_insetUsuarioEditado = $pdo->prepare($sql_insetUsuarioEditado);
-        $sql_insetUsuarioEditado->bindValue(":idUsuario",$idUsuario);
-        $sql_insetUsuarioEditado->bindValue(":nome_completo",$email);
-        $sql_insetUsuarioEditado->bindValue(":data_historico",$data_historico);
+        $sql_insetUsuarioEditado->bindValue(":idUsuario", $idUsuario);
+        $sql_insetUsuarioEditado->bindValue(":nome_completo", $email);
+        $sql_insetUsuarioEditado->bindValue(":data_historico", $data_historico);
         $sql_insetUsuarioEditado->execute();
-            if($sql_insetUsuarioEditado->rowCount() > 0){
+        if ($sql_insetUsuarioEditado->rowCount() > 0) {
 
-            }else{
-                echo "<script>alert('Historico Não Criado ');window.location='../nice-html/ltr/pages-profile.php'; </script>";
-            }
+        } else {
+            echo "<script>alert('Historico Não Criado ');window.location='../nice-html/ltr/pages-profile.php'; </script>";
+        }
     }
 
     //mostra ultimas alteraçoes usuario logafo
 
-    public function  alteracoesFeitasNoPerfilEmUsuariosLogados($usuarioLogado){
+    public function alteracoesFeitasNoPerfilEmUsuariosLogados($usuarioLogado)
+    {
         $pdo = parent::get_instace();
         $sql = "SELECT * FROM  tb_historico_editado_usuario WHERE idUsuario = $usuarioLogado order by id desc limit 3";
         $sql = $pdo->prepare($sql);
@@ -274,9 +276,10 @@ class Validacao extends Conexao
         return $sql->fetchAll();
     }
 
-    public  function resetTesteIsael()
+    public function resetTesteIsael()
     {
-        echo "name espace Deu Certo ";
+        echo "Deu Certo a herança ";
+
     }
 
 }

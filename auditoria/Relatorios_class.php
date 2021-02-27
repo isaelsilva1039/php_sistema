@@ -1,8 +1,10 @@
 <?php
 
-include('../model/conexao.php');
 
-class Relatorioserros extends Conexao {
+include('../model/Class.configue.php');
+
+class Relatorioserros extends Validacao
+{
 
     public $limite;
     public $filial;
@@ -10,7 +12,8 @@ class Relatorioserros extends Conexao {
     public $dataFim;
     private $quantidadeDosFiltrosFilial;
 
-    public function pegaFilialMotraQuantidadeDeerros() {
+    public function pegaFilialMotraQuantidadeDeerros()
+    {
 
         if ($this->dataInicio === false) {
             $mes = date('m');
@@ -38,7 +41,8 @@ class Relatorioserros extends Conexao {
         }
     }
 
-    public function relatorioErrosAuditoriaNoturna() {
+    public function relatorioErrosAuditoriaNoturna()
+    {
         $this->limite;
         $this->filial;
         if ($this->limite === 'todos' && $this->filial && $this->dataInicio && $this->dataFim) {
@@ -49,7 +53,7 @@ class Relatorioserros extends Conexao {
             $html = $slq->rowCount();
             $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
-            
+
         } elseif ($this->limite === 'todos' && $this->filial === false && $this->dataInicio && $this->dataFim) {
             $pdo = parent::get_instace();
             $slq = "SELECT * FROM tb_erros_auditoria WHERE  data BETWEEN '$this->dataInicio' and  '$this->dataFim' order by id    ";
@@ -57,10 +61,9 @@ class Relatorioserros extends Conexao {
             $slq->execute();
             $resul = $slq->rowCount();
             $html = $resul;
-             $this->quantidadeDosFiltrosFilial = $html;
+            $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
         }
-
 
 
         if ($this->limite == 'todos' && $this->filial === false) {
@@ -74,7 +77,7 @@ class Relatorioserros extends Conexao {
             $resul = $slq->rowCount();
             $html = $resul;
             $html;
-             $this->quantidadeDosFiltrosFilial = $html;
+            $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
         }
 
@@ -88,7 +91,7 @@ class Relatorioserros extends Conexao {
             $resul = $slq->rowCount();
             $html = $resul;
             $html;
-             $this->quantidadeDosFiltrosFilial = $html;
+            $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
         }
 
@@ -101,7 +104,7 @@ class Relatorioserros extends Conexao {
             $resul = $slq->rowCount();
             $html = $resul;
             $html;
-             $this->quantidadeDosFiltrosFilial = $html;
+            $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
         }
         if (!isset($this->filial) && $this->limite == 'todos' && isset($this->dataInicio)) {
@@ -113,12 +116,13 @@ class Relatorioserros extends Conexao {
             $slq->execute();
             $resul = $slq->rowCount();
             $html = $resul;
-             $this->quantidadeDosFiltrosFilial = $html;
+            $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
         }
     }
 
-    public function limite() {
+    public function limite()
+    {
         if (@$_GET['limite']) {
             @$limite = $_GET['limite'];
             $this->limite = $limite;
@@ -127,7 +131,8 @@ class Relatorioserros extends Conexao {
         }
     }
 
-    public function Filto() {
+    public function Filto()
+    {
         if (@$_GET['filial']) {
             @$filial = $_GET['filial'];
             $this->filial = $filial;
@@ -136,7 +141,8 @@ class Relatorioserros extends Conexao {
         }
     }
 
-    public function datasFiltros() {
+    public function datasFiltros()
+    {
         if (@$_GET['datainicial']) {
             @$datainicial = $_GET['datainicial'];
             $this->dataInicio = $datainicial;
@@ -145,7 +151,8 @@ class Relatorioserros extends Conexao {
         }
     }
 
-    public function datasFiltrosFim() {
+    public function datasFiltrosFim()
+    {
         if (@$_GET['dataFim']) {
             @$dataFim = $_GET['dataFim'];
             $this->dataFim = $dataFim;
@@ -154,28 +161,33 @@ class Relatorioserros extends Conexao {
         }
     }
 
-    private function setQtdFiltriFilia($html) {
+    private function setQtdFiltriFilia($html)
+    {
 
         $this->quantidadeDosFiltrosFilial = $html;
     }
 
-    public function getQtdFiltriFilial() {
+    public function getQtdFiltriFilial()
+    {
 
         return $this->quantidadeDosFiltrosFilial;
     }
 
-    public function exibirQuantidade() {
+    public function exibirQuantidade()
+    {
 
         echo $this->quantidadeDosFiltrosFilial;
     }
 
 }
 
-class Cardes extends Relatorioserros {
+class Cardes extends Relatorioserros
+{
 
     public $filialCards;
 
-    public function quantidadeErroos() {
+    public function quantidadeErroos()
+    {
         if ($this->filialCards === 'Filial') {
             $pdo = parent::get_instace();
             $slq = "SELECT * FROM tb_erros_auditoria ";
@@ -195,7 +207,8 @@ class Cardes extends Relatorioserros {
         }
     }
 
-    public function quantidadeCancelados() {
+    public function quantidadeCancelados()
+    {
         if ($this->filialCards === 'Filial') {
             $pdo = parent::get_instace();
             $slq = "SELECT * FROM tb_erros_auditoria where tipoerro ='Cancelado'";
@@ -215,7 +228,8 @@ class Cardes extends Relatorioserros {
         }
     }
 
-    public function quantidadeDivergente() {
+    public function quantidadeDivergente()
+    {
         if ($this->filialCards === 'Filial') {
             $pdo = parent::get_instace();
             $slq = "SELECT * FROM tb_erros_auditoria where tipoerro ='Quantidade'";
@@ -236,7 +250,8 @@ class Cardes extends Relatorioserros {
         }
     }
 
-    public function quantidadedeErroEnderecos() {
+    public function quantidadedeErroEnderecos()
+    {
 
         if ($this->filialCards === 'Filial') {
             $pdo = parent::get_instace();
@@ -257,7 +272,8 @@ class Cardes extends Relatorioserros {
         }
     }
 
-    public function quantidadedeErroDesinternados() {
+    public function quantidadedeErroDesinternados()
+    {
 
         if ($this->filialCards === 'Filial') {
             $pdo = parent::get_instace();
@@ -278,7 +294,8 @@ class Cardes extends Relatorioserros {
         }
     }
 
-    public function ErrosDeHoje() {
+    public function ErrosDeHoje()
+    {
 
         if ($this->filialCards === 'Filial') {
             $dt = date('Y-m-d');
@@ -302,7 +319,8 @@ class Cardes extends Relatorioserros {
         }
     }
 
-    public function ErrosDoMes() {
+    public function ErrosDoMes()
+    {
 
         if (empty($this->filial) || $this->filial === 'Filial') {
             echo $this->filial;
@@ -318,7 +336,8 @@ class Cardes extends Relatorioserros {
         }
     }
 
-    public function pegaFilial() {
+    public function pegaFilial()
+    {
         if (@$_GET['filial']) {
 
             $filial = $_GET['filial'];
@@ -328,7 +347,8 @@ class Cardes extends Relatorioserros {
         }
     }
 
-    public function relatorioDedesconto() {
+    public function relatorioDedesconto()//metodo em desenvolvimento .
+    {
 
         $pdo = parent::get_instace();
         $slq = "SELECT * FROM tb_erros_auditoria WHERE    ";
@@ -338,5 +358,7 @@ class Cardes extends Relatorioserros {
         $html = "<div style='color:red'> $resul</div>";
         echo $html;
     }
+
+
 
 }

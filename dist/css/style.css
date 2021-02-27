@@ -14585,6 +14585,8 @@ File: scss
     border-radius: 05%;
 }
 
+
+
 .corNomeFormulare {
     color: black;
 }
@@ -14699,3 +14701,27 @@ File: scss
 .btnn {
     background: red;
 }
+.di{
+    color: #0d0d0d;
+
+    height: 330px;
+    width:350px;
+    float: right;
+    z-index: 9999;
+    overflow: auto;
+    margin-left: 10px   ;
+}
+.imagem-perfil-sem-foto{
+    height: 330px;
+    width:350px;
+    color: darkgray;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    border-radius: 50px;
+    border: rebeccapurple 2px solid;
+
+
+}
+arquivosenvia{
+    background: red;
+}
+
