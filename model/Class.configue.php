@@ -15,6 +15,7 @@ class Validacao extends Conexao
     public $nomeUsuario;
     public $emailUsuario;
     public $senhaUsuario;
+    public $foto;
 
     //metodo para validar o loogin 
     public function validaLog($email, $senha)
@@ -140,19 +141,20 @@ class Validacao extends Conexao
 
     public function cadastrasUsuariosComNivelDeAcessos()
     {
+
         $pdo = parent::get_instace();
-        $sql = "INSERT INTO tb_login (nome,email,senha,nivel) VALUES (:nome,:email,:senha,:nivel)";
+        $sql = "INSERT INTO tb_login (nome,email,senha,nivel,foto) VALUES (:nome,:email,:senha,:nivel,:foto)";
         $sql = $pdo->prepare($sql);
         $sql->bindValue(":nome", $this->nome);
         $sql->bindValue(":email", $this->email);
         $sql->bindValue(":senha", $this->senha);
         $sql->bindValue(":nivel", $this->nivel);
+        $sql->bindValue(":foto", $this->foto);
         $sql->execute();
         if ($sql->rowCount()) {
-
             echo "<script>alert('Cadastrado Com sucesso ');window.location='../nice-html/ltr/usuarios.php'; </script>";
         } else {
-            echo "<script>alert('Usuario não cadastrado ');window.location='../nice-html/ltr/usuarios.php'; </script>";
+            var_dump($this->foto);
         }
     }
 
@@ -171,6 +173,7 @@ class Validacao extends Conexao
             exit();
         };
     }
+
 
     //metodo para cadastra funcionario
     public function ValidaCadastrofuncionario($nome_completo, $cpf, $data_entrada_admisao, $cargo, $salario, $horario)
@@ -232,11 +235,12 @@ class Validacao extends Conexao
         return $sql->rowCount();
     }
 
-
+//update de usuario logado, menso da imagem
     public function uoDatePerfilUsuarioLogado()
     {
         $pdo = parent::get_instace();
-        $sql_update_banco_dados = "UPDATE tb_login SET  nome = '$this->nomeUsuario' , email = '$this->emailUsuario', senha = '$this->senhaUsuario' WHERE tb_login .id = $this->idUsuario";
+        $sql_update_banco_dados =
+            "UPDATE tb_login SET  nome = '$this->nomeUsuario' , email = '$this->emailUsuario', senha = '$this->senhaUsuario' WHERE tb_login .id = $this->idUsuario";
         $sql_update_banco_dados = $pdo->prepare($sql_update_banco_dados);
         $sql_update_banco_dados->execute();
         if ($sql_update_banco_dados->rowCount() > 0) {
@@ -247,8 +251,30 @@ class Validacao extends Conexao
         }
     }
 
-    // function para pega alteraçoes em usuarios.
-    public function pegaAlteraçoesFeitasNosusuarioLogado($email, $idUsuario)
+//    metodo edita perfil da imagem do usuario logado
+    public function updadePerfilDaimagemDoUsuarioLogado()
+    {
+        if(empty($this->foto)){
+            echo "<script>alert('E necessário selecinar uma fotot pro perfil');window.location='../nice-html/ltr/pages-profile.php'; </script>";
+            exit();
+        }
+        $pdo = parent::get_instace();
+        $sql_update_banco_dados =
+            "UPDATE tb_login SET  foto = '$this->foto' WHERE tb_login .id = $this->idUsuario";
+        $sql_update_banco_dados = $pdo->prepare($sql_update_banco_dados);
+        $sql_update_banco_dados->execute();
+        if ($sql_update_banco_dados->rowCount() > 0) {
+//            $this->pegaAlteraçoesFeitasNosusuarioLogado($this->emailUsuario, $this->idUsuario);
+            echo "<script>alert('Foto do perfil alterado com sucesso ');window.location='../nice-html/ltr/pages-profile.php'; </script>";
+        } else {
+            echo "<script>alert('Erro ao altera foto do perfil');window.location='../nice-html/ltr/pages-profile.php'; </script>";
+        }
+    }
+
+
+// function para pega alteraçoes em usuarios.
+
+    function pegaAlteraçoesFeitasNosusuarioLogado($email, $idUsuario)
     {
         $data_historico = date("Y-m-d H:i:s");
         $pdo = parent::get_instace();
@@ -259,24 +285,30 @@ class Validacao extends Conexao
         $sql_insetUsuarioEditado->bindValue(":data_historico", $data_historico);
         $sql_insetUsuarioEditado->execute();
         if ($sql_insetUsuarioEditado->rowCount() > 0) {
+            echo "<script>alert('Historico Não Criado ');window.location='../nice-html/ltr/pages-profile.php'; </script>";
 
         } else {
             echo "<script>alert('Historico Não Criado ');window.location='../nice-html/ltr/pages-profile.php'; </script>";
         }
     }
 
-    //mostra ultimas alteraçoes usuario logafo
-
-    public function alteracoesFeitasNoPerfilEmUsuariosLogados($usuarioLogado)
+//mostra ultimas alteraçoes usuario logafo
+    public
+    function alteracoesFeitasNoPerfilEmUsuariosLogados($usuarioLogado)
     {
         $pdo = parent::get_instace();
         $sql = "SELECT * FROM  tb_historico_editado_usuario WHERE idUsuario = $usuarioLogado order by id desc limit 3";
         $sql = $pdo->prepare($sql);
         $sql->execute();
+        if ($sql->rowCount() <= 0) {
+            echo "Seu usuario não teve alteraçoes";
+        }
         return $sql->fetchAll();
+
     }
 
-    public function resetTesteIsael()
+    public
+    function resetTesteIsael()
     {
         echo "Deu Certo a herança ";
 

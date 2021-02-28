@@ -200,113 +200,137 @@ $perfil = new Validacao();
                 </div>
             </div>
         </div>
-        <div class="container-fluid col-lg-10 col-xlg-9 col-md-7">
+        <div class="container-fluid ">
             <div class="row">
-                <div class="di">
+                <div class="">
+                    <?php
+                    $usuariologadosistaemsesseion = $_SESSION['id'];
+                    $usuariologadosistaemsesseionId = $_SESSION['id'];
+
+                    foreach ($perfil->perfil($usuariologadosistaemsesseion) as $per) : ?>
+                    <img class="imagemPefilReturn" src="../img/<?php echo $per['foto'] ?>"
                     <img class="imagem-perfil-sem-foto" src="../../assets/images/users/perfil-foto.jfif">
-                    <input class="arquivosenvia" type="file" name="fotoperfil">
+
+                    <form class="form-horizontal form-material" method="POST"
+                          action="../../controlle/controle_update_perfil_imagem.php" enctype="multipart/form-data">
+                        <div class="form-group container-fluid">
+
+                            <label class="label1 col-lg-12 col-xlg-1 col-md-1">Nova Foto Perfil</label>
+
+                            <div class="col-md-12">
+                                <input type="file"  name="foto"  accept="image/*" class="form-control form-control-line ">
+
+                                <input type="text" name="id" hidden class="form-control form-control-line"
+                                       value="<?php echo $per['id'] ?>"><br>
+                                <input type="submit" name="Salva" value="Salva" class="form-control">
+                            </div>
+
+                        </div>
+
+                    </form>
                 </div>
-            </div>
-            <br.
-            <div class="col-lg-5 col-xlg-9 col-md-7">
-
-                <div class="card">
-                    <div class="card-body">
-                        <form class="form-horizontal form-material" method="POST"
-                              action="../../controlle/controle_update_perfil.php">
-                            <div class="form-group">
-                                <?php
-                                $usuariologadosistaemsesseion = $_SESSION['id'];
-                                $usuariologadosistaemsesseionId = $_SESSION['id'];
-
-                                foreach ($perfil->perfil($usuariologadosistaemsesseion) as $per) : ?>
-                                <label class="col-md-12">Nome</label>
-                                <div class="col-md-12">
-                                    <input type="text" placeholder="Johnathan Doe" required="" name="nome"
-                                           class="form-control form-control-line"
-                                           value="<?php echo $nome = $per['nome'] ?>">
+                <div class="col-lg-7 col-xlg-7 col-md-7">
+                    <div class="card">
+                        <div class="card-body">
+                            <form class="form-horizontal form-material" method="POST"
+                                  action="../../controlle/controle_update_perfil.php" enctype="multipart/form-data">
+                                <div class="form-group">
                                     <input type="text" name="id" hidden class="form-control form-control-line"
                                            value="<?php echo $per['id'] ?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="example-email" class="col-md-12">Email</label>
-                                <div class="col-md-12">
-                                    <input type="email" required="" placeholder="johnathan@admin.com"
-                                           class="form-control form-control-line" name="email"
-                                           value="<?php echo $per['email'] ?>">
-                                </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="col-md-12">Password</label>
-                                <div class="col-md-12">
-                                    <input type="text" required="" class="form-control form-control-line" name="senha"
-                                           value="<?php echo $per['senha'] ?>">
-                                </div>
-                            </div>
-                            <?php endforeach; ?>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <button class="btn btn-success">Salva</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="col-5 align-self-center ">
-                    <h4 class="page-title"> Alteraçoes </h4>
-                </div>
-
-                <div class="container-fluid ">
-                    <div class="">
-                        <div class="card">
-                            <div class="card-body">
-
-                                <?php
-                                foreach ($perfil->alteracoesFeitasNoPerfilEmUsuariosLogados($usuariologadosistaemsesseionId) as $perfileditado): ?>
-                                    <div class="form-group">
-                                        <label class="col-md-12"> <i
-                                                    class="mdi mdi-account-edit it"></i> <?php echo $perfileditado['nome_completo'] . "  :" ?>
-                                            <label><?php echo $perfileditado['data_historico'] ?> </label> </label>
-                                        <div style="margin-left: 35px">
-                                            .<br>.<br>.<br>
-                                        </div>
+                                    <label class="col-md-12">Nome</label>
+                                    <div class="col-md-12">
+                                        <input type="text" placeholder="Johnathan Doe" required="" name="nome"
+                                               class="form-control form-control-line"
+                                               value="<?php echo $nome = $per['nome'] ?>">
+                                        <input type="text" name="id" hidden class="form-control form-control-line"
+                                               value="<?php echo $per['id'] ?>">
                                     </div>
-                                <?php endforeach; ?>
-                            </div>
-                            <style>
-                                .it {
-                                    font-size: x-large;
-                                    margin: 10px;
+                                </div>
+                                <div class="form-group">
+                                    <label for="example-email" class="col-md-12">Email</label>
+                                    <div class="col-md-12">
+                                        <input type="email" required="" placeholder="johnathan@admin.com"
+                                               class="form-control form-control-line" name="email"
+                                               value="<?php echo $per['email'] ?>">
+                                    </div>
+                                </div>
 
-                                }
-                            </style>
+                                <div class="form-group">
+                                    <label class="col-md-12">Password</label>
+                                    <div class="col-md-12">
+                                        <input type="text" required="" class="form-control form-control-line"
+                                               name="senha"
+                                               value="<?php echo $per['senha'] ?>">
+                                    </div>
+                                </div>
+                                <!---->
+                                <!--                                <div class="form-group">-->
+                                <!--                                    <label class="col-md-12">Nova Foto Perfil</label>-->
+                                <!--                                    <div class="col-md-12">-->
+                                <!--                                        <input type="file" name="foto" class="form-control form-control-line">-->
+                                <!--                                    </div>-->
+                                <!--                                </div>-->
+                                <?php endforeach; ?>
+
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-success">Salva</button>
+                                    </div>
+                                </div>
+                            </form>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xlg-12 col-md-12">
+                        <h4 class="page-title"> Alteraçoes </h4>
+                        <div class="">
+                            <div class="card">
+                                <div class="card-body">
+                                    <?php
+                                    foreach ($perfil->alteracoesFeitasNoPerfilEmUsuariosLogados($usuariologadosistaemsesseionId) as $perfileditado): ?>
+                                        <div class="form-group">
+                                            <label class="col-md-12"> <i
+                                                        class="mdi mdi-account-edit it"></i> <?php echo $perfileditado['nome_completo'] . "  :" ?>
+                                                <label><?php echo $perfileditado['data_historico'] ?> </label> </label>
+                                            <div style="margin-left: 35px">
+                                                .<br>.<br>.<br>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                                <style>
+                                    .it {
+                                        font-size: x-large;
+                                        margin: 10px;
+
+                                    }
+                                </style>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="../../dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="../../dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="../../dist/js/custom.min.js"></script>
+        <!-- ============================================================== -->
+        <!-- End Wrapper -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- All Jquery -->
+        <!-- ============================================================== -->
+        <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
+        <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- slimscrollbar scrollbar JavaScript -->
+        <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
+        <!--Wave Effects -->
+        <script src="../../dist/js/waves.js"></script>
+        <!--Menu sidebar -->
+        <script src="../../dist/js/sidebarmenu.js"></script>
+        <!--Custom JavaScript -->
+        <script src="../../dist/js/custom.min.js"></script>
 </body>
 
 </html>

@@ -14703,7 +14703,6 @@ File: scss
 }
 .di{
     color: #0d0d0d;
-
     height: 330px;
     width:350px;
     float: right;
@@ -14725,4 +14724,43 @@ arquivosenvia{
     color: #e2e3e5;
     background: red;
 }
+.imagemPefilReturn{
+
+    height: 230px;
+    width:260px;
+    color: darkgray;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    border-radius: 50px;
+    border: rebeccapurple 2px solid;
+}
+
+input[type="file"] {
+    padding: 10px 10px;
+    margin-right:10px;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: cadetblue;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.label1 {
+    padding: 10px 10px;
+    margin-left: 10px;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: cadetblue;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
 
