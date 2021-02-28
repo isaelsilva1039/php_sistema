@@ -212,7 +212,7 @@ $perfil = new Validacao();
                     <img class="imagem-perfil-sem-foto" src="../../assets/images/users/perfil-foto.jfif">
 
                     <form class="form-horizontal form-material" method="POST"
-                          action="../../controlle/controle_update_perfil_imagem.php" enctype="multipart/form-data">
+                          action="../../Controlle/controle_update_perfil_imagem.php" enctype="multipart/form-data">
                         <div class="form-group container-fluid">
 
                             <label class="label1 col-lg-12 col-xlg-1 col-md-1">Nova Foto Perfil</label>
