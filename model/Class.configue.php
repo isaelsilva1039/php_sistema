@@ -149,7 +149,7 @@ class Validacao extends Conexao
         $sql->bindValue(":email", $this->email);
         $sql->bindValue(":senha", $this->senha);
         $sql->bindValue(":nivel", $this->nivel);
-        $sql->bindValue(":foto", $this->foto);
+            $sql->bindValue(":foto", $this->foto);
         $sql->execute();
         if ($sql->rowCount()) {
             echo "<script>alert('Cadastrado Com sucesso ');window.location='../nice-html/ltr/usuarios.php'; </script>";
