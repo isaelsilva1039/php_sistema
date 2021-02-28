@@ -154,7 +154,7 @@ class Validacao extends Conexao
         if ($sql->rowCount()) {
             echo "<script>alert('Cadastrado Com sucesso ');window.location='../nice-html/ltr/usuarios.php'; </script>";
         } else {
-            var_dump($this->foto);
+            echo "<script>alert('Erro ao cadastra Usuario');window.location='../nice-html/ltr/usuarios.php'; </script>";
         }
     }
 
