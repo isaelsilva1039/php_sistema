@@ -240,7 +240,6 @@ $contaRe = new Validacao();
                                             <div class="col-md-12">
                                                 <input type="text" name="nome" required="" placeholder="Nome..."
                                                        class="form-control form-control-line">
-
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -262,7 +261,8 @@ $contaRe = new Validacao();
                                         <div class="form-group">
                                             <label class="col-md-12">Escolha Uma Foto pro seu perfil</label>
                                             <div class="col-md-12">
-                                                <input type="file" accept="image/*" name="foto" class="form-control form-control-line">
+                                                <input type="file" accept="image/*" name="foto"
+                                                       class="form-control form-control-line">
                                             </div>
                                         </div>
 

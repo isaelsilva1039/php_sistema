@@ -14712,12 +14712,12 @@ File: scss
 }
 .imagem-perfil-sem-foto{
 
-    width:270px;
+
+    height: 230px;
+    width:240px;
     color: darkgray;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    border-radius: 50px;
-    border: rebeccapurple 2px solid;
-
+    border-radius: 100%;
 
 }
 arquivosenvia{
@@ -14727,11 +14727,11 @@ arquivosenvia{
 .imagemPefilReturn{
 
     height: 230px;
-    width:260px;
+    width:240px;
     color: darkgray;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    border-radius: 50px;
-    border: rebeccapurple 2px solid;
+    border-radius: 100%;
+    /*border: rebeccapurple 2px groove;*/
 }
 
 input[type="file"] {
@@ -14761,6 +14761,17 @@ input[type="file"] {
     display: block;
     margin-top: 10px;
     cursor: pointer;
+}
+
+.nomeperfil{
+    margin-left: 55px;
+    margin-top: 10px;
+    font-family: "Arial Narrow";
+    color: #0d0d0d;
+    font-size:large;
+}
+.botaoOnline{
+    color: #1c7430;
 }
 
 
