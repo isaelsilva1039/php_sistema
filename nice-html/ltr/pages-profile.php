@@ -220,7 +220,7 @@ $perfil = new Validacao();
                                 <input type="file" name="foto" accept="image/*" class="form-control form-control-line ">
                                 <input type="text" name="id" hidden class="form-control form-control-line"
                                        value="<?php echo $per['id'] ?>"><br>
-                                <input type="submit" name="Salva" value="Salva" class="form-control">
+                                <input type="submit" name="Salva" value="Salva" class="btn">
                             </div>
                         </div>
                     </form>
