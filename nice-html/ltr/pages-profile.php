@@ -215,12 +215,13 @@ $perfil = new Validacao();
                           action="../../Controlle/controle_update_perfil_imagem.php" enctype="multipart/form-data">
                         <div class="form-group container-fluid">
                             <label class="nomeperfil "> <i class="mdi mdi-checkbox-blank-circle botaoOnline">   </i><?php echo $per['nome'] ?><br></label>
-                            <label class="label1 col-lg-12 col-xlg-1 col-md-1">Nova Foto Perfil</label>
+
                             <div class="col-md-12">
-                                <input type="file" name="foto" accept="image/*" class="form-control form-control-line ">
-                                <input type="text" name="id" hidden class="form-control form-control-line"
+                               <label class="label1  " for="foto">   <i class="mdi mdi-camera"> </i>Nova Foto Perfil</label>
+                                <input type="file" required="" name="foto" accept="image/*" id="foto" class="form-control form-control-line mdi mdi-account-edit">
+                                <input type="text" required="" name="id" hidden class="form-control form-control-line"
                                        value="<?php echo $per['id'] ?>"><br>
-                                <input type="submit" name="Salva" value="Salva" class="btn">
+                                <input type="submit" name="Salva" value="Salva" class="btnSalva">
                             </div>
                         </div>
                     </form>
