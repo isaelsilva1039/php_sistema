@@ -20,7 +20,7 @@ $up = move_uploaded_file($_FILES['foto']['tmp_name'],'../nice-html/img/'.$fotoNo
 @$nivel = $_POST['nivel'];
 
 $ObjCadastros = new Validacao();
-$ObjCadastros->foto = $fotoNome;
+$ObjCadastros->foto = "perfil-foto.jfif";
 $ObjCadastros->nome = $nome;
 $ObjCadastros->email = $email;
 $ObjCadastros->senha = $senha;

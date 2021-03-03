@@ -29,6 +29,7 @@ $perfil = new Validacao();
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <![endif]-->
 </head>
 
@@ -208,17 +209,19 @@ $perfil = new Validacao();
                     $usuariologadosistaemsesseionId = $_SESSION['id'];
 
                     foreach ($perfil->perfil($usuariologadosistaemsesseion) as $per) : ?>
-                    <img class="imagemPefilReturn" src="../img/<?php echo $per['foto'] ?>"
-                    <img class="imagem-perfil-sem-foto" src="../../assets/images/users/perfil-foto.jfif">
-
+                    <img src="../img/<?php echo $per['foto'] ?>" class=" imagemPefilReturn avatar img-circle img-thumbnail" alt="avatar">
                     <form class="form-horizontal form-material" method="POST"
                           action="../../Controlle/controle_update_perfil_imagem.php" enctype="multipart/form-data">
                         <div class="form-group container-fluid">
-                            <label class="nomeperfil "> <i class="mdi mdi-checkbox-blank-circle botaoOnline">   </i><?php echo $per['nome'] ?><br></label>
+                            <label class="nomeperfil"> <i
+                                        class="mdi mdi-checkbox-blank-circle botaoOnline"> </i><?php echo $per['nome'] ?>
+                                <br></label>
 
                             <div class="col-md-12">
-                               <label class="label1  " for="foto">   <i class="mdi mdi-camera"> </i>Nova Foto Perfil</label>
-                                <input type="file" required="" name="foto" accept="image/*" id="foto" class="form-control form-control-line mdi mdi-account-edit">
+                                <label class="label1  " for="foto"> <i class="mdi mdi-camera"> </i>Nova Foto
+                                    Perfil</label>
+                                <input type="file" required="" name="foto" accept="image/*" id="foto"
+                                       class="form-control form-control-line mdi mdi-account-edit btn-file text-center center-block file-upload">
                                 <input type="text" required="" name="id" hidden class="form-control form-control-line"
                                        value="<?php echo $per['id'] ?>"><br>
                                 <input type="submit" name="Salva" value="Salva" class="btnSalva">
@@ -297,11 +300,13 @@ $perfil = new Validacao();
                                         </div>
                                     <?php endforeach; ?>
                                 </div>
+
+                                </div>
+                                </form>
                                 <style>
                                     .it {
                                         font-size: x-large;
                                         margin: 10px;
-
                                     }
                                 </style>
                             </div>
@@ -310,13 +315,44 @@ $perfil = new Validacao();
                 </div>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- End Wrapper -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- All Jquery -->
-        <!-- ============================================================== -->
+
+        <script>
+
+
+        </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="script.js"></script>
+        <script>
+            $(document).ready(function() {
+
+                    var readUrl = function(input) {
+
+                        if (input.files && input.files[0]) {
+
+                            var reader = new FileReader();
+
+                            reader.readAsDataURL(input.files[0]);
+
+                            reader.onload = function(e) {
+                                $(".avatar").attr('src', e.target.result);
+                            }
+
+                        }
+                    }
+
+                    $(".file-upload").on('change', function() {
+                        readUrl(this);
+                    });
+
+                    $(".avatar").click(function() {
+                        var btn = $(".file-upload");
+                        btn.trigger('click');
+                    });
+                }
+            );
+        </script>
         <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Bootstrap tether Core JavaScript -->
         <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
         <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>

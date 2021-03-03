@@ -15407,11 +15407,11 @@ File: scss
 }
 
 .imagem-perfil-sem-foto {
-    height: 100%;
-    width: 50%;
-    color: darkgray;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    border-radius: 100%;
+    margin-left: 2%;
+    margin-top: 2%;
+    height: 250px;
+    width: 250px;
+    border-radius: 80%;
 
 }
 
@@ -15483,5 +15483,7 @@ input[type="file"] {
 
 
 }
-
+/*
+<img class="imagemPefilReturn"  onchange="reviwPrevisualizarFotoPerfil()" src="../img/<?php echo $per['foto']  ?>"
+/*
 
