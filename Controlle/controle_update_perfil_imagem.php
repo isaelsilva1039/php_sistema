@@ -15,6 +15,7 @@ $tmp_name = $_FILES['foto']['tmp_name'];
 $up = move_uploaded_file($_FILES['foto']['tmp_name'], '../nice-html/img/' . $fotoNome);
 
 
+
 @$id = $_POST['id'];
 
 $valida = new Validacao();
