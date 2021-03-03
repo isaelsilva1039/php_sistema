@@ -231,6 +231,7 @@ $contaRe = new Validacao();
                     <div class="card">
                         <div class="nomecard">Cadastra Novo Uusario</div>
                         <div class="col-lg-8 col-xlg-9 col-md-7">
+
                             <div class="card">
                                 <div class="card-body">
                                     <form method="POST" action="../../Controlle/controle_cadastro_usuario.php"

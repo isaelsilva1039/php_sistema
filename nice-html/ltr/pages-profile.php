@@ -204,6 +204,7 @@ $perfil = new Validacao();
         <div class="container-fluid col-lg-12 col-xlg-1 col-md-1">
             <div class="row col-lg-12 col-xlg-1 col-md-1">
                 <div class="">
+
                     <?php
                     $usuariologadosistaemsesseion = $_SESSION['id'];
                     $usuariologadosistaemsesseionId = $_SESSION['id'];
