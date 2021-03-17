@@ -225,6 +225,15 @@ $contaRe = new Validacao();
                 </div>
             </div>
         </div>
+
+        <form method="post" ACTION="valida_login.php">// formulario vai envia as informaçoes do usuario e senha pra pagina valida login
+            <div class="caixa_de_entrada"> // div caixa de entrda
+                <input class="usuario" name="usuario"> // input do usuario (class usuario serve pro css)
+                <input class="usuariosenha" name="usuario">
+            </div>
+        </form>
+
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">

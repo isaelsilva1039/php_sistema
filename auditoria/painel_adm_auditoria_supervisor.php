@@ -309,10 +309,8 @@ if ($_SESSION['nivel'] === '1') {
                                 <div>
                                     <h4 style="float: right;">
                                         <?php
-
                                         $objCars->pegaFilial();
                                         $objCars->quantidadeErroos();
-
                                         ?>
                                     </h4>
                                     <h3>
@@ -432,23 +430,70 @@ if ($_SESSION['nivel'] === '1') {
                                 <div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
-                <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-                <!-- Bootstrap tether Core JavaScript -->
-                <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-                <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-                <!-- slimscrollbar scrollbar JavaScript -->
-                <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
-                <!--Wave Effects -->
-                <script src="../dist/js/waves.js"></script>
-                <!--Menu sidebar -->
-                <script src="../dist/js/sidebarmenu.js"></script>
-                <!--Custom JavaScript -->
-                <script src="../dist/js/custom.min.js"></script>
+
+
+                <div class="col-5 align-self-center">
+                    <h4 class="page-title">Dashboard Usuarios</h4>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                </ennter>
+                                <div class="card-body ">
+                                    <div class="shadow p-3 mb-5  cad_wms5 cadasUsuaueios">
+                                        <label class="colormorador5"> Erros De Hoje </label>
+                                        <div>
+                                            <h3>
+                                                <i class="mdi mdi-cash-usd"
+                                                   style="color:darkslategrey; float:left;color:orangered"></i>
+                                            </h3>
+                                        </div>
+                                        <h4 style="float: right;">
+                                            <?php
+                                            $objCars->pegaFilial();
+                                            $objCars->ErrosDeHoje();
+                                            ?>
+                                        </h4>
+                                        <div>
+                                        </div>
+                                    </div>
+                                    <div class="shadow p-3 mb-5  cad_wms5 cadasUsuaueios">
+                                        <label class="colormorador5"> Erros Do Mês </label>
+                                        <div>
+                                            <h3>
+                                                <i class="mdi mdi-cash-usd"
+                                                   style="color:darkslategrey; float:left;color:orangered"></i>
+                                            </h3>
+                                        </div>
+                                        <h4 style="float: left;margin-left:80px;">
+                                            <?php
+                                            $objCars->pegaFilial();
+                                            $objCars->ErrosDoMes();
+                                            ?>
+                                        </h4>
+                                        <div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+                        <!-- Bootstrap tether Core JavaScript -->
+                        <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
+                        <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+                        <!-- slimscrollbar scrollbar JavaScript -->
+                        <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
+                        <!--Wave Effects -->
+                        <script src="../dist/js/waves.js"></script>
+                        <!--Menu sidebar -->
+                        <script src="../dist/js/sidebarmenu.js"></script>
+                        <!--Custom JavaScript -->
+                        <script src="../dist/js/custom.min.js"></script>
 </body>
 
 </html>

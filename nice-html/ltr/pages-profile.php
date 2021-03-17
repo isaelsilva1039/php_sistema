@@ -88,8 +88,8 @@ $perfil = new Validacao();
                 <!-- Toggle which is visible on mobile only -->
                 <!-- ============================================================== -->
                 <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
-                   data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                   aria-expanded="false" aria-label="Toggle navigation">
+                   data-toggle="collapse" data-target="#navbarSupportedContent"
+                   aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="ti-more"></i>
                 </a>
             </div>
@@ -135,9 +135,11 @@ $perfil = new Validacao();
                                     src="../../assets/images/users/conferente.jpg" alt="user" class="rounded-circle"
                                     width="31"></a>
                         <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                            <a class="dropdown-item" href="pages-profile.php"><i class="ti-user m-r-5 m-l-5"></i> Meu
+                            <a class="dropdown-item" href="pages-profile.php"><i class="ti-user m-r-5 m-l-5"></i>
+                                Meu
                                 Perfil</a>
-                            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My
+                            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i>
+                                My
                                 Balance</a>
                             <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i>
                                 Inbox</a>
@@ -210,21 +212,26 @@ $perfil = new Validacao();
                     $usuariologadosistaemsesseionId = $_SESSION['id'];
 
                     foreach ($perfil->perfil($usuariologadosistaemsesseion) as $per) : ?>
-                    <img src="../img/<?php echo $per['foto'] ?>" class=" imagemPefilReturn avatar img-circle img-thumbnail" alt="avatar">
+
+                    <!--                    avatar faz o previw depois de selecionado no input a baixo -->
+                    <img src="../img/<?php echo $per['foto'] ?>"
+                         class=" imagemPefilReturn avatar img-circle img-thumbnail" alt="avatar">
                     <form class="form-horizontal form-material" method="POST"
                           action="../../Controlle/controle_update_perfil_imagem.php" enctype="multipart/form-data">
-                        <div class="form-group container-fluid">
-                            <label class="nomeperfil"> <i
-                                        class="mdi mdi-checkbox-blank-circle botaoOnline"> </i><?php echo $per['nome'] ?>
-                                <br></label>
-
+                        <div class="form-group container-fluid"><label class="nomeperfil"> <i
+                                        class="mdi mdi-checkbox-blank-circle botaoOnline">
+                                </i><?php echo $per['nome'] ?>
+                                <br>
+                            </label>
+                            <!-- CAMPO PARA SELECIONA UMA NOVA IMAGEM  -->
                             <div class="col-md-12">
-                                <label class="label1  " for="foto"> <i class="mdi mdi-camera"> </i>Nova Foto
+                                <label class="label1" for="foto"> <i class="mdi mdi-camera"> </i>Nova Foto
                                     Perfil</label>
+
                                 <input type="file" required="" name="foto" accept="image/*" id="foto"
                                        class="form-control form-control-line mdi mdi-account-edit btn-file text-center center-block file-upload">
-                                <input type="text" required="" name="id" hidden class="form-control form-control-line"
-                                       value="<?php echo $per['id'] ?>"><br>
+                                <input type="text" required="" name="id" hidden
+                                       class="form-control form-control-line" value="<?php echo $per['id'] ?>"><br>
                                 <input type="submit" name="Salva" value="Salva" class="btnSalva">
                             </div>
                         </div>
@@ -261,17 +268,10 @@ $perfil = new Validacao();
                                     <label class="col-md-12">Password</label>
                                     <div class="col-md-12">
                                         <input type="text" required="" class="form-control form-control-line"
-                                               name="senha"
-                                               value="<?php echo $per['senha'] ?>">
+                                               name="senha" value="<?php echo $per['senha'] ?>">
                                     </div>
                                 </div>
-                                <!---->
-                                <!--                                <div class="form-group">-->
-                                <!--                                    <label class="col-md-12">Nova Foto Perfil</label>-->
-                                <!--                                    <div class="col-md-12">-->
-                                <!--                                        <input type="file" name="foto" class="form-control form-control-line">-->
-                                <!--                                    </div>-->
-                                <!--                                </div>-->
+
                                 <?php endforeach; ?>
 
                                 <div class="form-group">
@@ -292,8 +292,8 @@ $perfil = new Validacao();
                                     <?php
                                     foreach ($perfil->alteracoesFeitasNoPerfilEmUsuariosLogados($usuariologadosistaemsesseionId) as $perfileditado): ?>
                                         <div class="form-group">
-                                            <label class="col-md-12"> <i
-                                                        class="mdi mdi-account-edit it"></i> <?php echo $perfileditado['nome_completo'] . "  :" ?>
+                                            <label class="col-md-12"> <i class="mdi mdi-account-edit it"></i>
+                                                <?php echo $perfileditado['nome_completo'] . "  :" ?>
                                                 <label><?php echo $perfileditado['data_historico'] ?> </label> </label>
                                             <div style="margin-left: 35px">
                                                 .<br>.<br>.<br>
@@ -302,69 +302,67 @@ $perfil = new Validacao();
                                     <?php endforeach; ?>
                                 </div>
 
-                                </div>
-                                </form>
-                                <style>
-                                    .it {
-                                        font-size: x-large;
-                                        margin: 10px;
-                                    }
-                                </style>
                             </div>
+                            </form>
+                            <style>
+                                .it {
+                                    font-size: x-large;
+                                    margin: 10px;
+                                }
+                            </style>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <script>
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        //            fazer um previw da imagem selecionada antes de salva no banco
+        //            formulario seleciona e essa fun em javaScrip faz o previu
+        $(document).ready(function () {
 
-        <script>
+            var readUrl = function (input) {
 
+                if (input.files && input.files[0]) {
 
-        </script>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="script.js"></script>
-        <script>
-            $(document).ready(function() {
+                    var reader = new FileReader();
 
-                    var readUrl = function(input) {
+                    reader.readAsDataURL(input.files[0]);
 
-                        if (input.files && input.files[0]) {
-
-                            var reader = new FileReader();
-
-                            reader.readAsDataURL(input.files[0]);
-
-                            reader.onload = function(e) {
-                                $(".avatar").attr('src', e.target.result);
-                            }
-
-                        }
+                    reader.onload = function (e) {
+                        $(".avatar").attr('src', e.target.result);
                     }
 
-                    $(".file-upload").on('change', function() {
-                        readUrl(this);
-                    });
-
-                    $(".avatar").click(function() {
-                        var btn = $(".file-upload");
-                        btn.trigger('click');
-                    });
                 }
-            );
-        </script>
-        <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <!-- Bootstrap tether Core JavaScript -->
-        <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-        <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- slimscrollbar scrollbar JavaScript -->
-        <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
-        <!--Wave Effects -->
-        <script src="../../dist/js/waves.js"></script>
-        <!--Menu sidebar -->
-        <script src="../../dist/js/sidebarmenu.js"></script>
-        <!--Custom JavaScript -->
-        <script src="../../dist/js/custom.min.js"></script>
+            }
+
+            $(".file-upload").on('change', function () {
+                readUrl(this);
+            });
+
+            $(".avatar").click(function () {
+                var btn = $(".file-upload");
+                btn.trigger('click');
+            });
+        });
+    </script>
+    <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <script src="../../dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="../../dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="../../dist/js/custom.min.js"></script>
 </body>
 
 </html>

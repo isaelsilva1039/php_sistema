@@ -17,6 +17,11 @@ class Validacao extends Conexao
     public $senhaUsuario;
     public $foto;
 
+    public function __construct()
+    {
+
+    }
+
     //metodo para validar o loogin 
     public function validaLog($email, $senha)
     {
@@ -149,7 +154,7 @@ class Validacao extends Conexao
         $sql->bindValue(":email", $this->email);
         $sql->bindValue(":senha", $this->senha);
         $sql->bindValue(":nivel", $this->nivel);
-            $sql->bindValue(":foto", $this->foto);
+        $sql->bindValue(":foto", $this->foto);
         $sql->execute();
         if ($sql->rowCount()) {
             echo "<script>alert('Cadastrado Com sucesso ');window.location='../nice-html/ltr/usuarios.php'; </script>";
@@ -254,7 +259,7 @@ class Validacao extends Conexao
 //    metodo edita perfil da imagem do usuario logado
     public function updadePerfilDaimagemDoUsuarioLogado()
     {
-        if(empty($this->foto)){
+        if (empty($this->foto)) {
             echo "<script>alert('E necessário selecinar uma fotot pro perfil');window.location='../nice-html/ltr/pages-profile.php'; </script>";
             exit();
         }

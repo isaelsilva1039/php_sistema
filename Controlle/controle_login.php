@@ -19,14 +19,21 @@ if ($sql->rowCount() > 0) {
     if ($_SESSION['nivel'] === '1') {
 
 		header("location: ../nice-html/ltr/index.php");
+
 	} elseif ($_SESSION['nivel'] === '2') {
 
 		header("location: ../auditoria/painel_adm.auditoria.php");
+
 	} elseif ($_SESSION['nivel'] === '3') {
+
 		header("location: ../auditoria/painel_adm_auditoria_supervisor.php");
+
 	} else {
-		echo "Não deu certo ";
+
+        header("location: ../index.php?painelnaoencontrado");
 	}
+
 } else {
+
 	header("location: ../index.php?erro");
 }

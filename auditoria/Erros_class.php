@@ -5,28 +5,29 @@ include('../model/conexao.php');
 class ErosLn extends Conexao
 {
 
+
     public function cadastraerro($usuarioLogado, $filial, $cidade, $rua, $tipoerro, $nomeobjeto, $nomeerrocolaborador, $usuarioerro)
     {
 
         if ($filial == 'Filial') {
-            echo "<script>alert('Preecha o campo Filial ');window.location='lanca_erro.php?Filial'; </script>";
+            $this->mensagemDeCampoVazioErediredionagemPraTelaDeErrolanacamentos();
         } elseif ($cidade == 'Cidade') {
-            echo "<script>alert('Preecha o campo Cidade ');window.location='lanca_erro.php?Filial'; </script>";
+            $this->mensagemDeCampoVazioErediredionagemPraTelaDeErrolanacamentos();
         } elseif ($rua == 'Rua') {
-            echo "<script>alert('Preecha o campo Rua ');window.location='lanca_erro.php?Filial'; </script>";
+            $this->mensagemDeCampoVazioErediredionagemPraTelaDeErrolanacamentos();
         } elseif ($tipoerro == 'Erro') {
-            echo "<script>alert('Selecione o tipo de erro  ');window.location='lanca_erro.php?Filial'; </script>";
+            $this->mensagemDeCampoVazioErediredionagemPraTelaDeErrolanacamentos();
         } else {
 
             if (empty($nomeobjeto)) {
-                echo "<script>alert('Informe o numero do Objeto ');window.location='lanca_erro.php?Filial'; </script>";
+                $this->mensagemDeCampoVazioErediredionagemPraTelaDeErrolanacamentos();
             }
             if (empty($usuarioerro)) {
-                echo "<script>alert('Preencha Quem erro ');window.location='lanca_erro.php?Filial'; </script>";
+
+                $this->msgRedirmensagemDeCampoVazioErediredionagemPraTelaDeErrolanacamentosecione();
             }
             if (empty($nomeerrocolaborador)) {
-
-                echo "<script>alert('Preencha O nome de quem erro ');window.location='lanca_erro.php?Filial'; </script>";
+                $this->mensagemDeCampoVazioErediredionagemPraTelaDeErrolanacamentos();
             }
             // se passa em todas as validaçoes cair nessa função
             $this->cadastrarerrolancado($usuarioLogado, $filial, $cidade, $rua, $tipoerro, $nomeobjeto, $nomeerrocolaborador, $usuarioerro);
@@ -37,9 +38,10 @@ class ErosLn extends Conexao
     public function cadastrarerrolancado($usuarioLogado, $filial, $cidade, $rua, $tipoerro, $nomeobjeto, $nomeerrocolaborador, $usuarioerro)
     {
         $datalancamento = date("Y-m-d");
-
         $pdo = parent::get_instace();
-        $smts = "INSERT INTO tb_erros_auditoria (usuariologado,data,filial,cidade,rua,tipoerro,nomeobjeto,nomeerrocolaborador,usuarioerro) value (:usuariologado,:data,:filial,:cidade,:rua,:tipoerro,:nomeobjeto,:nomeerrocolaborador,:usuarioerro)";
+        $smts = "INSERT INTO tb_erros_auditoria 
+                                (usuariologado,data,filial,cidade,rua,tipoerro,nomeobjeto,nomeerrocolaborador,usuarioerro)
+                                    value (:usuariologado,:data,:filial,:cidade,:rua,:tipoerro,:nomeobjeto,:nomeerrocolaborador,:usuarioerro)";
         $smts = $pdo->prepare($smts);
         $smts->bindValue(":usuariologado", $usuarioLogado);
         $smts->bindValue(":data", $datalancamento);
@@ -53,10 +55,21 @@ class ErosLn extends Conexao
         $smts->execute();
 
         if ($smts->rowCount() > 0) {
-
-            echo "<script>alert('Sucesso ');window.location='lanca_erro.php?Sucesso'; </script>";
+            return $this->mensagemDeCampoVazioErediredionagemPraTelaDeErrolanacamentos();
         } else {
-            echo "<script>alert('Erro ao lança  ');window.location='lanca_erro.php?erro'; </script>";
+            return $this->mensagemdecadastrosDeuerroNaoIncluiuaobancodedados();
         }
     }
+
+
+    public function mensagemDeCadastradoComsucessoErrofoiadicionadoaobancodedados()
+    {
+        return header('Location: lanca_erro.php?sucesso');
+    }
+
+    public function mensagemDeCampoVazioErediredionagemPraTelaDeErrolanacamentos()
+    {
+        header('Location: lanca_erro.php?campovazio');
+    }
+
 }

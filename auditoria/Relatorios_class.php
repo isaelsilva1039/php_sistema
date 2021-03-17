@@ -25,7 +25,7 @@ class Relatorioserros extends Validacao
             $slq->execute();
             $resul = $slq->rowCount();
             $html = $resul;
-            $this->quantidadeDosFiltrosFilial = $html;
+                $this->quantidadeDosFiltrosFilial = $html;
             return $slq->fetchAll();
         } else {
             $this->dataInicio;
