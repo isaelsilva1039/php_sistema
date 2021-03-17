@@ -55,7 +55,7 @@ class ErosLn extends Conexao
         $smts->execute();
 
         if ($smts->rowCount() > 0) {
-            return $this->mensagemDeCampoVazioErediredionagemPraTelaDeErrolanacamentos();
+            return $this->mensagemDeCadastradoComsucessoErrofoiadicionadoaobancodedados();
         } else {
             return $this->mensagemdecadastrosDeuerroNaoIncluiuaobancodedados();
         }
@@ -64,7 +64,7 @@ class ErosLn extends Conexao
 
     public function mensagemDeCadastradoComsucessoErrofoiadicionadoaobancodedados()
     {
-        return header('Location: lanca_erro.php?sucesso');
+         header('Location: lanca_erro.php?sucesso');
     }
 
     public function mensagemDeCampoVazioErediredionagemPraTelaDeErrolanacamentos()
