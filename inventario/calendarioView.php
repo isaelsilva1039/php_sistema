@@ -21,7 +21,7 @@ include 'Calendario.php';
     <link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
-    <title>Nice admin Template - The Ultimate Multipurpose admin template</title>
+    <title>Calendario Inventario</title>
     <!-- Custom CSS -->
     <link href="../dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
