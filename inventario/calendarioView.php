@@ -230,7 +230,7 @@ include 'Calendario.php';
                                 <tr>
                                     <td><?php echo $value['id']; ?></td>
                                     <td><?php echo $value['mes']; ?></td>
-                                    <td><?php echo $value['inicio']; ?></td>
+                                    <td><?php echo $value['incio']; ?></td>
                                     <td><?php echo $value['fim']; ?></td>
                                     <td><?php echo $value['id_filial']; ?></td>
                                     <td><?php echo $value['filial']; ?></td>
