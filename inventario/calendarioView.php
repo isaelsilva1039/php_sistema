@@ -17,7 +17,7 @@ include 'Calendario.php';
     <!-- Favicon icon -->
 
 
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/logo-mateus.ico">
     <link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
