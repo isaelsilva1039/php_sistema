@@ -24808,3 +24808,13 @@ body .jqstooltip {
     border-radius: 100px;
     border: #0d0d0d;
 }
+
+.tipoInventario{
+    height: 50%;
+}
+.caixaSelecaoInventarioTipo{
+    border-radius: 10px;
+    margin-left: 90%;
+    border: crimson 2px solid;
+
+}

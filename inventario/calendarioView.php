@@ -1,26 +1,29 @@
 <?php
-include 'controle_sesao.php';
-
-require_once '../../model/Class.configue.php';
-$contaRe = new Validacao();
-
+include 'Calendario.php';
 ?>
+
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+
+
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
     <title>Nice admin Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
-    <link href="cssmanipulado.css" rel="stylesheet">
-    <link href="../../dist/css/style.css" rel="stylesheet">
+    <link href="../dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -61,19 +64,12 @@ $contaRe = new Validacao();
                     <a href="index.html" class="logo">
                         <!-- Logo icon -->
                         <b class="logo-icon">
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Dark Logo icon -->
-                            <img src="../../assets/images/logo-icon.png" alt="homepage" class="dark-logo"/>
-                            <!-- Light Logo icon -->
-                            <img src="../../assets/images/logo-light-icon.png" alt="homepage" class="light-logo"/>
+                            <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo"/>
+                            <img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo"/>
                         </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text -->
                         <span class="logo-text">
-                                <!-- dark Logo text -->
-                                <img src="../../assets/images/logo-text.png" alt="homepage" class="dark-logo"/>
-                            <!-- Light Logo text -->
-                                <img src="../../assets/images/logo-light-text.png" class="light-logo" alt="homepage"/>
+                                <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo"/>
+                                <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage"/>
                             </span>
                     </a>
                 </div>
@@ -125,14 +121,12 @@ $contaRe = new Validacao();
                     <!-- User profile and search -->
                     <!-- ============================================================== -->
                     <li class="nav-item dropdown">
-                        <label></label> <?php echo $_SESSION['nome'] ?> </label>
                         <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href=""
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                    src="../../assets/images/users/conferente.jpg" alt="user" class="rounded-circle"
-                                    width="31"></a>
+                                    src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                         <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                            <a class="dropdown-item" href="pages-profile.php"><i class="ti-user m-r-5 m-l-5"></i> Meu
-                                Perfil</a>
+                            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My
+                                Profile</a>
                             <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My
                                 Balance</a>
                             <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i>
@@ -160,38 +154,21 @@ $contaRe = new Validacao();
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
                     <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php"
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="calendarioView.php"
                            aria-expanded="false">
                             <i class="mdi mdi-av-timer"></i>
                             <span class="hide-menu">Dashboard</span>
                         </a>
                     </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="usuarios.php"
-                           aria-expanded="false">
-                            <i class="mdi mdi-account-key"></i>
-                            <span class="hide-menu">Usuario</span>
-                        </a>
-                    </li>
-
                     <li class="sidebar-item">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                           href="../relatorios/relatorio_usuarios.php" aria-expanded="false">
-                            <i class="mdi mdi-account-switch"></i>
-                            <span class="hide-menu">Relatorio Usuario</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="usuarios.php"
-                           aria-expanded="false">
-                            <i class="mdi mdi-account-edit"></i>
-                            <span class="hide-menu">Permiçoes </span>
+                           href="calendarioView.php" aria-expanded="false">
+                            <i class="mdi mdi-file"></i>
+                            <span class="hide-menu">Calendario</span>
                         </a>
                     </li>
                 </ul>
             </nav>
-
             <!-- End Sidebar navigation -->
         </div>
         <!-- End Sidebar scroll-->
@@ -209,7 +186,7 @@ $contaRe = new Validacao();
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Usuario </h4>
+                    <h4 class="page-title">Calendario Inventario </h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -229,79 +206,78 @@ $contaRe = new Validacao();
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="nomecard">Cadastra Novo Usuario</div>
-                        <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="nomecard"></div>
+                        <div class="card-body">
+                            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Mes</th>
+                                    <th>Dada Inicio</th>
+                                    <th>Data Fim</th>
+                                    <th>N° Filial</th>
+                                    <th>Filial</th>
+                                    <th>Modalidade</th>
+                                    <th>Tipo</th>
+                                    <th>Regional</th>
+                                    <th>Ano</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $relatorio_calendario = new Calendario();
+                                    foreach ($relatorio_calendario->ExibirCaledario() as $value): ?>
+                                <tr>
+                                    <td><?php echo $value['id']; ?></td>
+                                    <td><?php echo $value['mes']; ?></td>
+                                    <td><?php echo $value['inicio']; ?></td>
+                                    <td><?php echo $value['fim']; ?></td>
+                                    <td><?php echo $value['id_filial']; ?></td>
+                                    <td><?php echo $value['filial']; ?></td>
+                                    <td><?php echo $value['modalidade']; ?></td>
+                                    <td><?php echo $value['tipo']; ?></td>
+                                    <td><?php echo $value['regional']; ?></td>
+                                    <td><?php echo $value['ano']; ?></td>
 
-                            <div class="card">
-                                <div class="card-body">
-                                    <form method="POST" action="../../Controlle/controle_cadastro_usuario.php"
-                                          enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <label class="col-md-12">Nome</label>
-                                            <div class="col-md-12">
-                                                <input type="text" name="nome" required="" placeholder="Nome..."
-                                                       class="form-control form-control-line">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="example-email" class="col-md-12">Email</label>
-                                            <div class="col-md-12">
-                                                <input type="email" required="" placeholder="E-mail..."
-                                                       class="form-control  form-control-line" name="email"
-                                                       id="example-email">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Senha</label>
-                                            <div class="col-md-12">
-                                                <input type="text" placeholder="Digite Sua Senha"
-                                                       class="form-control form-control-line" required="" name="senha">
-                                            </div>
-                                        </div>
+                                </tr>
+                                <?php endforeach; ?>
+                                </tfoot>
+                            </table>
 
-                                        <div class="form-group">
-                                            <label class="col-md-12">Escolha Uma Foto pro seu perfil</label>
-                                            <div class="col-md-12">
-                                                <input type="file" accept="image/*" name="foto"
-                                                       class="form-control form-control-line">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-sm-12">Nivel do Usuario</label>
-                                            <div class="col-sm-12">
-                                                <select class="form-control form-control-line" name="nivel">
-                                                    <option value="1">Master</option>
-                                                    <option value="2">Conferente</option>
-                                                    <option value="3">Supervisor</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-12">
-                                                <button class="btn btn-success">Cadastra</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>
-            <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+
+            <script type="text/javascript" charset="utf8"
+                    src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+            <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+            <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+            <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script src=" https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"></script>
+            <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"></script>
+            <script src="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"></script>
+            <script>
+                $(document).ready(function () {
+                    $('#example').DataTable();
+                });
+
+
+            </script>
             <!-- Bootstrap tether Core JavaScript -->
-            <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-            <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+            <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
+            <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
             <!-- slimscrollbar scrollbar JavaScript -->
-            <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
+            <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
             <!--Wave Effects -->
-            <script src="../../dist/js/waves.js"></script>
+            <script src="../dist/js/waves.js"></script>
             <!--Menu sidebar -->
-            <script src="../../dist/js/sidebarmenu.js"></script>
+            <script src="../dist/js/sidebarmenu.js"></script>
             <!--Custom JavaScript -->
-            <script src="../../dist/js/custom.min.js"></script>
+            <script src="../dist/js/custom.min.js"></script>
 </body>
 
 </html>
