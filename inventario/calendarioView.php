@@ -20,7 +20,10 @@ include 'Calendario.php';
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/logo-mateus.ico">
     <link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+
+
     <title>Calendario Inventario</title>
     <!-- Custom CSS -->
     <link href="../dist/css/style.min.css" rel="stylesheet">
@@ -230,7 +233,7 @@ include 'Calendario.php';
                                 <tr>
                                     <td><?php echo $value['id']; ?></td>
                                     <td><?php echo $value['mes']; ?></td>
-                                    <td><?php echo $value['incio']; ?></td>
+                                    <td><?php echo $value['inicio']; ?></td>
                                     <td><?php echo $value['fim']; ?></td>
                                     <td><?php echo $value['id_filial']; ?></td>
                                     <td><?php echo $value['filial']; ?></td>
@@ -264,6 +267,12 @@ include 'Calendario.php';
                 $(document).ready(function () {
                     $('#example').DataTable();
                 });
+
+                $(document).ready(function() {
+                    $('#example').DataTable( {
+                        "scrollX": true
+                    } );
+                } );
 
 
             </script>
